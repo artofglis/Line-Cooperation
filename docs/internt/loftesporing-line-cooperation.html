@@ -1,0 +1,224 @@
+<title>Løftesporing: Line Cooperation</title>
+<style>
+  :root{
+    --paper:#0a0e14;
+    --surface:#131a28;
+    --surface-raised:#111722;
+    --ink:#e8eaef;
+    --ink-soft:#8b93a7;
+    --ink-faint:#5D6577;
+    --accent:#c9a962;
+    --accent-strong:#ddc283;
+    --lavender:#a78bfa;
+    --lavender-soft:rgba(167, 139, 250, 0.12);
+    --line:rgba(255, 255, 255, 0.09);
+    --ok:#7FBF9E;
+    --ok-soft:rgba(127,191,158,0.13);
+    --wait:#8b93a7;
+    --wait-soft:rgba(139,147,167,0.13);
+    --flag:#E3956B;
+    --flag-soft:rgba(227,149,107,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 3.5rem 1.5rem 6rem;
+  }
+  .sheet{ max-width: 820px; margin: 0 auto; }
+
+  .brand{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 2.5rem; }
+  .brand-name{ font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; font-size:1.15rem; color:var(--accent-strong); }
+  .brand-tag{ font-size:0.8rem; color:var(--ink-soft); font-style:italic; font-family:"Cormorant Garamond", Georgia, serif; }
+
+  .eyebrow{ font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 0.9rem; }
+  h1{ font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; font-size:clamp(1.8rem,4.5vw,2.4rem); line-height:1.15; margin:0 0 1rem; text-wrap:balance; }
+  h2{ font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; font-size:1.4rem; margin:0 0 0.35rem; }
+  .section-lead{ color:var(--ink-soft); margin:0 0 1.5rem; max-width:64ch; }
+  p{ margin:0 0 1rem; max-width:70ch; }
+  section{ margin-bottom: 3rem; }
+
+  .flag-box{
+    border: 1px solid rgba(227,149,107,0.35);
+    background: var(--flag-soft);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .flag-box:last-child{ margin-bottom: 0; }
+  .flag-title{ display:flex; align-items:center; gap:0.6rem; font-weight:700; color:var(--flag); margin-bottom:0.6rem; font-size:0.95rem; }
+  .flag-body p{ color: var(--ink); margin-bottom: 0.6rem; }
+  .flag-body p:last-child{ margin-bottom: 0; }
+  .flag-src{ font-size:0.82rem; color:var(--ink-soft); }
+  .flag-rec{ margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid rgba(227,149,107,0.25); font-size:0.9rem; }
+  .flag-rec b{ color: var(--accent-strong); }
+
+  table{ width:100%; border-collapse:collapse; font-size:0.9rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:14px; background:var(--surface); margin-bottom:1.5rem; }
+  th,td{ text-align:left; padding:0.8rem 1rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  thead th{ font-size:0.66rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); font-weight:700; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .promise{ font-weight:500; }
+  .src{ color:var(--ink-faint); font-size:0.8rem; white-space:nowrap; }
+  .status{ display:inline-flex; align-items:center; gap:0.4rem; font-size:0.76rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:999px; white-space:nowrap; }
+  .status.ok{ background:var(--ok-soft); color:var(--ok); }
+  .status.wait{ background:var(--wait-soft); color:var(--ink-soft); }
+  .status.flag{ background:var(--flag-soft); color:var(--flag); }
+
+  .open-list{ display:flex; flex-direction:column; gap:0.75rem; }
+  .open-item{ display:grid; grid-template-columns: 1.5rem 1fr; gap:0.85rem; padding:0.9rem 1.1rem; background:var(--surface); border:1px solid var(--line); border-radius:12px; }
+  .open-mark{ color: var(--lavender); font-family:"Cormorant Garamond",serif; font-style:italic; }
+  .open-title{ font-weight:600; margin-bottom:0.15rem; }
+  .open-desc{ color:var(--ink-soft); font-size:0.88rem; }
+
+  .dates{ display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:0.85rem; }
+  .date-card{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1rem 1.1rem; }
+  .date-val{ font-family:"DM Sans",sans-serif; font-weight:700; color:var(--accent-strong); font-size:1.05rem; }
+  .date-label{ color:var(--ink-soft); font-size:0.85rem; margin-top:0.2rem; }
+
+  .fine{ color:var(--ink-faint); font-size:0.82rem; margin-top:2.5rem; }
+  @media (max-width:560px){ body{ padding:2.5rem 1.1rem 4rem; } }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+<div class="sheet">
+
+  <div class="brand">
+    <span class="brand-name">HoliSti</span>
+    <span class="brand-tag">internt — ikke for Line</span>
+  </div>
+
+  <p class="eyebrow">Løftesporing</p>
+  <h1>Hva du har lovet Line Cooperation</h1>
+  <p class="section-lead">
+    Satt sammen fra hele e-posttråden (23. aug – 8. sep), det signerte tilbudet TIL-2026-4
+    og faktura 2026-3. Sortert så du ser hva som er bekreftet, hva som venter på henne,
+    og to steder der e-post og formelt tilbud sier litt forskjellig ting.
+  </p>
+
+  <section>
+    <p class="eyebrow" style="color:var(--flag);">Bør avklares</p>
+    <h2>To løfter som ikke stemmer helt med tilbudet</h2>
+    <p class="section-lead">Ingen av dem er alvorlige, men verdt å ha bevisst et forhold til før de blir aktuelle.</p>
+
+    <div class="flag-box">
+      <div class="flag-title">⚠ Halv pris på driftsavtale, tegnet innen 2026</div>
+      <div class="flag-body">
+        <p>I e-posten 4. sep lovet du 50 % pilotkunde-rabatt på driftsavtale (nettside + GBP samlet) om Line tegner innen utgangen av 2026. Det signerte tilbudet TIL-2026-4 nevner derimot bare «driftsplan hos HoliSti (fra 750 kr/mnd)», uten rabatt, og timepris 1 150 kr/t uten rabatt.</p>
+        <p class="flag-src">Kilde: e-post 04.09.2026 · TIL-2026-4, vilkår/betingelser</p>
+      </div>
+      <div class="flag-rec">
+        <b>Anbefaling:</b> Line takket nei til driftsavtale nå («iallfall ikke pr nå», 06.09), så det haster ikke. Men om hun tegner senere i 2026, husk at du har lovet henne halv pris muntlig/på e-post, uavhengig av at det ikke står i TIL-2026-4. Noter det et sted du faktisk ser det når hun eventuelt tar kontakt om drift.
+      </div>
+    </div>
+
+    <div class="flag-box">
+      <div class="flag-title">⚠ Timepris utover avtalt omfang</div>
+      <div class="flag-body">
+        <p>Det signerte tilbudet sier 1 150 kr/t eks. mva for arbeid utover leveransen, uten noen rabatt nevnt. Noen tidligere interne notater har omtalt en pilotrabatt på timepris (575 kr/t), men det er aldri faktisk sendt til Line i noen av e-postene i tråden.</p>
+        <p class="flag-src">Kilde: TIL-2026-4, vilkår punkt om løpende arbeid</p>
+      </div>
+      <div class="flag-rec">
+        <b>Anbefaling:</b> Bruk 1 150 kr/t som gjeldende pris om det blir aktuelt, det er det som faktisk er signert. Vil du likevel gi henne halv pris som en av dine første kunder, er det en ny, bevisst beslutning, ikke en oppfølging av noe hun allerede er lovet.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Bekreftet</p>
+    <h2>Pris, betaling og leveranse</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Løfte</th><th>Kilde</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="promise">Flersiders + redigeringstilgang + GBP-oppsett, totalt 7 250 kr</td><td class="src">TIL-2026-4</td><td><span class="status ok">Signert</span></td></tr>
+          <tr><td class="promise">50 % ved oppstart (3 625 kr), 50 % ved godkjent leveranse (3 625 kr)</td><td class="src">TIL-2026-4 · Faktura 2026-3</td><td><span class="status ok">Fakturert (del 1)</span></td></tr>
+          <tr><td class="promise">Leveringstid 2–4 uker, regnet fra innhold er klart, ikke fra bestilling</td><td class="src">E-post 24.08 · TIL-2026-4</td><td><span class="status ok">Bekreftet</span></td></tr>
+          <tr><td class="promise">Planlagt ferdig 05.10.2026, forutsatt innhold i tide</td><td class="src">E-post 08.09 · TIL-2026-4</td><td><span class="status ok">Bekreftet</span></td></tr>
+          <tr><td class="promise">2 revisjonsrunder inkludert (18.09 og 01.10)</td><td class="src">TIL-2026-4 fremdriftsplan</td><td><span class="status ok">Signert</span></td></tr>
+          <tr><td class="promise">Eierskap/opphavsrett overføres ved full betaling</td><td class="src">TIL-2026-4, vilkår pkt. 5</td><td><span class="status ok">Bekreftet</span></td></tr>
+          <tr><td class="promise">Ingen årsgebyr for å holde siden aktiv, Cloudflare-hosting kostnadsfritt</td><td class="src">E-post 25.08</td><td><span class="status ok">Bekreftet</span></td></tr>
+          <tr><td class="promise">Nødvendig overvåkning/sikkerhet kostnadsfritt som pilotkunde</td><td class="src">E-post 04.09 · TIL-2026-4 («sikkerhetskopi og overvåkning»)</td><td><span class="status ok">Bekreftet</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Bekreftet</p>
+    <h2>Innhold, bilder og synlighet</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Løfte</th><th>Kilde</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="promise">Grunnleggende SEO (meta, sitemap, indeksering) inkludert, ingen ekstra kostnad</td><td class="src">E-post 25.08</td><td><span class="status ok">Bekreftet</span></td></tr>
+          <tr><td class="promise">Du tar bildene selv (iPhone 12 Pro), redigerer bakgrunn/stemning, retusjerer aldri person</td><td class="src">E-post 25.08</td><td><span class="status wait">Ikke levert enda</span></td></tr>
+          <tr><td class="promise">Ekstern fotograf mulig, kommer da som tillegg, ekstra kostnad hos dem</td><td class="src">E-post 25.08</td><td><span class="status ok">Bekreftet</span></td></tr>
+          <tr><td class="promise">Moodboard (farger, typografi, stemning) før bygging starter</td><td class="src">E-post 04.09</td><td><span class="status ok">Levert i dag</span></td></tr>
+          <tr><td class="promise">GBP-oppsett: gjennomgang, oppsett, optimalisering, verifisering</td><td class="src">TIL-2026-4</td><td><span class="status wait">Planlagt 18.–24.09</span></td></tr>
+          <tr><td class="promise">SSL på som standard, ingen sporing/cookies uten samtykke fra Line</td><td class="src">E-post 25.08</td><td><span class="status ok">Bekreftet</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Venter på Line</p>
+    <h2>Ting du ikke kan gå videre med selv</h2>
+    <div class="open-list">
+      <div class="open-item">
+        <span class="open-mark">→</span>
+        <div>
+          <p class="open-title">Domenetilgang</p>
+          <p class="open-desc">Hun skulle sjekke Domeneshop og gi deg tilbakemelding (06.09), ikke hørt noe siden. Du trenger dette for å koble domenet.</p>
+        </div>
+      </div>
+      <div class="open-item">
+        <span class="open-mark">→</span>
+        <div>
+          <p class="open-title">Logo</p>
+          <p class="open-desc">Hun har utkast, men ikke konkludert. Sender når hun har bestemt seg.</p>
+        </div>
+      </div>
+      <div class="open-item">
+        <span class="open-mark">→</span>
+        <div>
+          <p class="open-title">Bilder</p>
+          <p class="open-desc">Hun har ingen egne, ba deg komme med forslag. Moodboardet dekker stemning, ikke konkrete bildeforslag enda.</p>
+        </div>
+      </div>
+      <div class="open-item">
+        <span class="open-mark">→</span>
+        <div>
+          <p class="open-title">Fysisk møte</p>
+          <p class="open-desc">Hun har flere ganger nevnt at hun gjerne vil møtes ansikt til ansikt. Fremdriftsplanen har alle kundemøter satt til e-post, ikke booket noe fysisk møte enda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <p class="eyebrow">Nøkkeldatoer</p>
+    <h2>Fremdriftsplanen, kort</h2>
+    <div class="dates">
+      <div class="date-card"><div class="date-val">17.09</div><div class="date-label">Design godkjent av kunde</div></div>
+      <div class="date-card"><div class="date-val">18.09</div><div class="date-label">Revisjonsrunde 1</div></div>
+      <div class="date-card"><div class="date-val">22.09</div><div class="date-label">GBP oppsett/verifisering</div></div>
+      <div class="date-card"><div class="date-val">30.09</div><div class="date-label">Bygg, test, publisert</div></div>
+      <div class="date-card"><div class="date-val">01.10</div><div class="date-label">Revisjonsrunde 2</div></div>
+      <div class="date-card"><div class="date-val">05.10</div><div class="date-label">Overlevering, sluttfaktura</div></div>
+    </div>
+  </section>
+
+  <p class="fine">
+    Basert på tråden fram til 08.09.2026. Oppdater denne når nye løfter gis eller nye svar kommer fra Line.
+  </p>
+
+</div>
