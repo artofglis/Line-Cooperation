@@ -1,0 +1,501 @@
+<title>Moodboard: Line Cooperation</title>
+<style>
+  :root{
+    --bg:#171310;
+    --surface:#221B16;
+    --surface-raised:#2B2219;
+    --ink:#F3EDE6;
+    --ink-soft:#B4A69A;
+    --ink-faint:#8A7C70;
+    --calm:#87A69B;
+    --calm-soft:rgba(135,166,155,0.14);
+    --calm-strong:#A9C4BA;
+    --energy:#DE8A46;
+    --energy-soft:rgba(222,138,70,0.14);
+    --energy-strong:#F0A868;
+    --line:rgba(243,237,230,0.11);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ -webkit-text-size-adjust: 100%; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Karla", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.62;
+    margin: 0;
+    padding: 0 0 6rem;
+  }
+
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 1.75rem; }
+
+  p{ margin: 0 0 1rem; max-width: 66ch; }
+  p:last-child{ margin-bottom: 0; }
+
+  .eyebrow{
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 0.9rem;
+  }
+  .eyebrow.is-calm{ color: var(--calm-strong); }
+  .eyebrow.is-energy{ color: var(--energy-strong); }
+
+  h1, h2, h3{
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 500;
+    color: var(--ink);
+    text-wrap: balance;
+    margin: 0;
+  }
+  h1{ font-size: clamp(2.1rem, 5vw, 3rem); line-height: 1.08; letter-spacing: -0.01em; }
+  h2{ font-size: clamp(1.5rem, 3vw, 1.9rem); line-height: 1.15; letter-spacing: -0.005em; }
+  h3{ font-size: 1.15rem; font-weight: 600; font-style: italic; }
+
+  /* ---------- hero / cover ---------- */
+  .cover{
+    position: relative;
+    padding: 5.5rem 0 4.5rem;
+    overflow: hidden;
+    background:
+      radial-gradient(60% 55% at 78% 8%, rgba(222,138,70,0.20), transparent 60%),
+      radial-gradient(50% 45% at 8% 95%, rgba(135,166,155,0.14), transparent 60%),
+      var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .cover .wrap{ position: relative; z-index: 1; }
+  .cover-brand{
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-bottom: 3rem;
+  }
+  .cover h1{ margin-bottom: 1.1rem; }
+  .cover .sub{ color: var(--ink-soft); font-size: 1.05rem; max-width: 52ch; }
+
+  section{ padding: 4rem 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom: none; }
+  .section-lead{ color: var(--ink-soft); margin-bottom: 2.25rem; max-width: 58ch; }
+
+  /* ---------- palette ---------- */
+  .palette-group{ margin-bottom: 2rem; }
+  .palette-group:last-child{ margin-bottom: 0; }
+  .palette-group-title{
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.9rem;
+    font-weight: 700;
+  }
+  .swatches{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  .swatch{
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .swatch-fill{ height: 76px; }
+  .swatch-body{ padding: 0.85rem 1rem; }
+  .swatch-name{ font-weight: 700; font-size: 0.92rem; margin-bottom: 0.15rem; }
+  .swatch-hex{
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  /* ---------- typography ---------- */
+  .type-row{
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 1.75rem;
+  }
+  .type-card{
+    padding: 1.75rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .type-card + .type-card{ margin-top: 1.25rem; }
+  .type-role{
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+  }
+  .type-sample-display{
+    font-family: "Newsreader", Georgia, serif;
+    font-size: 2.4rem;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+  .type-sample-display.italic{ font-style: italic; font-weight: 500; color: var(--energy-strong); }
+  .type-sample-body{
+    font-family: "Karla", sans-serif;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+  .type-meta{ color: var(--ink-faint); font-size: 0.85rem; margin-top: 0.9rem; }
+
+  .scale{ display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.5rem; }
+  .scale-row{ display: flex; align-items: baseline; gap: 1.25rem; }
+  .scale-label{ width: 5.5rem; flex-shrink: 0; font-size: 0.72rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .scale-sample{ font-family: "Newsreader", Georgia, serif; }
+
+  /* ---------- ui language ---------- */
+  .ui-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+  .ui-card{
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .ui-card-title{ font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1rem; font-weight: 700; }
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Karla", sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.7rem 1.3rem;
+    border-radius: 999px;
+    border: none;
+    cursor: default;
+  }
+  .btn-primary{ background: var(--energy); color: #1A1109; }
+  .btn-ghost{ background: transparent; color: var(--ink); border: 1px solid var(--line); margin-left: 0.75rem; }
+
+  .tag{
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+  }
+  .tag.is-calm{ background: var(--calm-soft); color: var(--calm-strong); }
+  .tag.is-energy{ background: var(--energy-soft); color: var(--energy-strong); }
+
+  .mini-card{
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    margin-top: 1rem;
+  }
+  .mini-card-title{ font-weight: 700; margin-bottom: 0.3rem; }
+  .mini-card-desc{ color: var(--ink-soft); font-size: 0.9rem; }
+
+  /* ---------- hero mockup ---------- */
+  .mock{
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .mock-hero{
+    position: relative;
+    padding: 4rem 3rem;
+    background:
+      radial-gradient(55% 70% at 85% 20%, rgba(222,138,70,0.28), transparent 65%),
+      radial-gradient(45% 50% at 10% 100%, rgba(135,166,155,0.18), transparent 60%),
+      linear-gradient(180deg, #1B1611, #12100D);
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .mock-nav{
+    position: absolute;
+    top: 1.75rem; left: 3rem; right: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+  .mock-nav-links{ display: flex; gap: 1.5rem; }
+  .mock-logo{ font-family: "Newsreader", Georgia, serif; font-style: italic; color: var(--ink); font-size: 1.05rem; }
+  .mock-eyebrow{ color: var(--energy-strong); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-bottom: 1rem; }
+  .mock-h1{ font-family: "Newsreader", Georgia, serif; font-size: 2.5rem; line-height: 1.1; max-width: 16ch; margin-bottom: 1rem; }
+  .mock-sub{ color: var(--ink-soft); max-width: 42ch; margin-bottom: 1.75rem; }
+  .mock-photo-note{
+    margin-top: 2.5rem;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    border-top: 1px dashed var(--line);
+    padding-top: 0.75rem;
+    max-width: 34ch;
+  }
+  .mock-body{ padding: 2.5rem 3rem; }
+  .mock-services{ display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  @media (max-width: 620px){ .mock-services{ grid-template-columns: 1fr; } .mock-nav{ display: none; } }
+
+  /* ---------- page structure ---------- */
+  .pages{ display: grid; gap: 1.5rem; }
+  .page-card{
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .page-card-head{
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .page-num{ font-family: "Newsreader", Georgia, serif; font-style: italic; color: var(--energy-strong); font-size: 1.1rem; }
+  .page-name{ font-weight: 700; font-size: 1.05rem; }
+  .page-blocks{ padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
+  .block-row{ display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; }
+  .block-label{ font-size: 0.78rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; padding-top: 0.15rem; }
+  .block-desc{ color: var(--ink-soft); font-size: 0.92rem; }
+  @media (max-width: 560px){ .block-row{ grid-template-columns: 1fr; gap: 0.2rem; } }
+
+  .fine{ color: var(--ink-faint); font-size: 0.85rem; }
+
+  .closing{ padding: 4rem 0 1rem; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+<div class="cover">
+  <div class="wrap">
+    <div class="cover-brand">Line Cooperation</div>
+    <p class="eyebrow is-energy">Moodboard &amp; designforslag</p>
+    <h1>Rolig og profesjonell, med energi i detaljene.</h1>
+    <p class="sub">
+      Utgangspunktet er bildet du trakk frem, kaffekoppen mot mørk bakgrunn: varmt lys mot
+      en dyp, mettet bunnfarge. Ikke det sterile hvite kontoret, men et rom du faktisk vil
+      slå deg ned i. Under er fargene, typografien og sidestrukturen dette bygges videre på.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <p class="eyebrow is-calm">Farger</p>
+    <h2>To temperaturer, én bunn</h2>
+    <p class="section-lead">
+      En dyp, varm mørk bunnfarge holder siden rolig og seriøs. To aksentfarger deler
+      arbeidet: en dus salvie for det rolige, sindige, og en varm ravgul for energien,
+      pekt mot handling og det du ønsker at besøkende skal legge merke til.
+    </p>
+
+    <div class="palette-group">
+      <p class="palette-group-title">Bunn og tekst</p>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#171310;"></div>
+          <div class="swatch-body"><div class="swatch-name">Espresso</div><div class="swatch-hex">#171310</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#221B16;"></div>
+          <div class="swatch-body"><div class="swatch-name">Flate, hevet</div><div class="swatch-hex">#221B16</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#F3EDE6;"></div>
+          <div class="swatch-body"><div class="swatch-name">Melketekst</div><div class="swatch-hex">#F3EDE6</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#B4A69A;"></div>
+          <div class="swatch-body"><div class="swatch-name">Dus tekst</div><div class="swatch-hex">#B4A69A</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-group">
+      <p class="palette-group-title">Ro</p>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#87A69B;"></div>
+          <div class="swatch-body"><div class="swatch-name">Salvie</div><div class="swatch-hex">#87A69B</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#A9C4BA;"></div>
+          <div class="swatch-body"><div class="swatch-name">Salvie, lys</div><div class="swatch-hex">#A9C4BA</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-group">
+      <p class="palette-group-title">Energi</p>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#DE8A46;"></div>
+          <div class="swatch-body"><div class="swatch-name">Ravgul</div><div class="swatch-hex">#DE8A46</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#F0A868;"></div>
+          <div class="swatch-body"><div class="swatch-name">Ravgul, lys</div><div class="swatch-hex">#F0A868</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow is-calm">Typografi</p>
+    <h2>En rolig serif, en varm sans</h2>
+    <p class="section-lead">
+      Newsreader til overskrifter, en tekstbok-serif med litt vekt og karakter, den gir
+      tyngde og troverdighet uten å bli formell eller kald. Karla til brødtekst og
+      grensesnitt, myk og lesbar, holder siden ryddig og imøtekommende.
+    </p>
+
+    <div class="type-card">
+      <p class="type-role">Overskrift — Newsreader</p>
+      <p class="type-sample-display">Sparring som faktisk flytter noe</p>
+      <p class="type-meta">Brukes til H1/H2, vekt 500. Kursiv i énstore ord som aksent, se «energi»-bruk under.</p>
+    </div>
+    <div class="type-card">
+      <p class="type-role">Aksent, kursiv</p>
+      <p class="type-sample-display italic">for HR, utvikling og kultur</p>
+      <p class="type-meta">Kursiv Newsreader i ravgul, til å fremheve ett nøkkelbegrep i en overskrift, sparsomt.</p>
+    </div>
+    <div class="type-card">
+      <p class="type-role">Brødtekst — Karla</p>
+      <p class="type-sample-body">
+        Line Cooperation tilbyr kurs tilpasset den enkelte bedrift, og fungerer som
+        sparringspartner på alt som handler om mennesker, utvikling og kultur. Teksten
+        skal være lett å lese på mobil, med god linjelengde og luft mellom avsnittene.
+      </p>
+      <p class="type-meta">Vekt 400 i brødtekst, 700 i knapper og småtekst/labels.</p>
+    </div>
+
+    <div class="scale">
+      <div class="scale-row"><span class="scale-label">H1</span><span class="scale-sample" style="font-size:2.4rem;">Aa Bb Æøå</span></div>
+      <div class="scale-row"><span class="scale-label">H2</span><span class="scale-sample" style="font-size:1.7rem;">Aa Bb Æøå</span></div>
+      <div class="scale-row"><span class="scale-label">H3</span><span class="scale-sample" style="font-size:1.2rem;font-style:italic;">Aa Bb Æøå</span></div>
+      <div class="scale-row"><span class="scale-label">Brødtekst</span><span class="scale-sample" style="font-family:'Karla',sans-serif;font-size:1rem;">Aa Bb Æøå</span></div>
+      <div class="scale-row"><span class="scale-label">Liten/label</span><span class="scale-sample" style="font-family:'Karla',sans-serif;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;">Aa Bb Æøå</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow is-calm">Uttrykk</p>
+    <h2>Knapper, tagger og kort</h2>
+    <p class="section-lead">
+      Runde, myke former. Ravgul til primærhandling («Ta kontakt»), salvie til å markere
+      tjenestespor eller rolige detaljer. Ingen skarpe hjørner, ingen harde skygger.
+    </p>
+    <div class="ui-grid">
+      <div class="ui-card">
+        <p class="ui-card-title">Knapper</p>
+        <button class="btn btn-primary">Ta kontakt</button>
+        <button class="btn btn-ghost">Se tjenester</button>
+      </div>
+      <div class="ui-card">
+        <p class="ui-card-title">Tagger</p>
+        <span class="tag is-energy">Kurs</span>
+        &nbsp;
+        <span class="tag is-calm">Sparring</span>
+        <div class="mini-card">
+          <div class="mini-card-title">Tjenestekort</div>
+          <div class="mini-card-desc">Kort tittel, to setninger, én tag. Samme kortstil går igjen på tjenester, om- og kontaktinformasjon.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow is-energy">Forside, i praksis</p>
+    <h2>Slik kan hero-seksjonen se ut</h2>
+    <p class="section-lead">
+      En skisse, ikke ferdig innhold. Bildeplassen er tom med hensikt, fylles med et ekte
+      bilde når vi har noe å bruke, portrett eller stemning i samme varme, mørke tone.
+    </p>
+    <div class="mock">
+      <div class="mock-hero">
+        <div class="mock-nav">
+          <span class="mock-logo">Line Cooperation</span>
+          <span class="mock-nav-links"><span>Om</span><span>Tjenester</span><span>Kontakt</span></span>
+        </div>
+        <p class="mock-eyebrow">Bedriftsrådgivning · HR · Kultur</p>
+        <h3 class="mock-h1" style="font-style:normal;">Sparring som gjør bedriften din <em style="color:var(--energy-strong);font-style:italic;">bedre å jobbe i</em></h3>
+        <p class="mock-sub">Kurs tilpasset din bedrift, og en sparringspartner på HR, utvikling og kultur, når du trenger det.</p>
+        <button class="btn btn-primary">Ta kontakt</button>
+        <button class="btn btn-ghost">Se tjenester</button>
+        <p class="mock-photo-note">[Bildeplass — portrett av Line, eller stemningsbilde i samme varme mørke tone som referansebildet]</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow is-calm">Sidestruktur</p>
+    <h2>Fire sider, samme språk</h2>
+    <p class="section-lead">
+      Innholdet fra tilbudet, brutt ned i konkrete seksjoner. Utgangspunkt for
+      gjennomgangsmøtet, ikke en fasit.
+    </p>
+
+    <div class="pages">
+      <div class="page-card">
+        <div class="page-card-head"><span class="page-num">01</span><span class="page-name">Forside</span></div>
+        <div class="page-blocks">
+          <div class="block-row"><span class="block-label">Hero</span><span class="block-desc">Kort pitch, én tydelig setning om hva Line Cooperation gjør og for hvem, to knapper (kontakt / tjenester).</span></div>
+          <div class="block-row"><span class="block-label">Kort om</span><span class="block-desc">2–3 setninger, hvorfor Line Cooperation finnes, med lenke videre til Om-siden.</span></div>
+          <div class="block-row"><span class="block-label">Tjenester, kort</span><span class="block-desc">To kort side ved side: Kurs / Sparring, med tag og én linje hver.</span></div>
+          <div class="block-row"><span class="block-label">Kontakt-stripe</span><span class="block-desc">Telefon og e-post synlig, avslutning på siden.</span></div>
+        </div>
+      </div>
+
+      <div class="page-card">
+        <div class="page-card-head"><span class="page-num">02</span><span class="page-name">Om</span></div>
+        <div class="page-blocks">
+          <div class="block-row"><span class="block-label">Bakgrunn</span><span class="block-desc">Hvem Line er, erfaring og hvorfor HR/utvikling/kultur.</span></div>
+          <div class="block-row"><span class="block-label">Tilnærming</span><span class="block-desc">Hvordan hun jobber som sparringspartner, hva en bedrift kan forvente.</span></div>
+          <div class="block-row"><span class="block-label">Bilde</span><span class="block-desc">Portrett, gjerne det samme som brukes andre steder for gjenkjennelse.</span></div>
+        </div>
+      </div>
+
+      <div class="page-card">
+        <div class="page-card-head"><span class="page-num">03</span><span class="page-name">Tjenester</span></div>
+        <div class="page-blocks">
+          <div class="block-row"><span class="block-label">Kurs</span><span class="block-desc">Tilpasset den enkelte bedrift, hva det typisk inneholder, hvem det passer for.</span></div>
+          <div class="block-row"><span class="block-label">Sparring</span><span class="block-desc">Rådgivning på HR, utvikling og kultur, løpende eller ved behov.</span></div>
+          <div class="block-row"><span class="block-label">Vei videre</span><span class="block-desc">Kort CTA ned mot kontaktsiden fra begge sporene.</span></div>
+        </div>
+      </div>
+
+      <div class="page-card">
+        <div class="page-card-head"><span class="page-num">04</span><span class="page-name">Kontakt</span></div>
+        <div class="page-blocks">
+          <div class="block-row"><span class="block-label">Kontaktinfo</span><span class="block-desc">98 47 19 74 og kontakt@linecooperation.no, store og lett klikkbare på mobil.</span></div>
+          <div class="block-row"><span class="block-label">Lokasjon</span><span class="block-desc">Kort nevnt, Borkenes/Kvæfjord, ingen kart nødvendig.</span></div>
+          <div class="block-row"><span class="block-label">Ingen skjema</span><span class="block-desc">Bevisst holdt enkelt, som avtalt.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="closing">
+    <p class="fine">
+      Utgangspunkt for gjennomgangsmøtet 17.09. Farger, fonter og tekst justeres etter
+      tilbakemelding, dette er retningen, ikke det ferdige resultatet.
+    </p>
+  </div>
+
+</div>

@@ -1,0 +1,397 @@
+<title>Animasjonsforslag: Line Cooperation</title>
+<style>
+  :root{
+    --shell-bg:#15171B;
+    --shell-surface:#1C1F24;
+    --shell-ink:#EDEEF0;
+    --shell-soft:#9498A2;
+    --shell-faint:#5E626C;
+    --shell-line:rgba(237,238,240,0.10);
+
+    --e-bg:#171310;
+    --e-surface:#221B16;
+    --e-raised:#2B2219;
+    --e-ink:#F3EDE6;
+    --e-soft:#B4A69A;
+    --e-faint:#8A7C70;
+    --e-calm:#87A69B;
+    --e-calm-strong:#A9C4BA;
+    --e-energy:#DE8A46;
+    --e-energy-strong:#F0A868;
+    --e-line:rgba(243,237,230,0.11);
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    background: var(--shell-bg);
+    color: var(--shell-ink);
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 0 6rem;
+  }
+  .wrap{ max-width: 980px; margin: 0 auto; padding: 0 1.75rem; }
+  p{ margin: 0 0 1rem; max-width: 68ch; }
+  p:last-child{ margin-bottom: 0; }
+
+  .cover{ padding: 4.5rem 0 3.25rem; border-bottom: 1px solid var(--shell-line); }
+  .eyebrow{ font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--shell-soft); margin: 0 0 1rem; }
+  h1{ font-weight: 700; font-size: clamp(1.8rem, 4.2vw, 2.4rem); line-height: 1.16; letter-spacing: -0.01em; margin: 0 0 1rem; text-wrap: balance; }
+  .cover .sub{ color: var(--shell-soft); max-width: 60ch; font-size: 1.02rem; }
+
+  section{ padding: 3.5rem 0; border-bottom: 1px solid var(--shell-line); }
+  section:last-of-type{ border-bottom: none; }
+  h2{ font-weight: 700; font-size: 1.35rem; margin: 0 0 0.4rem; }
+  .section-lead{ color: var(--shell-soft); margin: 0 0 1.75rem; max-width: 62ch; }
+
+  .principles{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  @media (max-width: 680px){ .principles{ grid-template-columns: 1fr; } }
+  .principle{ background: var(--shell-surface); border: 1px solid var(--shell-line); border-radius: 14px; padding: 1.1rem 1.25rem; }
+  .principle-title{ font-weight: 700; margin-bottom: 0.3rem; font-size: 0.95rem; }
+  .principle-desc{ color: var(--shell-soft); font-size: 0.86rem; }
+
+  .stage{
+    border: 1px solid var(--shell-line);
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--e-bg);
+  }
+  .stage-toolbar{
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    background: var(--shell-surface);
+    font-size: 0.8rem; color: var(--shell-soft);
+    border-bottom: 1px solid var(--shell-line);
+  }
+  .replay-btn{
+    font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 0.78rem;
+    background: var(--e-energy); color: #1A1109; border: none; border-radius: 999px;
+    padding: 0.4rem 0.9rem; cursor: pointer;
+  }
+  .replay-btn:hover{ filter: brightness(1.08); }
+  .spec{ padding: 0 1.5rem 1.5rem; }
+  .spec-row{ display: flex; gap: 0.6rem; font-size: 0.82rem; color: var(--e-faint); margin-top: 0.5rem; flex-wrap: wrap; }
+  .spec-row code{ background: var(--e-raised); color: var(--e-soft); padding: 0.15rem 0.45rem; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 0.78rem; }
+
+  /* ---------- hero demo ---------- */
+  .hero-demo{
+    position: relative;
+    padding: 3.5rem 2.5rem;
+    min-height: 320px;
+    display: flex; flex-direction: column; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-glow{
+    position: absolute; inset: -20%;
+    background: radial-gradient(45% 45% at 80% 15%, rgba(222,138,70,0.30), transparent 65%);
+    animation: glowPulse 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes glowPulse{
+    0%, 100%{ opacity: 0.55; transform: scale(1); }
+    50%{ opacity: 0.9; transform: scale(1.06); }
+  }
+  .hero-demo > *{ position: relative; z-index: 1; }
+  .hero-eyebrow{ font-family:"Karla",sans-serif; color: var(--e-energy-strong); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.9rem; }
+  .hero-h{ font-family:"Newsreader", Georgia, serif; font-size: 2.1rem; line-height: 1.14; color: var(--e-ink); max-width: 18ch; margin-bottom: 0.85rem; }
+  .hero-sub{ font-family:"Karla",sans-serif; color: var(--e-soft); font-size: 0.95rem; max-width: 38ch; margin-bottom: 1.5rem; }
+
+  .anim-in{ opacity: 0; transform: translateY(14px); }
+  .anim-in.is-in{
+    animation: fadeRise 650ms var(--ease) forwards;
+  }
+  @keyframes fadeRise{ to{ opacity: 1; transform: translateY(0); } }
+  .d1{ animation-delay: 0ms !important; }
+  .d2{ animation-delay: 120ms !important; }
+  .d3{ animation-delay: 260ms !important; }
+  .d4{ animation-delay: 380ms !important; }
+
+  /* ---------- scroll reveal demo ---------- */
+  .scrollbox{
+    height: 320px;
+    overflow-y: auto;
+    padding: 1.5rem;
+    scroll-behavior: smooth;
+  }
+  .scrollbox::-webkit-scrollbar{ width: 8px; }
+  .scrollbox::-webkit-scrollbar-thumb{ background: var(--e-line); border-radius: 8px; }
+  .reveal-card{
+    background: var(--e-surface); border: 1px solid var(--e-line); border-radius: 14px;
+    padding: 1.1rem 1.25rem; margin-bottom: 1rem;
+    opacity: 0; transform: translateY(18px);
+    transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+  }
+  .reveal-card:last-child{ margin-bottom: 0; }
+  .reveal-card.is-visible{ opacity: 1; transform: translateY(0); }
+  .reveal-card-title{ font-weight: 700; color: var(--e-ink); font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .reveal-card-desc{ color: var(--e-soft); font-size: 0.85rem; }
+  .reveal-line{ height: 1px; background: var(--e-energy); margin: 1.25rem 0; transform: scaleX(0); transform-origin: left; transition: transform 700ms var(--ease); }
+  .reveal-line.is-visible{ transform: scaleX(1); }
+  .scroll-hint{ text-align: center; font-family:"Karla",sans-serif; font-size: 0.78rem; color: var(--e-faint); padding: 0.6rem 0; }
+
+  /* ---------- hover demo ---------- */
+  .hover-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; padding: 2rem; }
+  @media (max-width: 640px){ .hover-grid{ grid-template-columns: 1fr; } }
+  .hover-cell{ display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+  .hover-cell-label{ font-family:"Karla",sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--e-faint); }
+
+  .btn{ font-family:"Karla",sans-serif; font-weight: 700; font-size: 0.88rem; border: none; cursor: pointer; padding: 0.65rem 1.25rem; border-radius: 999px; transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), filter 200ms var(--ease); }
+  .btn-primary{ background: var(--e-energy); color: #1A1109; }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(222,138,70,0.55); }
+  .btn-ghost{ background: transparent; color: var(--e-ink); border: 1px solid var(--e-line); transition: border-color 200ms, background 200ms, transform 200ms var(--ease); }
+  .btn-ghost:hover{ border-color: var(--e-energy); background: rgba(222,138,70,0.08); transform: translateY(-2px); }
+
+  .hcard{ background: var(--e-surface); border: 1px solid var(--e-line); border-radius: 14px; padding: 1rem 1.15rem; width: 100%; transition: transform 250ms var(--ease), border-color 250ms var(--ease), box-shadow 250ms var(--ease); }
+  .hcard:hover{ transform: translateY(-3px); border-color: rgba(222,138,70,0.4); box-shadow: 0 14px 28px -16px rgba(222,138,70,0.4); }
+  .hcard-title{ font-weight: 700; color: var(--e-ink); font-size: 0.9rem; }
+  .hcard-desc{ color: var(--e-soft); font-size: 0.82rem; margin-top: 0.2rem; }
+
+  .hlink{ font-family:"Karla",sans-serif; color: var(--e-ink); text-decoration: none; position: relative; font-size: 0.92rem; padding-bottom: 2px; }
+  .hlink::after{ content:""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%; background: var(--e-energy); transform: scaleX(0); transform-origin: left; transition: transform 250ms var(--ease); }
+  .hlink:hover::after{ transform: scaleX(1); }
+
+  .htag{ display: inline-block; font-family:"Karla",sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 999px; background: rgba(135,166,155,0.16); color: var(--e-calm-strong); transition: transform 150ms var(--ease); cursor: default; }
+  .htag:hover{ transform: scale(1.06); }
+
+  /* ---------- process count-in demo ---------- */
+  .process-demo{ padding: 2.75rem 2rem; }
+  .process-row{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+  @media (max-width: 640px){ .process-row{ grid-template-columns: 1fr; } }
+  .pstep{ opacity: 0; transform: translateY(10px) scale(0.98); transition: opacity 500ms var(--ease), transform 500ms var(--ease); }
+  .pstep.is-in{ opacity: 1; transform: translateY(0) scale(1); }
+  .pstep-num{ font-family:"Newsreader", Georgia, serif; font-style: italic; color: var(--e-energy-strong); font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
+  .pstep-title{ font-family:"Karla",sans-serif; font-weight: 700; color: var(--e-ink); font-size: 0.92rem; margin-bottom: 0.3rem; }
+  .pstep-desc{ font-family:"Karla",sans-serif; color: var(--e-soft); font-size: 0.82rem; }
+
+  /* ---------- reduced motion toggle ---------- */
+  .toggle-row{ display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--shell-soft); margin-bottom: 1.5rem; }
+  .toggle-row input{ accent-color: var(--shell-ink); }
+
+  body.force-reduced .anim-in{ opacity: 1 !important; transform: none !important; animation: none !important; }
+  body.force-reduced .hero-glow{ animation: none !important; opacity: 0.6; }
+  body.force-reduced .reveal-card{ transition: opacity 200ms linear !important; transform: none !important; }
+  body.force-reduced .reveal-line{ transition: opacity 200ms linear !important; transform: scaleX(1) !important; }
+  body.force-reduced .reveal-card.is-visible{ transform: none !important; }
+  body.force-reduced .pstep{ transition: opacity 200ms linear !important; transform: none !important; }
+  body.force-reduced .btn:hover, body.force-reduced .hcard:hover{ transform: none !important; }
+
+  @media (prefers-reduced-motion: reduce){
+    .anim-in{ opacity: 1 !important; transform: none !important; animation: none !important; }
+    .hero-glow{ animation: none !important; }
+    .reveal-card, .reveal-line, .pstep{ transition-duration: 1ms !important; }
+  }
+
+  .fine{ color: var(--shell-faint); font-size: 0.85rem; }
+  .closing{ padding: 3.5rem 0 1rem; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<div class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Line Cooperation — bevegelse</p>
+    <h1>Animasjoner som understreker ro og energi</h1>
+    <p class="sub">
+      Alt under er levende, ikke skisser, prøv å bla, hold musepekeren over ting, trykk
+      «spill av på nytt». Bevegelsen skal aldri stjele oppmerksomhet fra teksten, den skal
+      bekrefte den: sakte og mykt der siden er rolig, litt raskere og tydeligere der noe
+      faktisk skjer, som et klikk eller en overgang.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <p class="eyebrow">Prinsipper</p>
+    <h2>Tre regler for all bevegelse på siden</h2>
+    <p class="section-lead">Alt under bygger på disse tre, ikke bevegelse for bevegelsens skyld.</p>
+    <div class="principles">
+      <div class="principle"><div class="principle-title">Ro er sakte</div><div class="principle-desc">Ambient bevegelse (glød, bakgrunn) er alltid langsom, 6–8 sekunder per syklus, nesten umerkelig.</div></div>
+      <div class="principle"><div class="principle-title">Energi er responsiv</div><div class="principle-desc">Rask bevegelse skjer kun som svar på noe brukeren gjør, hover, klikk, scroll, aldri av seg selv.</div></div>
+      <div class="principle"><div class="principle-title">Én gang er nok</div><div class="principle-desc">En seksjon glir inn når den vises første gang. Den skal ikke fortsette å bevege seg mens man leser.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Sideinnlasting</p>
+    <h2>Hero-seksjonen ved første besøk</h2>
+    <p class="section-lead">Tekst og knapper glir inn i rekkefølge, med en svak, sakte glød bak som puster i bakgrunnen.</p>
+    <div class="stage">
+      <div class="stage-toolbar">
+        <span>Live forhåndsvisning</span>
+        <button class="replay-btn" id="replayHero">Spill av på nytt</button>
+      </div>
+      <div class="hero-demo">
+        <div class="hero-glow"></div>
+        <p class="hero-eyebrow anim-in d1" id="heroEl1">Bedriftsrådgivning · HR · Kultur</p>
+        <h3 class="hero-h anim-in d2" id="heroEl2" style="font-weight:400;">Sparring som gjør bedriften bedre å jobbe i</h3>
+        <p class="hero-sub anim-in d3" id="heroEl3">Kurs tilpasset din bedrift, og en sparringspartner på HR, utvikling og kultur.</p>
+        <div class="anim-in d4" id="heroEl4">
+          <button class="btn btn-primary">Ta kontakt</button>
+        </div>
+      </div>
+      <div class="spec">
+        <div class="spec-row">
+          <code>fade + rise, 650ms, ease-out</code>
+          <code>stagger 120ms mellom elementer</code>
+          <code>glød: 8s pulse, uendelig, svært svak</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Scroll-avsløring</p>
+    <h2>Innhold glir inn idet det vises</h2>
+    <p class="section-lead">Scroll i boksen under, kortene og linjen dukker opp når de kommer inn i synsfeltet, ikke før.</p>
+    <div class="stage">
+      <div class="stage-toolbar"><span>Scroll inni boksen for å prøve</span></div>
+      <div class="scrollbox" id="scrollDemo">
+        <p class="scroll-hint">↓ scroll ↓</p>
+        <div class="reveal-card"><div class="reveal-card-title">Kurs tilpasset bedriften</div><div class="reveal-card-desc">Bygget rundt det teamet faktisk trenger, ikke et ferdig opplegg.</div></div>
+        <div class="reveal-line"></div>
+        <div class="reveal-card"><div class="reveal-card-title">Sparring på HR og kultur</div><div class="reveal-card-desc">Løpende støtte når ting butter, eller når noe skal bygges opp.</div></div>
+        <div class="reveal-line"></div>
+        <div class="reveal-card"><div class="reveal-card-title">Utvikling over tid</div><div class="reveal-card-desc">Et samarbeid, ikke et engangsforedrag.</div></div>
+        <p class="scroll-hint">— slutt —</p>
+      </div>
+      <div class="spec">
+        <div class="spec-row">
+          <code>fade + rise, 600ms, ease-out</code>
+          <code>linje: scaleX 0→1, 700ms</code>
+          <code>trigges når ~20% er synlig</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Mikrointeraksjoner</p>
+    <h2>Det som skjer når man holder musen over</h2>
+    <p class="section-lead">Hold musepekeren over hvert element. Rask, tydelig respons, det motsatte av den sakte omgivelsesbevegelsen.</p>
+    <div class="stage">
+      <div class="hover-grid">
+        <div class="hover-cell">
+          <span class="hover-cell-label">Knapp, primær</span>
+          <button class="btn btn-primary">Ta kontakt</button>
+        </div>
+        <div class="hover-cell">
+          <span class="hover-cell-label">Knapp, sekundær</span>
+          <button class="btn btn-ghost">Se tjenester</button>
+        </div>
+        <div class="hover-cell">
+          <span class="hover-cell-label">Kort</span>
+          <div class="hcard"><div class="hcard-title">Sparring</div><div class="hcard-desc">Rådgivning på HR og kultur.</div></div>
+        </div>
+        <div class="hover-cell">
+          <span class="hover-cell-label">Lenke</span>
+          <a class="hlink" href="#" onclick="return false;">Les mer om tjenestene</a>
+        </div>
+        <div class="hover-cell">
+          <span class="hover-cell-label">Tag</span>
+          <span class="htag">Kurs</span>
+        </div>
+      </div>
+      <div class="spec">
+        <div class="spec-row">
+          <code>knapp/kort: løft -2/-3px, 200–250ms</code>
+          <code>lenke: understrek tegnes fra venstre, 250ms</code>
+          <code>tag: skalering 1.06, 150ms</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Tallanimasjon</p>
+    <h2>Prosess-stripen teller seg inn</h2>
+    <p class="section-lead">Når prosess-seksjonen kommer i synsfelt, tegnes stegene inn ett og ett, samme prinsipp som scroll-avsløringen over.</p>
+    <div class="stage">
+      <div class="process-demo" id="processDemo">
+        <div class="process-row">
+          <div class="pstep"><span class="pstep-num">01</span><div class="pstep-title">Forstå behovet</div><div class="pstep-desc">Kort samtale om hva bedriften faktisk står i.</div></div>
+          <div class="pstep"><span class="pstep-num">02</span><div class="pstep-title">Sett en retning</div><div class="pstep-desc">Konkret opplegg, kurs eller sparring, tilpasset.</div></div>
+          <div class="pstep"><span class="pstep-num">03</span><div class="pstep-title">Følg opp</div><div class="pstep-desc">Justeres underveis, ikke et engangsforedrag.</div></div>
+        </div>
+      </div>
+      <div class="spec">
+        <div class="spec-row">
+          <code>fade + scale 0.98→1, 500ms</code>
+          <code>stagger 150ms mellom steg</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom: none;">
+    <p class="eyebrow">Redusert bevegelse</p>
+    <h2>Alt over kan slås av</h2>
+    <p class="section-lead">
+      Noen foretrekker eller trenger minst mulig bevegelse på skjermen. Nettleseren deres sier
+      fra til siden automatisk, og alt over faller da tilbake til et enkelt fade, ingen glød,
+      ingen løft, ingen forsinkelser. Prøv bryteren:
+    </p>
+    <label class="toggle-row">
+      <input type="checkbox" id="reducedToggle">
+      Simuler «redusert bevegelse» på hele siden
+    </label>
+    <p class="fine">Skru på, bla opp igjen og prøv seksjonene over på nytt, alt blir da rolig og umiddelbart.</p>
+  </section>
+
+</div>
+
+<div class="wrap closing">
+  <p class="fine">
+    Spesifikasjonene i hver boks (varighet, forsinkelse, kurve) er nøyaktig det som er brukt
+    i demoene over, klar til å tas rett inn i koden når vi bygger siden.
+  </p>
+</div>
+
+<script>
+  // hero replay
+  function playHero(){
+    ['heroEl1','heroEl2','heroEl3','heroEl4'].forEach(function(id){
+      var el = document.getElementById(id);
+      el.classList.remove('is-in');
+      void el.offsetWidth;
+      el.classList.add('is-in');
+    });
+  }
+  document.getElementById('replayHero').addEventListener('click', playHero);
+  window.addEventListener('load', playHero);
+
+  // scroll reveal (scoped to the scroll box)
+  var scrollDemo = document.getElementById('scrollDemo');
+  var scrollObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    });
+  }, { root: scrollDemo, threshold: 0.2 });
+  scrollDemo.querySelectorAll('.reveal-card, .reveal-line').forEach(function(el){
+    scrollObserver.observe(el);
+  });
+
+  // process step reveal (page scroll)
+  var processObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.querySelectorAll('.pstep').forEach(function(step, i){
+          setTimeout(function(){ step.classList.add('is-in'); }, i * 150);
+        });
+      } else {
+        entry.target.querySelectorAll('.pstep').forEach(function(step){ step.classList.remove('is-in'); });
+      }
+    });
+  }, { threshold: 0.3 });
+  processObserver.observe(document.getElementById('processDemo'));
+
+  // reduced motion toggle
+  document.getElementById('reducedToggle').addEventListener('change', function(e){
+    document.body.classList.toggle('force-reduced', e.target.checked);
+  });
+</script>

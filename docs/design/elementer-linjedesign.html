@@ -1,0 +1,301 @@
+<title>Elementer &amp; linjedesign: Line Cooperation</title>
+<style>
+  :root{
+    --shell-bg:#15171B;
+    --shell-surface:#1C1F24;
+    --shell-ink:#EDEEF0;
+    --shell-soft:#9498A2;
+    --shell-faint:#5E626C;
+    --shell-line:rgba(237,238,240,0.10);
+
+    /* espresso tokens, used as the demonstration surface */
+    --e-bg:#171310;
+    --e-surface:#221B16;
+    --e-raised:#2B2219;
+    --e-ink:#F3EDE6;
+    --e-soft:#B4A69A;
+    --e-faint:#8A7C70;
+    --e-calm:#87A69B;
+    --e-calm-strong:#A9C4BA;
+    --e-energy:#DE8A46;
+    --e-energy-strong:#F0A868;
+    --e-line:rgba(243,237,230,0.11);
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    background: var(--shell-bg);
+    color: var(--shell-ink);
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 0 6rem;
+  }
+  .wrap{ max-width: 980px; margin: 0 auto; padding: 0 1.75rem; }
+  p{ margin: 0 0 1rem; max-width: 68ch; }
+  p:last-child{ margin-bottom: 0; }
+
+  .cover{ padding: 4.5rem 0 3.25rem; border-bottom: 1px solid var(--shell-line); }
+  .eyebrow{ font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--shell-soft); margin: 0 0 1rem; }
+  h1{ font-weight: 700; font-size: clamp(1.8rem, 4.2vw, 2.4rem); line-height: 1.16; letter-spacing: -0.01em; margin: 0 0 1rem; text-wrap: balance; }
+  .cover .sub{ color: var(--shell-soft); max-width: 60ch; font-size: 1.02rem; }
+
+  section{ padding: 3.5rem 0; border-bottom: 1px solid var(--shell-line); }
+  section:last-of-type{ border-bottom: none; }
+  h2{ font-weight: 700; font-size: 1.35rem; margin: 0 0 0.4rem; }
+  .section-lead{ color: var(--shell-soft); margin: 0 0 1.75rem; max-width: 62ch; }
+
+  .variant-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (max-width: 640px){ .variant-grid{ grid-template-columns: 1fr; } }
+
+  .variant{
+    border: 1px solid var(--shell-line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--e-bg);
+  }
+  .variant-label{
+    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+    color: var(--shell-soft); background: var(--shell-surface);
+    padding: 0.6rem 1rem;
+  }
+  .variant-stage{ padding: 2rem 1.5rem; min-height: 90px; display: flex; align-items: center; justify-content: center; }
+  .variant-desc{ padding: 0 1.25rem 1.1rem; font-size: 0.85rem; color: var(--e-soft); }
+
+  /* --- dividers --- */
+  .div-hairline{ width: 100%; height: 1px; background: var(--e-line); }
+  .div-mark{ display: flex; align-items: center; gap: 0.75rem; width: 100%; }
+  .div-mark::before{ content:""; width: 2.5rem; height: 2px; background: var(--e-energy); flex-shrink: 0; }
+  .div-mark span{ font-family: "Newsreader", Georgia, serif; font-style: italic; color: var(--e-soft); font-size: 0.95rem; }
+  .div-fade{ width: 100%; height: 1px; background: linear-gradient(90deg, var(--e-energy), transparent 70%); }
+  .div-dots{ width: 100%; display: flex; gap: 0.4rem; }
+  .div-dots span{ width: 4px; height: 4px; border-radius: 50%; background: var(--e-faint); }
+  .div-dots span:nth-child(3n+1){ background: var(--e-energy); }
+
+  /* --- cards --- */
+  .card-bordered{ border: 1px solid var(--e-line); border-radius: 14px; padding: 1.1rem 1.25rem; background: var(--e-surface); width: 100%; }
+  .card-underline{ border-bottom: 2px solid var(--e-energy); padding: 0 0 1rem; width: 100%; }
+  .card-corner{ position: relative; background: var(--e-surface); border-radius: 4px; padding: 1.1rem 1.25rem; width: 100%; }
+  .card-corner::before{ content:""; position:absolute; top:0; left:0; width: 22px; height: 22px; border-top: 2px solid var(--e-energy); border-left: 2px solid var(--e-energy); border-radius: 4px 0 0 0; }
+  .card-lift{ background: var(--e-surface); border-radius: 14px; padding: 1.1rem 1.25rem; width: 100%; box-shadow: 0 12px 28px -14px rgba(222,138,70,0.35); }
+  .card-title{ font-weight: 700; color: var(--e-ink); font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .card-desc{ color: var(--e-soft); font-size: 0.85rem; }
+
+  /* --- image frames --- */
+  .frame-demo{ width: 100%; aspect-ratio: 4/3; display: flex; align-items:center; justify-content:center; font-family:"Karla",sans-serif; font-size: 0.72rem; color: var(--e-faint); text-align:center; }
+  .frame-soft{ border-radius: 16px; background: linear-gradient(135deg, #2B2219, #171310); }
+  .frame-cut{ background: linear-gradient(135deg, #2B2219, #171310); clip-path: polygon(0 0, 100% 0, 100% 82%, 82% 100%, 0 100%); }
+  .frame-outline{ border-radius: 10px; padding: 10px; }
+  .frame-outline-inner{ width: 100%; height: 100%; border: 2px solid var(--e-energy); border-radius: 6px; background: linear-gradient(135deg, #2B2219, #171310); display:flex; align-items:center; justify-content:center; font-family:"Karla",sans-serif; font-size:0.7rem; color:var(--e-faint); }
+  .frame-duotone{ border-radius: 12px; background: linear-gradient(160deg, rgba(222,138,70,0.55), rgba(23,19,16,0.95)); }
+
+  /* --- markers --- */
+  .marker-row{ display: flex; align-items: center; gap: 1rem; }
+  .marker-num{ font-family: "Newsreader", Georgia, serif; font-style: italic; color: var(--e-energy-strong); font-size: 1.3rem; }
+  .marker-dot{ width: 8px; height: 8px; border-radius: 50%; background: var(--e-energy); flex-shrink: 0; }
+  .marker-line{ display:flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+  .marker-line-stem{ width: 1px; height: 26px; background: var(--e-line); }
+  .marker-text{ color: var(--e-ink); font-family:"Karla",sans-serif; font-weight: 700; font-size: 0.9rem; }
+
+  /* --- new section mockups --- */
+  .mock{ border: 1px solid var(--shell-line); border-radius: 18px; overflow: hidden; }
+  .quote-block{
+    background: var(--e-bg);
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+  }
+  .quote-mark{ font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 3rem; color: var(--e-energy); line-height: 1; margin-bottom: 0.5rem; }
+  .quote-text{ font-family: "Newsreader", Georgia, serif; font-size: 1.5rem; color: var(--e-ink); max-width: 32ch; margin: 0 auto 1rem; line-height: 1.35; }
+  .quote-by{ font-family: "Karla", sans-serif; color: var(--e-soft); font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .process{ background: var(--e-surface); padding: 3rem 2.5rem; }
+  .process-row{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+  @media (max-width: 640px){ .process-row{ grid-template-columns: 1fr; } }
+  .process-step{ position: relative; padding-left: 0; }
+  .process-step .marker-num{ display: block; margin-bottom: 0.6rem; }
+  .process-step-title{ font-family:"Karla",sans-serif; font-weight: 700; color: var(--e-ink); font-size: 0.98rem; margin-bottom: 0.35rem; }
+  .process-step-desc{ font-family:"Karla",sans-serif; color: var(--e-soft); font-size: 0.85rem; }
+  .process-connector{ display: none; }
+  @media (min-width: 641px){
+    .process-row{ position: relative; }
+    .process-step:not(:last-child)::after{
+      content:""; position:absolute; top: 0.65rem; left: calc(100% + 0.4rem);
+      width: calc(1.75rem - 0.8rem); height: 1px; background: var(--e-line);
+    }
+  }
+
+  .fine{ color: var(--shell-faint); font-size: 0.85rem; }
+  .closing{ padding: 3.5rem 0 1rem; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<div class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Line Cooperation — designdetaljer</p>
+    <h1>Linjer, kort, bilder og merker</h1>
+    <p class="sub">
+      Et lag dypere enn forrige moodboard: de små, gjentakende designvalgene som gir siden
+      en signatur, ikke bare farge og font. Vist i Espresso-paletten, men prinsippene
+      overføres til Fjord med byttet fargesett. Flere varianter per kategori, du plukker
+      det som treffer, vi trenger ikke velge likt overalt.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <p class="eyebrow">Linjedesign</p>
+    <h2>Hvordan seksjoner skilles fra hverandre</h2>
+    <p class="section-lead">Fire måter å sette en pause i siden på, fra usynlig til tydelig signatur.</p>
+    <div class="variant-grid">
+      <div class="variant">
+        <div class="variant-label">A · Hårlinje</div>
+        <div class="variant-stage"><div class="div-hairline"></div></div>
+        <div class="variant-desc">Tynn, lavmælt. Skiller uten å ta oppmerksomhet, brukes gjennomgående som standard.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">B · Aksentstrek + ord</div>
+        <div class="variant-stage"><div class="div-mark"><span>neste</span></div></div>
+        <div class="variant-desc">Kort strek i ravgul foran et lite ord eller tall. Fungerer godt foran overskrifter.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">C · Uttonende linje</div>
+        <div class="variant-stage"><div class="div-fade"></div></div>
+        <div class="variant-desc">Glir fra farge til ingenting. Mykere, egner seg til overganger inn mot en varm seksjon.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">D · Prikkerad</div>
+        <div class="variant-stage"><div class="div-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        <div class="variant-desc">Taktil, litt uformell. God til å bryte opp en lang tekstside uten en hard strek.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Kort og blokker</p>
+    <h2>Hvordan tjenester og innhold rammes inn</h2>
+    <p class="section-lead">Brukes på tjenestekort, om-seksjoner og lignende gjentakende innhold.</p>
+    <div class="variant-grid">
+      <div class="variant">
+        <div class="variant-label">A · Full ramme</div>
+        <div class="variant-stage">
+          <div class="card-bordered"><div class="card-title">Sparring</div><div class="card-desc">Rådgivning på HR og kultur.</div></div>
+        </div>
+        <div class="variant-desc">Tydelig avgrenset, ryddig. Det trygge, forutsigbare valget.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">B · Understrek</div>
+        <div class="variant-stage">
+          <div class="card-underline"><div class="card-title">Sparring</div><div class="card-desc">Rådgivning på HR og kultur.</div></div>
+        </div>
+        <div class="variant-desc">Ingen ramme, kun en aksentstrek under. Lettere, luftigere, mer redaksjonelt.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">C · Hjørnemerke</div>
+        <div class="variant-stage">
+          <div class="card-corner"><div class="card-title">Sparring</div><div class="card-desc">Rådgivning på HR og kultur.</div></div>
+        </div>
+        <div class="variant-desc">Et lite hakk i hjørnet i stedet for full ramme, som et merkelapp-hjørne.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">D · Løft/glød</div>
+        <div class="variant-stage">
+          <div class="card-lift"><div class="card-title">Sparring</div><div class="card-desc">Rådgivning på HR og kultur.</div></div>
+        </div>
+        <div class="variant-desc">Svak, varm skygge bak kortet. Kan aktiveres sterkere ved hover på nett.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Bilderamme</p>
+    <h2>Hvordan ekte bilder settes inn</h2>
+    <p class="section-lead">Alle fire holder bildene samlet i én visuell familie, selv om kildebildene varierer i lys og bakgrunn.</p>
+    <div class="variant-grid">
+      <div class="variant">
+        <div class="variant-label">A · Myk avrunding</div>
+        <div class="variant-stage" style="padding:1.25rem;"><div class="frame-demo frame-soft">Bilde</div></div>
+        <div class="variant-desc">Nåværende standard, rolig og nøytral.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">B · Kuttet hjørne</div>
+        <div class="variant-stage" style="padding:1.25rem;"><div class="frame-demo frame-cut">Bilde</div></div>
+        <div class="variant-desc">Ett hjørne skåret i vinkel, bryter rutenettet litt, gir personlighet.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">C · Innrammet</div>
+        <div class="variant-stage" style="padding:1.25rem;">
+          <div class="frame-demo frame-outline"><div class="frame-outline-inner">Bilde</div></div>
+        </div>
+        <div class="variant-desc">Luft mellom bilde og en tynn ravgul ramme, museal, «portrett»-følelse.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">D · Duotone-tone</div>
+        <div class="variant-stage" style="padding:1.25rem;"><div class="frame-demo frame-duotone">Bilde</div></div>
+        <div class="variant-desc">Et fargelag over bildet holder ulike kildebilder samlet i samme stemning.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Merker</p>
+    <h2>Tall, ikoner eller minimalt</h2>
+    <p class="section-lead">Til prosess-steg, listepunkter og lignende, tre nivåer av synlighet.</p>
+    <div class="variant-grid">
+      <div class="variant">
+        <div class="variant-label">A · Kursivt tall</div>
+        <div class="variant-stage"><div class="marker-row"><span class="marker-num">01</span><span class="marker-text">Forstå behovet</span></div></div>
+        <div class="variant-desc">Litterært, i tråd med Newsreader. Ingen ekstra ikonografi å vedlikeholde.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">B · Prikk</div>
+        <div class="variant-stage"><div class="marker-row"><span class="marker-dot"></span><span class="marker-text">Forstå behovet</span></div></div>
+        <div class="variant-desc">Minimalt, nesten usynlig. Til lister der innholdet skal bære alt.</div>
+      </div>
+      <div class="variant">
+        <div class="variant-label">C · Loddrett stamme</div>
+        <div class="variant-stage"><div class="marker-line"><span class="marker-dot"></span><span class="marker-line-stem"></span></div></div>
+        <div class="variant-desc">En tynn linje som binder sammen flere steg i en tidslinje eller prosess.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom: none;">
+    <p class="eyebrow">To nye seksjonstyper</p>
+    <h2>Utover hero, om, tjenester og kontakt</h2>
+    <p class="section-lead">To seksjoner som kan bygges inn på forsiden eller om-siden for å bryte opp ren tekst.</p>
+
+    <div class="mock" style="margin-bottom: 1.5rem;">
+      <div class="quote-block">
+        <div class="quote-mark">”</div>
+        <p class="quote-text">Sparring skal gjøre bedriften trygg nok til å ta de vanskelige samtalene selv.</p>
+        <p class="quote-by">Line Sivertsen, Line Cooperation</p>
+      </div>
+    </div>
+    <p class="section-lead" style="margin-bottom:1rem;">Sitatblokk. Ett sterkt utsagn i stor kursiv Newsreader, brukes til å oppsummere Lines filosofi midt på forsiden eller om-siden.</p>
+
+    <div class="mock">
+      <div class="process">
+        <div class="process-row">
+          <div class="process-step"><span class="marker-num">01</span><div class="process-step-title">Forstå behovet</div><div class="process-step-desc">Kort samtale om hva bedriften faktisk står i.</div></div>
+          <div class="process-step"><span class="marker-num">02</span><div class="process-step-title">Sett en retning</div><div class="process-step-desc">Konkret opplegg, kurs eller sparring, tilpasset.</div></div>
+          <div class="process-step"><span class="marker-num">03</span><div class="process-step-title">Følg opp</div><div class="process-step-desc">Justeres underveis, ikke et engangsforedrag.</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="section-lead" style="margin-top:1rem;">Prosess-stripe. Tre korte steg, horisontalt på desktop, viser «slik jobber jeg» uten en lang tekstblokk.</p>
+  </section>
+
+</div>
+
+<div class="wrap closing">
+  <p class="fine">
+    Alt over er byggeklosser, ikke et krav om å bruke alle. Én linjevariant, én kortvariant
+    og én bilderamme, brukt konsekvent, er nok til å gi siden en tydelig signatur.
+  </p>
+</div>

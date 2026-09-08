@@ -1,0 +1,422 @@
+<title>Fargevalg: Line Cooperation</title>
+<style>
+  :root{
+    --shell-bg:#15171B;
+    --shell-surface:#1C1F24;
+    --shell-ink:#EDEEF0;
+    --shell-soft:#9498A2;
+    --shell-faint:#5E626C;
+    --shell-line:rgba(237,238,240,0.10);
+  }
+  *{ box-sizing: border-box; }
+  body{
+    background: var(--shell-bg); color: var(--shell-ink);
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px; line-height: 1.6; margin: 0; padding: 0 0 6rem;
+  }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 1.75rem; }
+  p{ margin: 0 0 1rem; max-width: 68ch; }
+  p:last-child{ margin-bottom: 0; }
+
+  .cover{ padding: 4.5rem 0 3.25rem; border-bottom: 1px solid var(--shell-line); }
+  .eyebrow{ font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--shell-soft); margin: 0 0 1rem; }
+  h1{ font-weight: 700; font-size: clamp(1.8rem, 4.2vw, 2.4rem); line-height: 1.16; letter-spacing: -0.01em; margin: 0 0 1rem; text-wrap: balance; }
+  .cover .sub{ color: var(--shell-soft); max-width: 62ch; font-size: 1.02rem; }
+
+  .grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 3.5rem 0; }
+
+  .card{ border: 1px solid var(--shell-line); border-radius: 20px; overflow: hidden; }
+  .card-head{ padding: 1.1rem 1.4rem; background: var(--shell-surface); }
+  .card-name{ font-weight: 700; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .card-desc{ color: var(--shell-soft); font-size: 0.85rem; }
+
+  .mock{ padding: 2.5rem 1.6rem; min-height: 180px; display: flex; flex-direction: column; justify-content: center; }
+  .mock-eyebrow{ font-family:"Karla",sans-serif; font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.7rem; }
+  .mock-h{ font-family:"Newsreader", Georgia, serif; font-size: 1.5rem; line-height: 1.2; max-width: 17ch; margin-bottom: 0.75rem; }
+  .mock-h em{ font-style: italic; }
+  .mock-btn{ display: inline-flex; font-family:"Karla",sans-serif; font-weight: 700; font-size: 0.8rem; padding: 0.5rem 1rem; border-radius: 999px; width: fit-content; }
+
+  .swatches{ display: grid; grid-template-columns: repeat(5, 1fr); }
+  .sw{ height: 46px; }
+  .sw-labels{ display: grid; grid-template-columns: repeat(5, 1fr); font-family: ui-monospace, monospace; font-size: 0.62rem; text-align: center; padding: 0.5rem 0.25rem; background: var(--shell-surface); color: var(--shell-faint); }
+
+  .fine{ color: var(--shell-faint); font-size: 0.85rem; }
+  .closing{ padding: 0 0 1rem; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<div class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Line Cooperation — fargevalg</p>
+    <h1>Tjuefem paletter, samme mørke, ulik sjel</h1>
+    <p class="sub">
+      Alle holder seg til det du var tydelig på, mørk bunn, ikke det sterile hvite kontoret.
+      Typografi og oppsett er identisk på tvers, kun fargene endres, så det er enkelt å
+      sammenligne temperatur og karakter uten at noe annet forstyrrer.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Espresso</div><div class="card-desc">Varm, organisk. Kaffekoppen fra referansebildet.</div></div>
+      <div class="mock" style="background:#171310;">
+        <p class="mock-eyebrow" style="color:#F0A868;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F3EDE6;">Sparring som gjør bedriften <em style="color:#F0A868;">bedre</em></p>
+        <span class="mock-btn" style="background:#DE8A46; color:#1A1109;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#171310;"></div><div class="sw" style="background:#221B16;"></div><div class="sw" style="background:#F3EDE6;"></div><div class="sw" style="background:#87A69B;"></div><div class="sw" style="background:#DE8A46;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-name" style="display:none;"></div>
+      <div class="card-head"><div class="card-name">Fjord</div><div class="card-desc">Kjølig, presis. Ink-slate og korall.</div></div>
+      <div class="mock" style="background:#12151C;">
+        <p class="mock-eyebrow" style="color:#F0806F;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#EDEFF3;">Sparring som gjør bedriften <em style="color:#F0806F;">bedre</em></p>
+        <span class="mock-btn" style="background:#E15B4F; color:#17090A;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#12151C;"></div><div class="sw" style="background:#1B2029;"></div><div class="sw" style="background:#EDEFF3;"></div><div class="sw" style="background:#5B8AA6;"></div><div class="sw" style="background:#E15B4F;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Bergrøyk</div><div class="card-desc">Grafitt og messing. Dempet, nesten diskré, «advokatkontor»-tillit.</div></div>
+      <div class="mock" style="background:#17181A;">
+        <p class="mock-eyebrow" style="color:#D9B876;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#ECEBE7;">Sparring som gjør bedriften <em style="color:#D9B876;">bedre</em></p>
+        <span class="mock-btn" style="background:#C9A24A; color:#1C1607;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#17181A;"></div><div class="sw" style="background:#202224;"></div><div class="sw" style="background:#ECEBE7;"></div><div class="sw" style="background:#7C8B7E;"></div><div class="sw" style="background:#C9A24A;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Lyng</div><div class="card-desc">Dyp lyngrøde-plomme og mose. Nordnorsk fjellheim, ikke generisk mørk.</div></div>
+      <div class="mock" style="background:#1A141A;">
+        <p class="mock-eyebrow" style="color:#D492B8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F1E9EC;">Sparring som gjør bedriften <em style="color:#D492B8;">bedre</em></p>
+        <span class="mock-btn" style="background:#C77DA0; color:#1C0F17;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#1A141A;"></div><div class="sw" style="background:#251C25;"></div><div class="sw" style="background:#F1E9EC;"></div><div class="sw" style="background:#8FA391;"></div><div class="sw" style="background:#C77DA0;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Nordlys</div><div class="card-desc">Dyp indigo og et aurora-grønt lysglimt. Den mest distinkte, mest energiske.</div></div>
+      <div class="mock" style="background:#0E1420;">
+        <p class="mock-eyebrow" style="color:#6ED9A8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#E7EEF5;">Sparring som gjør bedriften <em style="color:#6ED9A8;">bedre</em></p>
+        <span class="mock-btn" style="background:#4FCB9A; color:#08150F;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0E1420;"></div><div class="sw" style="background:#172033;"></div><div class="sw" style="background:#E7EEF5;"></div><div class="sw" style="background:#6E86A8;"></div><div class="sw" style="background:#4FCB9A;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+  </div>
+
+  <p class="fine" style="margin-top:-2rem; margin-bottom: 2.5rem;">
+    Espresso og Fjord er fra de to tidligere moodboardene. Bergrøyk, Lyng og Nordlys er
+    nye retninger, tatt med for å se om noe annet treffer bedre enn de to første.
+  </p>
+
+  <div style="padding-top: 0.5rem; border-top: 1px solid var(--shell-line);">
+    <div style="padding-top: 2.5rem;">
+      <p class="eyebrow">Dristigere</p>
+      <h1 style="font-size: clamp(1.5rem, 3.5vw, 1.9rem);">Fem til, mindre trygge</h1>
+      <p class="sub" style="margin-bottom: 0;">
+        Her er basen selv fargerik, ikke bare nøytralt mørk, og et par av aksentparene er
+        et bevisst temperaturbrudd snarere enn en harmonisk match. Fortsatt mørkt og
+        fortsatt profesjonelt nok til bedriftsrådgivning, men lengre fra det trygge.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Rav &amp; Cyan</div><div class="card-desc">Metta rustbrun bunn, ikke nøytral mørke. Energifargen bryter helt med temperaturen i basen.</div></div>
+      <div class="mock" style="background:#2B1608;">
+        <p class="mock-eyebrow" style="color:#4FE0D8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#FBEEE0;">Sparring som gjør bedriften <em style="color:#4FE0D8;">bedre</em></p>
+        <span class="mock-btn" style="background:#4FE0D8; color:#0B2422;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#2B1608;"></div><div class="sw" style="background:#3A2110;"></div><div class="sw" style="background:#FBEEE0;"></div><div class="sw" style="background:#C98B52;"></div><div class="sw" style="background:#4FE0D8;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">UV på sort</div><div class="card-desc">Nesten gråtoner, kun ett elektrisk lilla lysglimt. Dristig gjennom nesten ingenting.</div></div>
+      <div class="mock" style="background:#0A0A0C;">
+        <p class="mock-eyebrow" style="color:#9D4EFF;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F2F1F5;">Sparring som gjør bedriften <em style="color:#9D4EFF;">bedre</em></p>
+        <span class="mock-btn" style="background:#9D4EFF; color:#160A2E;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0A0A0C;"></div><div class="sw" style="background:#151517;"></div><div class="sw" style="background:#F2F1F5;"></div><div class="sw" style="background:#4A4850;"></div><div class="sw" style="background:#9D4EFF;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Jungelgrønn &amp; Magenta</div><div class="card-desc">Klorofyll-mørke i stedet for svart, hot magenta i stedet for et trygt aksentpar.</div></div>
+      <div class="mock" style="background:#0E1F13;">
+        <p class="mock-eyebrow" style="color:#E63D8C;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#EAF3EC;">Sparring som gjør bedriften <em style="color:#E63D8C;">bedre</em></p>
+        <span class="mock-btn" style="background:#E63D8C; color:#2A0A17;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0E1F13;"></div><div class="sw" style="background:#16301E;"></div><div class="sw" style="background:#EAF3EC;"></div><div class="sw" style="background:#4F8262;"></div><div class="sw" style="background:#E63D8C;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Sennep &amp; Kobolt</div><div class="card-desc">Varm, metta okerbrun bunn mot en skarp, kald kobolt. Et bevisst fargesammenstøt.</div></div>
+      <div class="mock" style="background:#241B08;">
+        <p class="mock-eyebrow" style="color:#5C8DF2;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F7EFDD;">Sparring som gjør bedriften <em style="color:#5C8DF2;">bedre</em></p>
+        <span class="mock-btn" style="background:#3D6FE0; color:#0A1226;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#241B08;"></div><div class="sw" style="background:#33270D;"></div><div class="sw" style="background:#F7EFDD;"></div><div class="sw" style="background:#A98A3E;"></div><div class="sw" style="background:#3D6FE0;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Skumring</div><div class="card-desc">Bunnen er ikke én farge, men en diagonal overgang fra dyp teal til plomme. Varm koral bryter gjennom.</div></div>
+      <div class="mock" style="background:linear-gradient(135deg, #142A2E, #2A1730);">
+        <p class="mock-eyebrow" style="color:#FF7A59;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F0ECEE;">Sparring som gjør bedriften <em style="color:#FF7A59;">bedre</em></p>
+        <span class="mock-btn" style="background:#FF7A59; color:#2A0E06;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:linear-gradient(135deg, #142A2E, #2A1730);"></div><div class="sw" style="background:#1E2430;"></div><div class="sw" style="background:#F0ECEE;"></div><div class="sw" style="background:#6E8FA0;"></div><div class="sw" style="background:#FF7A59;"></div></div>
+      <div class="sw-labels"><span>Bunn*</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+  </div>
+
+  <p class="fine" style="margin-top:-2rem; margin-bottom: 2.5rem;">
+    * Skumring bruker en gradient som bunnfarge i stedet for én flate, den eneste av de ti
+    over som gjør det. Noen av de ti er tryggere å stå bak over tid, andre er mer et
+    statement.
+  </p>
+
+  <div style="padding-top: 0.5rem; border-top: 1px solid var(--shell-line);">
+    <div style="padding-top: 2.5rem;">
+      <p class="eyebrow">Nordisk</p>
+      <h1 style="font-size: clamp(1.5rem, 3.5vw, 1.9rem);">Ti farger fra landskapet rundt Kvæfjord</h1>
+      <p class="sub" style="margin-bottom: 0;">
+        Hav, skog, fjell og årstidene, pluss to som er tettere på stedet du faktisk bor:
+        kysten du ser fra vinduet, og et fargesett hentet fra den samiske firefarge-tradisjonen,
+        tonet ned til noe en nettside kan bære over tid.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Hav</div><div class="card-desc">Dypt, kaldt vann. Sjøgrønt som stikker opp mot overflaten.</div></div>
+      <div class="mock" style="background:#0B1A22;">
+        <p class="mock-eyebrow" style="color:#7FE0C8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#E8F1F0;">Sparring som gjør bedriften <em style="color:#7FE0C8;">bedre</em></p>
+        <span class="mock-btn" style="background:#7FE0C8; color:#08211C;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0B1A22;"></div><div class="sw" style="background:#12262F;"></div><div class="sw" style="background:#E8F1F0;"></div><div class="sw" style="background:#4F8C8A;"></div><div class="sw" style="background:#7FE0C8;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Skog</div><div class="card-desc">Gran og mose. Tett, grønt mørke, en lyskritt av lav mellom trærne.</div></div>
+      <div class="mock" style="background:#12190F;">
+        <p class="mock-eyebrow" style="color:#A8C97F;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#EDF0E6;">Sparring som gjør bedriften <em style="color:#A8C97F;">bedre</em></p>
+        <span class="mock-btn" style="background:#A8C97F; color:#16210C;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#12190F;"></div><div class="sw" style="background:#1C2617;"></div><div class="sw" style="background:#EDF0E6;"></div><div class="sw" style="background:#5C7A4A;"></div><div class="sw" style="background:#A8C97F;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Fjell</div><div class="card-desc">Granitt og is. Stramt, kjølig, luft mellom toppene.</div></div>
+      <div class="mock" style="background:#14181D;">
+        <p class="mock-eyebrow" style="color:#BFE3F0;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#EEF1F4;">Sparring som gjør bedriften <em style="color:#BFE3F0;">bedre</em></p>
+        <span class="mock-btn" style="background:#BFE3F0; color:#0E1F26;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#14181D;"></div><div class="sw" style="background:#1E242B;"></div><div class="sw" style="background:#EEF1F4;"></div><div class="sw" style="background:#6B7887;"></div><div class="sw" style="background:#BFE3F0;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Vår</div><div class="card-desc">Snøsmelting og bjørkeknopper. Den letteste og friskeste av alle ti.</div></div>
+      <div class="mock" style="background:#171A10;">
+        <p class="mock-eyebrow" style="color:#F2D465;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F2F1E4;">Sparring som gjør bedriften <em style="color:#F2D465;">bedre</em></p>
+        <span class="mock-btn" style="background:#F2D465; color:#211C05;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#171A10;"></div><div class="sw" style="background:#232712;"></div><div class="sw" style="background:#F2F1E4;"></div><div class="sw" style="background:#93A05A;"></div><div class="sw" style="background:#F2D465;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Høst</div><div class="card-desc">Bark og rognebær. Varm, moden, litt rustik.</div></div>
+      <div class="mock" style="background:#1C1108;">
+        <p class="mock-eyebrow" style="color:#E0632E;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F5E9DA;">Sparring som gjør bedriften <em style="color:#E0632E;">bedre</em></p>
+        <span class="mock-btn" style="background:#E0632E; color:#2A0F04;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#1C1108;"></div><div class="sw" style="background:#2B1B0D;"></div><div class="sw" style="background:#F5E9DA;"></div><div class="sw" style="background:#8A5A34;"></div><div class="sw" style="background:#E0632E;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Vinter</div><div class="card-desc">Mørketid, ikke snø. Dyp polarnatt-indigo med et glimt av frost.</div></div>
+      <div class="mock" style="background:#0C1220;">
+        <p class="mock-eyebrow" style="color:#9FD8E8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#EBEFF7;">Sparring som gjør bedriften <em style="color:#9FD8E8;">bedre</em></p>
+        <span class="mock-btn" style="background:#9FD8E8; color:#0B222B;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0C1220;"></div><div class="sw" style="background:#161F35;"></div><div class="sw" style="background:#EBEFF7;"></div><div class="sw" style="background:#435377;"></div><div class="sw" style="background:#9FD8E8;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Sommer</div><div class="card-desc">Midnattsol. Himmelen blir aldri helt mørk, kun dus og gyllen.</div></div>
+      <div class="mock" style="background:#1B1730;">
+        <p class="mock-eyebrow" style="color:#F5B942;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F5EFE6;">Sparring som gjør bedriften <em style="color:#F5B942;">bedre</em></p>
+        <span class="mock-btn" style="background:#F5B942; color:#241B04;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#1B1730;"></div><div class="sw" style="background:#281F42;"></div><div class="sw" style="background:#F5EFE6;"></div><div class="sw" style="background:#7A6FA0;"></div><div class="sw" style="background:#F5B942;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Arktisk</div><div class="card-desc">Den kaldeste av alle. Energifargen er nesten hvit, som lys reflektert i is.</div></div>
+      <div class="mock" style="background:#0A0E14;">
+        <p class="mock-eyebrow" style="color:#D5F0F5;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F0F5F8;">Sparring som gjør bedriften <em style="color:#D5F0F5;">bedre</em></p>
+        <span class="mock-btn" style="background:#D5F0F5; color:#0E2429;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0A0E14;"></div><div class="sw" style="background:#131A24;"></div><div class="sw" style="background:#F0F5F8;"></div><div class="sw" style="background:#4A6478;"></div><div class="sw" style="background:#D5F0F5;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Fire farger</div><div class="card-desc">Inspirert av den samiske firefargetradisjonen (blå, rød, gul, grønn), dempet ned for en nettside. Ikke en gjengivelse av gákti eller duodji, en fjern referanse.</div></div>
+      <div class="mock" style="background:#171313;">
+        <p class="mock-eyebrow" style="color:#C23B3B;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F2ECE8;">Sparring som gjør bedriften <em style="color:#C23B3B;">bedre</em></p>
+        <span class="mock-btn" style="background:#3E6FA8; color:#F2ECE8;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#171313;"></div><div class="sw" style="background:#221C1B;"></div><div class="sw" style="background:#F2ECE8;"></div><div class="sw" style="background:#3E6FA8;"></div><div class="sw" style="background:#C23B3B;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro (blå)</span><span>Energi (rød)</span></div>
+      <div style="display:flex; align-items:center; gap:0.5rem; padding: 0.75rem 1.4rem 1.1rem; font-size: 0.72rem; color: var(--shell-faint);">
+        <span>Ekstra, brukt sparsomt:</span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#D9A83E;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#4A7A4F;display:inline-block;"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Kyst</div><div class="card-desc">Basalt og rust. Fjæresteinene og en gammel molje, hentet fra utsikten på Borkenes.</div></div>
+      <div class="mock" style="background:#14161A;">
+        <p class="mock-eyebrow" style="color:#C4622E;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#EDEEEA;">Sparring som gjør bedriften <em style="color:#C4622E;">bedre</em></p>
+        <span class="mock-btn" style="background:#C4622E; color:#210D02;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#14161A;"></div><div class="sw" style="background:#1E2126;"></div><div class="sw" style="background:#EDEEEA;"></div><div class="sw" style="background:#5A6B6A;"></div><div class="sw" style="background:#C4622E;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+  </div>
+
+  <div class="closing">
+    <p class="fine" style="margin-top:-2rem; margin-bottom: 2.5rem;">
+      Disse ti er mer stedbundne enn de ti over, forankret i årstid eller landskap i stedet
+      for en generell stemning. Kyst ligger nærmest der du faktisk bor og jobber, et
+      naturlig sted å starte om du vil begrense deg til én.
+    </p>
+  </div>
+
+  <div style="padding-top: 0.5rem; border-top: 1px solid var(--shell-line);">
+    <div style="padding-top: 2.5rem;">
+      <p class="eyebrow">Tech × natur × zen</p>
+      <h1 style="font-size: clamp(1.5rem, 3.5vw, 1.9rem);">Fem til, moderne roet ned</h1>
+      <p class="sub" style="margin-bottom: 0;">
+        Kald, digital presisjon møter stein, mose og pust. Disse låner litt fra
+        skjermspråket til moderne apper og verktøy, men beholder roen fra naturpalettene
+        over.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Zen Terminal</div><div class="card-desc">Grafitt som en mørk kodeeditor, matcha-grønn i stedet for terminal-grønt.</div></div>
+      <div class="mock" style="background:#0D0F0E;">
+        <p class="mock-eyebrow" style="color:#7ED9A0;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#E8ECE9;">Sparring som gjør bedriften <em style="color:#7ED9A0;">bedre</em></p>
+        <span class="mock-btn" style="background:#7ED9A0; color:#0A1F14;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0D0F0E;"></div><div class="sw" style="background:#161917;"></div><div class="sw" style="background:#E8ECE9;"></div><div class="sw" style="background:#4A5C4E;"></div><div class="sw" style="background:#7ED9A0;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Bio-glass</div><div class="card-desc">Kjølig, glassaktig blå-cyan glød mot varm sand. Moderne app-følelse, jordet av steinen.</div></div>
+      <div class="mock" style="background:#0B1014;">
+        <p class="mock-eyebrow" style="color:#5ED4E8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#EAF2F5;">Sparring som gjør bedriften <em style="color:#5ED4E8;">bedre</em></p>
+        <span class="mock-btn" style="background:#5ED4E8; color:#08262B;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0B1014;"></div><div class="sw" style="background:#141B21;"></div><div class="sw" style="background:#EAF2F5;"></div><div class="sw" style="background:#C9BFA8;"></div><div class="sw" style="background:#5ED4E8;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Steingrunn</div><div class="card-desc">Grus i en zen-hage som base, en kretskort-grønn glød som eneste moderne innslag.</div></div>
+      <div class="mock" style="background:#171613;">
+        <p class="mock-eyebrow" style="color:#5CE0B8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#EDEBE5;">Sparring som gjør bedriften <em style="color:#5CE0B8;">bedre</em></p>
+        <span class="mock-btn" style="background:#5CE0B8; color:#0A2019;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#171613;"></div><div class="sw" style="background:#211F1B;"></div><div class="sw" style="background:#EDEBE5;"></div><div class="sw" style="background:#8C8A80;"></div><div class="sw" style="background:#5CE0B8;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Skog.io</div><div class="card-desc">Dyp furuskog som base, et skarpt digitalt indigo som eneste moderne detalj.</div></div>
+      <div class="mock" style="background:#0E1712;">
+        <p class="mock-eyebrow" style="color:#5B7FFF;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#E9F0EA;">Sparring som gjør bedriften <em style="color:#5B7FFF;">bedre</em></p>
+        <span class="mock-btn" style="background:#5B7FFF; color:#0A0F26;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0E1712;"></div><div class="sw" style="background:#17241C;"></div><div class="sw" style="background:#E9F0EA;"></div><div class="sw" style="background:#4F7A63;"></div><div class="sw" style="background:#5B7FFF;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Digital detox</div><div class="card-desc">Varm, myk, nesten uten kontrast. En meditasjonsapp om kvelden, lavendel som eneste glimt.</div></div>
+      <div class="mock" style="background:#15130F;">
+        <p class="mock-eyebrow" style="color:#B79AE8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F0EAE0;">Sparring som gjør bedriften <em style="color:#B79AE8;">bedre</em></p>
+        <span class="mock-btn" style="background:#B79AE8; color:#1D1330;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#15130F;"></div><div class="sw" style="background:#1E1B16;"></div><div class="sw" style="background:#F0EAE0;"></div><div class="sw" style="background:#A69C8D;"></div><div class="sw" style="background:#B79AE8;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+  </div>
+
+  <div class="closing">
+    <p class="fine">
+      Disse fem er de som ligger nærmest det man ser i moderne verktøy og apper om dagen,
+      verdt å vurdere om du vil at siden skal signalisere «oppdatert og digital» like mye
+      som «rolig og menneskelig».
+    </p>
+  </div>
+</div>

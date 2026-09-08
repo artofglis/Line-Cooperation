@@ -1,0 +1,289 @@
+<title>To retninger: Line Cooperation</title>
+<style>
+  :root{
+    /* neutral presentation shell — doesn't compete with either concept */
+    --shell-bg:#15171B;
+    --shell-surface:#1C1F24;
+    --shell-ink:#EDEEF0;
+    --shell-soft:#9498A2;
+    --shell-faint:#5E626C;
+    --shell-line:rgba(237,238,240,0.10);
+
+    /* concept A — Espresso */
+    --a-bg:#171310;
+    --a-surface:#221B16;
+    --a-ink:#F3EDE6;
+    --a-soft:#B4A69A;
+    --a-faint:#8A7C70;
+    --a-calm:#87A69B;
+    --a-calm-strong:#A9C4BA;
+    --a-energy:#DE8A46;
+    --a-energy-strong:#F0A868;
+    --a-line:rgba(243,237,230,0.11);
+
+    /* concept B — Fjord */
+    --b-bg:#12151C;
+    --b-surface:#1B2029;
+    --b-ink:#EDEFF3;
+    --b-soft:#8D95A6;
+    --b-faint:#5C6473;
+    --b-calm:#5B8AA6;
+    --b-calm-strong:#86B2CC;
+    --b-energy:#E15B4F;
+    --b-energy-strong:#F0806F;
+    --b-line:rgba(237,239,243,0.10);
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    background: var(--shell-bg);
+    color: var(--shell-ink);
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 0 6rem;
+  }
+  .wrap{ max-width: 1040px; margin: 0 auto; padding: 0 1.75rem; }
+  p{ margin: 0 0 1rem; max-width: 68ch; }
+  p:last-child{ margin-bottom: 0; }
+
+  .cover{ padding: 5rem 0 3.5rem; border-bottom: 1px solid var(--shell-line); }
+  .eyebrow{ font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--shell-soft); margin: 0 0 1rem; }
+  h1{ font-family: "DM Sans", sans-serif; font-weight: 700; font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height: 1.14; letter-spacing: -0.01em; margin: 0 0 1rem; text-wrap: balance; }
+  .cover .sub{ color: var(--shell-soft); max-width: 58ch; font-size: 1.02rem; }
+
+  section{ padding: 3.75rem 0; border-bottom: 1px solid var(--shell-line); }
+  section:last-of-type{ border-bottom: none; }
+  h2{ font-family:"DM Sans",sans-serif; font-weight: 700; font-size: 1.4rem; margin: 0 0 0.4rem; }
+  .section-lead{ color: var(--shell-soft); margin: 0 0 2rem; max-width: 62ch; }
+
+  .versus{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 760px){ .versus{ grid-template-columns: 1fr; } }
+
+  .concept-col{ border-radius: 20px; overflow: hidden; border: 1px solid var(--shell-line); }
+  .concept-head{
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 1.1rem 1.4rem;
+    font-weight: 700; font-size: 1.05rem;
+  }
+  .concept-head .tag-letter{
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;
+  }
+  .concept-a .concept-head{ background: var(--a-surface); color: var(--a-ink); }
+  .concept-a .concept-head .tag-letter{ background: rgba(222,138,70,0.16); color: var(--a-energy-strong); }
+  .concept-b .concept-head{ background: var(--b-surface); color: var(--b-ink); }
+  .concept-b .concept-head .tag-letter{ background: rgba(225,91,79,0.16); color: var(--b-energy-strong); }
+
+  .concept-body{ padding: 1.5rem; }
+  .concept-a .concept-body{ background: var(--a-bg); }
+  .concept-b .concept-body{ background: var(--b-bg); }
+
+  /* palette swatches */
+  .swrow{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.7rem; margin-bottom: 0.7rem; }
+  .sw{ border-radius: 10px; overflow: hidden; }
+  .sw-fill{ height: 46px; }
+  .sw-label{ font-size: 0.72rem; padding: 0.45rem 0.6rem; font-family: ui-monospace, monospace; }
+  .concept-a .sw-label{ background: var(--a-surface); color: var(--a-soft); }
+  .concept-b .sw-label{ background: var(--b-surface); color: var(--b-soft); }
+
+  /* typography preview */
+  .type-a-display{ font-family: "Newsreader", Georgia, serif; font-size: 1.9rem; color: var(--a-ink); line-height: 1.18; margin-bottom: 0.5rem; }
+  .type-a-italic{ font-family: "Newsreader", Georgia, serif; font-style: italic; font-weight: 500; color: var(--a-energy-strong); font-size: 1.3rem; margin-bottom: 0.7rem; }
+  .type-a-body{ font-family: "Karla", sans-serif; color: var(--a-soft); font-size: 0.95rem; }
+  .type-a-meta{ font-family: "Karla", sans-serif; color: var(--a-faint); font-size: 0.78rem; margin-top: 0.85rem; }
+
+  .type-b-display{ font-family: "Spectral", Georgia, serif; font-weight: 600; font-size: 1.9rem; color: var(--b-ink); line-height: 1.18; margin-bottom: 0.5rem; }
+  .type-b-italic{ font-family: "Spectral", Georgia, serif; font-style: italic; font-weight: 500; color: var(--b-energy-strong); font-size: 1.3rem; margin-bottom: 0.7rem; }
+  .type-b-body{ font-family: "Manrope", sans-serif; color: var(--b-soft); font-size: 0.95rem; }
+  .type-b-meta{ font-family: "Manrope", sans-serif; color: var(--b-faint); font-size: 0.78rem; margin-top: 0.85rem; }
+
+  /* ui language */
+  .btn{ display: inline-flex; align-items: center; font-weight: 700; font-size: 0.86rem; padding: 0.62rem 1.15rem; border: none; cursor: default; }
+  .a-btn-primary{ font-family:"Karla",sans-serif; background: var(--a-energy); color: #1A1109; border-radius: 999px; }
+  .a-btn-ghost{ font-family:"Karla",sans-serif; background: transparent; color: var(--a-ink); border: 1px solid var(--a-line); border-radius: 999px; margin-left: 0.6rem; }
+  .a-tag{ display:inline-block; font-family:"Karla",sans-serif; font-size:0.68rem; letter-spacing:0.05em; text-transform:uppercase; font-weight:700; padding:0.22rem 0.6rem; border-radius:999px; background: rgba(135,166,155,0.16); color: var(--a-calm-strong); margin-top: 0.9rem; }
+
+  .b-btn-primary{ font-family:"Manrope",sans-serif; background: var(--b-energy); color: #17090A; border-radius: 6px; }
+  .b-btn-ghost{ font-family:"Manrope",sans-serif; background: transparent; color: var(--b-ink); border: 1px solid var(--b-line); border-radius: 6px; margin-left: 0.6rem; }
+  .b-tag{ display:inline-block; font-family:"Manrope",sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:0.05em; text-transform:uppercase; padding:0.22rem 0.55rem; border-radius:4px; background: rgba(91,138,166,0.18); color: var(--b-calm-strong); margin-top: 0.9rem; border-left: 2px solid var(--b-calm); }
+
+  /* hero mockups */
+  .mock-a{
+    position: relative; padding: 2.75rem 2rem; min-height: 300px;
+    background:
+      radial-gradient(60% 60% at 82% 10%, rgba(222,138,70,0.22), transparent 60%),
+      radial-gradient(45% 45% at 5% 100%, rgba(135,166,155,0.16), transparent 60%),
+      linear-gradient(180deg, #1B1611, #12100D);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .mock-a .mock-eyebrow{ font-family:"Karla",sans-serif; color: var(--a-energy-strong); font-size: 0.7rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.8rem; }
+  .mock-a .mock-h{ font-family:"Newsreader", Georgia, serif; font-size: 1.85rem; line-height: 1.14; color: var(--a-ink); max-width: 15ch; margin-bottom: 0.75rem; }
+  .mock-a .mock-h em{ color: var(--a-energy-strong); font-style: italic; }
+  .mock-a .mock-sub{ font-family:"Karla",sans-serif; color: var(--a-soft); font-size: 0.9rem; max-width: 34ch; margin-bottom: 1.4rem; }
+
+  .mock-b{
+    position: relative; padding: 2.75rem 2rem; min-height: 300px;
+    background:
+      repeating-linear-gradient(90deg, rgba(237,239,243,0.035) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(0deg, rgba(237,239,243,0.035) 0 1px, transparent 1px 64px),
+      linear-gradient(180deg, #171B23, #10131A);
+    display: flex; flex-direction: column; justify-content: center;
+    border-left: 3px solid var(--b-energy);
+  }
+  .mock-b .mock-eyebrow{ font-family:"Manrope",sans-serif; font-weight: 700; color: var(--b-energy-strong); font-size: 0.7rem; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 0.8rem; }
+  .mock-b .mock-h{ font-family:"Spectral", Georgia, serif; font-weight: 600; font-size: 1.85rem; line-height: 1.14; color: var(--b-ink); max-width: 15ch; margin-bottom: 0.75rem; }
+  .mock-b .mock-h em{ color: var(--b-energy-strong); font-style: italic; font-weight: 500; }
+  .mock-b .mock-sub{ font-family:"Manrope",sans-serif; color: var(--b-soft); font-size: 0.9rem; max-width: 34ch; margin-bottom: 1.4rem; }
+
+  .concept-desc{ font-size: 0.9rem; color: var(--shell-soft); padding: 1rem 1.4rem 0; }
+
+  .fine{ color: var(--shell-faint); font-size: 0.85rem; }
+  .closing{ padding: 3.75rem 0 1rem; }
+  .closing a{ color: var(--shell-ink); }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<div class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Line Cooperation — to designretninger</p>
+    <h1>Espresso eller Fjord?</h1>
+    <p class="sub">
+      Samme sidestruktur og innhold som forrige moodboard, men to ulike stemninger å velge
+      mellom. Espresso er den varme, organiske retningen fra første forslag. Fjord er en
+      roligere, mer strukturert kontrast, fortsatt mørk og profesjonell, men strammere og
+      kjøligere i uttrykket. Si fra hvilken som treffer best, eller om du vil blande.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <p class="eyebrow" style="margin-bottom:0.5rem;">Farger</p>
+    <h2>Varm og organisk, eller kjølig og streng</h2>
+    <p class="section-lead">Samme prinsipp, én rolig og én energisk aksentfarge på mørk bunn, men helt ulik temperatur.</p>
+    <div class="versus">
+      <div class="concept-col concept-a">
+        <div class="concept-head">Espresso <span class="tag-letter">A</span></div>
+        <div class="concept-body">
+          <div class="swrow">
+            <div class="sw"><div class="sw-fill" style="background:#171310;"></div><div class="sw-label">Bunn · #171310</div></div>
+            <div class="sw"><div class="sw-fill" style="background:#221B16;"></div><div class="sw-label">Flate · #221B16</div></div>
+          </div>
+          <div class="swrow">
+            <div class="sw"><div class="sw-fill" style="background:#87A69B;"></div><div class="sw-label">Ro · #87A69B</div></div>
+            <div class="sw"><div class="sw-fill" style="background:#DE8A46;"></div><div class="sw-label">Energi · #DE8A46</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="concept-col concept-b">
+        <div class="concept-head">Fjord <span class="tag-letter">B</span></div>
+        <div class="concept-body">
+          <div class="swrow">
+            <div class="sw"><div class="sw-fill" style="background:#12151C;"></div><div class="sw-label">Bunn · #12151C</div></div>
+            <div class="sw"><div class="sw-fill" style="background:#1B2029;"></div><div class="sw-label">Flate · #1B2029</div></div>
+          </div>
+          <div class="swrow">
+            <div class="sw"><div class="sw-fill" style="background:#5B8AA6;"></div><div class="sw-label">Ro · #5B8AA6</div></div>
+            <div class="sw"><div class="sw-fill" style="background:#E15B4F;"></div><div class="sw-label">Energi · #E15B4F</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow" style="margin-bottom:0.5rem;">Typografi</p>
+    <h2>Tekstbok-serif, eller skarpere avis-serif</h2>
+    <p class="section-lead">Begge er seriøse og lesbare, men Fjord har litt mer kant og kontrast i bokstavformene.</p>
+    <div class="versus">
+      <div class="concept-col concept-a">
+        <div class="concept-head">Espresso <span class="tag-letter">A</span></div>
+        <div class="concept-body">
+          <p class="type-a-display">Sparring som flytter noe</p>
+          <p class="type-a-italic">for HR og kultur</p>
+          <p class="type-a-body">Newsreader + Karla. Rundt, varmt, tekstboklig.</p>
+        </div>
+      </div>
+      <div class="concept-col concept-b">
+        <div class="concept-head">Fjord <span class="tag-letter">B</span></div>
+        <div class="concept-body">
+          <p class="type-b-display">Sparring som flytter noe</p>
+          <p class="type-b-italic">for HR og kultur</p>
+          <p class="type-b-body">Spectral + Manrope. Skarpere, mer redaksjonelt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow" style="margin-bottom:0.5rem;">Uttrykk</p>
+    <h2>Myke runde former, eller faste rette linjer</h2>
+    <p class="section-lead">Espresso bruker piller og glød. Fjord bruker rette kanter, tynne linjer og en fast aksentstrek.</p>
+    <div class="versus">
+      <div class="concept-col concept-a">
+        <div class="concept-head">Espresso <span class="tag-letter">A</span></div>
+        <div class="concept-body">
+          <button class="btn a-btn-primary">Ta kontakt</button>
+          <button class="btn a-btn-ghost">Se tjenester</button>
+          <div><span class="a-tag">Sparring</span></div>
+        </div>
+      </div>
+      <div class="concept-col concept-b">
+        <div class="concept-head">Fjord <span class="tag-letter">B</span></div>
+        <div class="concept-body">
+          <button class="btn b-btn-primary">Ta kontakt</button>
+          <button class="btn b-btn-ghost">Se tjenester</button>
+          <div><span class="b-tag">Sparring</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:none;">
+    <p class="eyebrow" style="margin-bottom:0.5rem;">Forsiden, i praksis</p>
+    <h2>Glødende varme, eller stram presisjon</h2>
+    <p class="section-lead">Samme budskap, to helt ulike rom å si det i.</p>
+    <div class="versus">
+      <div class="concept-col concept-a">
+        <div class="concept-head">Espresso <span class="tag-letter">A</span></div>
+        <div class="mock-a">
+          <p class="mock-eyebrow">Bedriftsrådgivning</p>
+          <p class="mock-h">Sparring som gjør bedriften <em>bedre å jobbe i</em></p>
+          <p class="mock-sub">Kurs og rådgivning på HR, utvikling og kultur.</p>
+          <button class="btn a-btn-primary">Ta kontakt</button>
+          <button class="btn a-btn-ghost">Se tjenester</button>
+        </div>
+        <p class="concept-desc">Varmt lys, mykt, invitrende, som referansebildet med kaffekoppen.</p>
+      </div>
+      <div class="concept-col concept-b">
+        <div class="concept-head">Fjord <span class="tag-letter">B</span></div>
+        <div class="mock-b">
+          <p class="mock-eyebrow">Bedriftsrådgivning</p>
+          <p class="mock-h">Sparring som gjør bedriften <em>bedre å jobbe i</em></p>
+          <p class="mock-sub">Kurs og rådgivning på HR, utvikling og kultur.</p>
+          <button class="btn b-btn-primary">Ta kontakt</button>
+          <button class="btn b-btn-ghost">Se tjenester</button>
+        </div>
+        <p class="concept-desc">Rolig, ryddig, litt kjøligere, som et godt gjennomtenkt møterom.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="closing">
+    <p class="fine">
+      Sidestrukturen (Forside, Om, Tjenester, Kontakt) er identisk i begge retninger, se
+      forrige moodboard for seksjonsoppdelingen. Dette dokumentet handler kun om stemning
+      og stil. Vi kan også lande et sted mellom de to, ta det du liker fra begge.
+    </p>
+  </div>
+
+</div>
