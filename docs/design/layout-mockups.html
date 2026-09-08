@@ -47,6 +47,18 @@
   .fine{ color: var(--shell-faint); font-size: 0.85rem; }
   .closing{ padding: 3.5rem 0 1rem; }
 
+  /* shared illustrated "photo" scenes */
+  .scene{ width: 100%; height: 100%; display: block; }
+  .steam{ transform-origin: center bottom; animation: steamDrift 4s ease-in-out infinite; }
+  .steam.s2{ animation-delay: 0.6s; }
+  @keyframes steamDrift{
+    0%{ opacity: 0.15; transform: translateY(4px) scaleY(0.9); }
+    50%{ opacity: 0.55; transform: translateY(-6px) scaleY(1.05); }
+    100%{ opacity: 0.15; transform: translateY(4px) scaleY(0.9); }
+  }
+  .sun-glow{ animation: sunPulse 6s ease-in-out infinite; }
+  @keyframes sunPulse{ 0%,100%{ opacity: 0.75; } 50%{ opacity: 1; } }
+
   /* ========================================================= */
   /* Layout 1 — Klassisk enkelside (Espresso)                  */
   /* ========================================================= */
@@ -64,6 +76,7 @@
   .L1-hr{ height:1px; background: rgba(243,237,230,0.1); margin: 0 2.5rem; }
   .L1-about{ text-align:center; padding: 2.75rem 2.5rem; max-width:46ch; margin:0 auto; }
   .L1-about p{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.92rem; margin: 0 auto; }
+  .L1-avatar{ width: 56px; height: 56px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; display: block; }
   .L1-services{ display:flex; gap:1.25rem; justify-content:center; padding: 0 2.5rem 2.75rem; flex-wrap: wrap; }
   .L1-card{ background: var(--surface); border:1px solid rgba(243,237,230,0.1); border-radius:14px; padding:1.1rem 1.3rem; width: 210px; }
   .L1-card b{ font-family:"Karla",sans-serif; color: var(--ink); font-size:0.92rem; display:block; margin-bottom:0.3rem; }
@@ -93,8 +106,9 @@
   .L2-tile-desc{ font-family:"Manrope",sans-serif; color: var(--soft); font-size:0.76rem; }
   .L2-tile-quote{ grid-column: span 2; display:flex; align-items:center; }
   .L2-tile-quote p{ font-family:"Manrope",sans-serif; font-style:italic; color: var(--ink); font-size:0.82rem; margin:0; }
-  .L2-tile-img{ grid-row: span 2; background: linear-gradient(155deg, #1B3A42, #0B1014 75%); display:flex; align-items:flex-end; }
-  .L2-tile-img span{ font-family:"Manrope",sans-serif; font-size:0.66rem; color: rgba(234,242,245,0.4); background: rgba(0,0,0,0.25); padding:0.2rem 0.5rem; border-radius:6px; margin: 0.6rem; }
+  .L2-tile-img{ grid-row: span 2; padding: 0; display:flex; align-items:flex-end; }
+  .L2-tile-img .scene{ position:absolute; inset:0; }
+  .L2-tile-img span{ position:relative; font-family:"Manrope",sans-serif; font-size:0.64rem; color: rgba(234,242,245,0.55); background: rgba(0,0,0,0.3); padding:0.2rem 0.5rem; border-radius:6px; margin: 0.6rem; }
 
   /* ========================================================= */
   /* Layout 3 — Asymmetrisk/redaksjonell (Lyng)                 */
@@ -102,8 +116,9 @@
   .L3{ --bg:#1A141A; --surface:#251C25; --ink:#F1E9EC; --soft:#B3A0AC; --ro:#8FA391; --en:#C77DA0; --onen:#1C0F17; }
   .L3-nav{ padding: 1.4rem 2rem 0; font-family:"Karla",sans-serif; font-weight:700; font-size:0.85rem; }
   .L3-hero{ position:relative; padding: 2.5rem 2rem 1.5rem; }
-  .L3-imgblock{ position:absolute; top: 2.5rem; right: 1.5rem; width: 42%; aspect-ratio: 3/4; border-radius: 4px; background: linear-gradient(150deg, #3E2A38, #1A141A 80%); }
-  .L3-imgblock span{ position:absolute; bottom:0.6rem; left:0.6rem; font-family:"Karla",sans-serif; font-size:0.64rem; color: rgba(241,233,236,0.4); }
+  .L3-imgblock{ position:absolute; top: 2.5rem; right: 1.5rem; width: 42%; aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; }
+  .L3-imgblock .scene{ position:absolute; inset:0; }
+  .L3-imgblock span{ position:absolute; bottom:0.6rem; left:0.6rem; font-family:"Karla",sans-serif; font-size:0.64rem; color: rgba(241,233,236,0.55); background: rgba(0,0,0,0.3); padding:0.15rem 0.5rem; border-radius:6px; }
   .L3-eyebrow{ font-family:"Karla",sans-serif; color: var(--en); font-size:0.7rem; letter-spacing:0.13em; text-transform:uppercase; font-weight:700; margin-bottom:0.6rem; }
   .L3-h{ font-family:"Newsreader",Georgia,serif; font-size:2.6rem; line-height:1.05; max-width: 9ch; margin: 0 0 1rem; position:relative; z-index:1; }
   .L3-h .word{ display:inline-block; }
@@ -121,7 +136,8 @@
   /* ========================================================= */
   .L4{ --bg:#0B1A22; --surface:#12262F; --ink:#E8F1F0; --soft:#CFE3E1; --ro:#4F8C8A; --en:#7FE0C8; --onen:#08211C; }
   .L4-panel{ position:relative; min-height: 340px; display:flex; align-items:flex-end; overflow:hidden; }
-  .L4-panel .L4-photo{ position:absolute; inset:0; background: radial-gradient(120% 90% at 70% 20%, #1E4A52, #0B1A22 70%); animation: kenburns 12s ease-in-out infinite alternate; }
+  .L4-panel .L4-photo{ position:absolute; inset:0; animation: kenburns 12s ease-in-out infinite alternate; }
+  .L4-scene-label{ position:absolute; bottom:0.75rem; right:0.9rem; font-family:"Karla",sans-serif; font-size:0.66rem; color: rgba(232,241,240,0.55); background: rgba(0,0,0,0.3); padding:0.15rem 0.5rem; border-radius:6px; z-index:1; }
   @keyframes kenburns{ from{ transform: scale(1); } to{ transform: scale(1.07); } }
   .L4-panel .L4-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(11,26,34,0.92), transparent 55%); }
   .L4-panel .L4-nav{ position:absolute; top:1.4rem; left:2rem; right:2rem; display:flex; justify-content:space-between; font-family:"Newsreader",Georgia,serif; font-style:italic; z-index:2; }
@@ -131,7 +147,6 @@
   .L4-h{ font-family:"Newsreader",Georgia,serif; font-size:1.9rem; max-width:16ch; margin: 0 0 0.75rem; color: var(--ink); }
   .L4-sub{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.9rem; max-width:34ch; margin-bottom:1.25rem; }
   .L4-btn{ font-family:"Karla",sans-serif; font-weight:700; font-size:0.84rem; border:none; border-radius:999px; padding:0.6rem 1.15rem; background: var(--en); color: var(--onen); }
-  .L4-panel2{ background: radial-gradient(110% 100% at 20% 80%, #234A3F, #0B1A22 70%); }
   .L4-quote{ text-align:center; padding: 3rem 2.5rem; }
   .L4-quote q{ font-family:"Newsreader",Georgia,serif; font-style:italic; font-size:1.35rem; color: var(--ink); display:block; max-width:28ch; margin: 0 auto; }
   .L4-contact{ background: var(--surface); text-align:center; padding: 1.75rem; font-family:"Karla",sans-serif; color: var(--soft); font-size:0.88rem; }
@@ -188,7 +203,14 @@
           <button class="L1-btn">Ta kontakt</button><button class="L1-btn-ghost">Se tjenester</button>
         </div>
         <div class="L1-hr"></div>
-        <div class="L1-about reveal"><p>Line Cooperation er sparringspartneren som gjør vanskelige samtaler litt lettere, og gode kulturer litt sterkere.</p></div>
+        <div class="L1-about reveal">
+          <svg class="L1-avatar" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="40" fill="var(--surface)"></circle>
+            <circle cx="40" cy="33" r="15" fill="var(--en)" opacity="0.5"></circle>
+            <path d="M12,80 Q12,55 40,55 Q68,55 68,80 Z" fill="var(--en)" opacity="0.35"></path>
+          </svg>
+          <p>Line Cooperation er sparringspartneren som gjør vanskelige samtaler litt lettere, og gode kulturer litt sterkere.</p>
+        </div>
         <div class="L1-services">
           <div class="L1-card reveal"><b>Kurs</b><span>Tilpasset den enkelte bedrift.</span></div>
           <div class="L1-card reveal"><b>Sparring</b><span>Rådgivning på HR, utvikling og kultur.</span></div>
@@ -214,7 +236,17 @@
           </div>
           <div class="L2-tile reveal"><div class="L2-tile-title">Kurs</div><div class="L2-tile-desc">Tilpasset den enkelte bedrift.</div></div>
           <div class="L2-tile reveal"><div class="L2-tile-title">Sparring</div><div class="L2-tile-desc">HR, utvikling og kultur.</div></div>
-          <div class="L2-tile L2-tile-img reveal"><span>Bilde</span></div>
+          <div class="L2-tile L2-tile-img reveal">
+            <svg class="scene" viewBox="0 0 300 200" preserveAspectRatio="xMidYMax slice">
+              <rect width="300" height="200" fill="var(--surface)"></rect>
+              <circle class="sun-glow" cx="232" cy="46" r="16" fill="var(--en)"></circle>
+              <polygon points="0,138 55,72 118,138" fill="var(--ro)" opacity="0.55"></polygon>
+              <polygon points="95,150 168,58 248,150" fill="var(--ro)" opacity="0.8"></polygon>
+              <polygon points="178,158 258,86 300,158" fill="var(--en)" opacity="0.35"></polygon>
+              <rect y="150" width="300" height="50" fill="var(--bg)" opacity="0.7"></rect>
+            </svg>
+            <span>Fjell, eksempelbilde</span>
+          </div>
           <div class="L2-tile L2-tile-quote reveal"><p>«Trygg nok til å ta de vanskelige samtalene selv.»</p></div>
           <div class="L2-tile reveal"><div class="L2-tile-title">Kontakt</div><div class="L2-tile-desc">98 47 19 74</div></div>
         </div>
@@ -230,7 +262,14 @@
       <div class="scrollbox L3" id="box3" style="background: var(--bg); color: var(--ink);">
         <div class="L3-nav">Line Cooperation</div>
         <div class="L3-hero">
-          <div class="L3-imgblock reveal"><span>Bilde</span></div>
+          <div class="L3-imgblock reveal">
+            <svg class="scene" viewBox="0 0 200 240" preserveAspectRatio="xMidYMax slice">
+              <rect width="200" height="240" fill="var(--surface)"></rect>
+              <ellipse cx="100" cy="88" rx="40" ry="46" fill="var(--en)" opacity="0.5"></ellipse>
+              <path d="M38,240 Q38,150 100,150 Q162,150 162,240 Z" fill="var(--en)" opacity="0.35"></path>
+            </svg>
+            <span>Portrett, eksempelbilde</span>
+          </div>
           <p class="L3-eyebrow reveal">Bedriftsrådgivning</p>
           <h3 class="L3-h reveal">Bedre å jobbe i.</h3>
           <p class="L3-sub reveal">Kurs og sparring på HR, utvikling og kultur.</p>
@@ -253,7 +292,19 @@
       <div class="chrome"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-url">linecooperation.no</span><span class="chrome-hint">scroll i boksen for mer ↓</span></div>
       <div class="scrollbox L4" id="box4" style="background: var(--bg); color: var(--ink);">
         <div class="L4-panel">
-          <div class="L4-photo"></div><div class="L4-scrim"></div>
+          <div class="L4-photo">
+            <svg class="scene" viewBox="0 0 800 300" preserveAspectRatio="xMidYMax slice">
+              <rect width="800" height="300" fill="var(--bg)"></rect>
+              <rect y="230" width="800" height="70" fill="var(--surface)"></rect>
+              <ellipse cx="400" cy="234" rx="70" ry="9" fill="var(--surface)"></ellipse>
+              <path d="M350,150 Q350,215 400,215 Q450,215 450,150 Z" fill="var(--ro)"></path>
+              <ellipse cx="400" cy="150" rx="50" ry="11" fill="var(--en)" opacity="0.5"></ellipse>
+              <path d="M447,163 Q478,163 478,185 Q478,207 447,203" fill="none" stroke="var(--ro)" stroke-width="8"></path>
+              <path class="steam s1" d="M382,135 Q374,112 385,92 Q396,72 385,52" fill="none" stroke="var(--en)" stroke-width="3" stroke-linecap="round"></path>
+              <path class="steam s2" d="M412,135 Q420,112 409,92 Q398,72 409,52" fill="none" stroke="var(--en)" stroke-width="3" stroke-linecap="round"></path>
+            </svg>
+            <span class="L4-scene-label">Kaffekopp, eksempelbilde</span>
+          </div><div class="L4-scrim"></div>
           <div class="L4-nav"><span>Line Cooperation</span><span><a href="#">Om</a><a href="#">Kontakt</a></span></div>
           <div class="L4-content reveal">
             <p class="L4-eyebrow">Bedriftsrådgivning</p>
@@ -263,6 +314,17 @@
           </div>
         </div>
         <div class="L4-panel L4-panel2">
+          <div class="L4-photo">
+            <svg class="scene" viewBox="0 0 400 260" preserveAspectRatio="xMidYMax slice">
+              <rect width="400" height="260" fill="var(--bg)"></rect>
+              <circle class="sun-glow" cx="320" cy="60" r="22" fill="var(--en)" opacity="0.7"></circle>
+              <polygon points="0,190 90,90 170,190" fill="var(--ro)" opacity="0.45"></polygon>
+              <polygon points="130,205 230,75 330,205" fill="var(--ro)" opacity="0.7"></polygon>
+              <polygon points="250,215 350,110 400,215" fill="var(--en)" opacity="0.3"></polygon>
+              <rect y="205" width="400" height="55" fill="var(--surface)" opacity="0.8"></rect>
+            </svg>
+            <span class="L4-scene-label">Fjell og fjord, eksempelbilde</span>
+          </div><div class="L4-scrim"></div>
           <div class="L4-content reveal" style="padding-bottom: 2.5rem;">
             <p class="L4-eyebrow">Tjenester</p>
             <h3 class="L4-h">Kurs og sparring, tilpasset dere</h3>
