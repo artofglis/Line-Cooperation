@@ -1,0 +1,321 @@
+<title>Layoutforslag: Line Cooperation</title>
+<style>
+  :root{
+    --shell-bg:#15171B;
+    --shell-surface:#1C1F24;
+    --shell-ink:#EDEEF0;
+    --shell-soft:#9498A2;
+    --shell-faint:#5E626C;
+    --shell-line:rgba(237,238,240,0.10);
+  }
+  *{ box-sizing: border-box; }
+  body{
+    background: var(--shell-bg); color: var(--shell-ink);
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px; line-height: 1.6; margin: 0; padding: 0 0 6rem;
+  }
+  .wrap{ max-width: 1000px; margin: 0 auto; padding: 0 1.75rem; }
+  p{ margin: 0 0 1rem; max-width: 68ch; }
+  p:last-child{ margin-bottom: 0; }
+
+  .cover{ padding: 4.5rem 0 3.25rem; border-bottom: 1px solid var(--shell-line); }
+  .eyebrow{ font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--shell-soft); margin: 0 0 1rem; }
+  h1.page-title{ font-weight: 700; font-size: clamp(1.8rem, 4.2vw, 2.4rem); line-height: 1.16; letter-spacing: -0.01em; margin: 0 0 1rem; text-wrap: balance; }
+  .cover .sub{ color: var(--shell-soft); max-width: 62ch; font-size: 1.02rem; }
+
+  section{ padding: 3.5rem 0; border-bottom: 1px solid var(--shell-line); }
+  section:last-of-type{ border-bottom: none; }
+  .concept-head{ display:flex; align-items:baseline; gap: 0.85rem; margin-bottom: 0.35rem; }
+  .concept-num{ font-family:"Newsreader",Georgia,serif; font-style: italic; color: #DE8A46; font-size: 1.2rem; }
+  h2{ font-weight: 700; font-size: 1.35rem; margin: 0; color: var(--shell-ink); }
+  .section-lead{ color: var(--shell-soft); margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+
+  /* browser chrome */
+  .frame{ border: 1px solid var(--shell-line); border-radius: 16px; overflow: hidden; }
+  .chrome{ display:flex; align-items:center; gap: 0.5rem; padding: 0.65rem 1rem; background: var(--shell-surface); border-bottom: 1px solid var(--shell-line); }
+  .chrome-dot{ width:8px; height:8px; border-radius:50%; background: var(--shell-line); }
+  .chrome-url{ margin-left: 0.75rem; font-size: 0.76rem; color: var(--shell-faint); font-family: ui-monospace, monospace; }
+  .chrome-hint{ margin-left: auto; font-size: 0.72rem; color: var(--shell-faint); font-family: "DM Sans", sans-serif; }
+
+  .scrollbox{ height: 460px; overflow-y: auto; scroll-behavior: smooth; }
+  .scrollbox::-webkit-scrollbar{ width: 7px; }
+  .scrollbox::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.15); border-radius: 8px; }
+
+  .reveal{ opacity: 0; transform: translateY(16px); transition: opacity 650ms cubic-bezier(0.22,1,0.36,1), transform 650ms cubic-bezier(0.22,1,0.36,1); }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+  .fine{ color: var(--shell-faint); font-size: 0.85rem; }
+  .closing{ padding: 3.5rem 0 1rem; }
+
+  /* ========================================================= */
+  /* Layout 1 — Klassisk enkelside (Espresso)                  */
+  /* ========================================================= */
+  .L1{ --bg:#171310; --surface:#221B16; --ink:#F3EDE6; --soft:#B4A69A; --ro:#87A69B; --en:#DE8A46; --onen:#1A1109; }
+  .L1-nav{ display:flex; justify-content:space-between; align-items:center; padding: 1.4rem 2.5rem 0; font-family:"Newsreader",Georgia,serif; font-style: italic; }
+  .L1-nav a{ font-family:"Karla",sans-serif; font-style: normal; font-size:0.82rem; color: var(--soft); text-decoration:none; margin-left:1.5rem; }
+  .L1-hero{ position:relative; text-align:center; padding: 3.5rem 2.5rem 3rem; overflow:hidden; }
+  .L1-glow{ position:absolute; inset:-20%; background: radial-gradient(45% 50% at 50% 0%, rgba(222,138,70,0.25), transparent 65%); pointer-events:none; }
+  .L1-hero > *{ position:relative; z-index:1; }
+  .L1-eyebrow{ font-family:"Karla",sans-serif; color: var(--en); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; margin-bottom:0.9rem; }
+  .L1-h{ font-family:"Newsreader",Georgia,serif; font-size:2rem; line-height:1.18; max-width: 20ch; margin: 0 auto 0.85rem; }
+  .L1-sub{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.94rem; max-width:36ch; margin:0 auto 1.4rem; }
+  .L1-btn{ font-family:"Karla",sans-serif; font-weight:700; font-size:0.85rem; border:none; border-radius:999px; padding:0.6rem 1.2rem; background: var(--en); color: var(--onen); }
+  .L1-btn-ghost{ font-family:"Karla",sans-serif; font-weight:700; font-size:0.85rem; border:1px solid rgba(243,237,230,0.15); border-radius:999px; padding:0.6rem 1.2rem; background:transparent; color: var(--ink); margin-left:0.6rem; }
+  .L1-hr{ height:1px; background: rgba(243,237,230,0.1); margin: 0 2.5rem; }
+  .L1-about{ text-align:center; padding: 2.75rem 2.5rem; max-width:46ch; margin:0 auto; }
+  .L1-about p{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.92rem; margin: 0 auto; }
+  .L1-services{ display:flex; gap:1.25rem; justify-content:center; padding: 0 2.5rem 2.75rem; flex-wrap: wrap; }
+  .L1-card{ background: var(--surface); border:1px solid rgba(243,237,230,0.1); border-radius:14px; padding:1.1rem 1.3rem; width: 210px; }
+  .L1-card b{ font-family:"Karla",sans-serif; color: var(--ink); font-size:0.92rem; display:block; margin-bottom:0.3rem; }
+  .L1-card span{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.82rem; }
+  .L1-quote{ text-align:center; padding: 2.75rem 2.5rem; }
+  .L1-quote q{ font-family:"Newsreader",Georgia,serif; font-style:italic; font-size:1.3rem; color: var(--ink); max-width:30ch; display:block; margin: 0 auto 0.6rem; }
+  .L1-quote cite{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.8rem; font-style:normal; }
+  .L1-contact{ text-align:center; padding: 2rem 2.5rem 3rem; font-family:"Karla",sans-serif; color: var(--soft); font-size:0.88rem; }
+  .L1-contact b{ color: var(--ink); }
+
+  /* ========================================================= */
+  /* Layout 2 — Bento (Bio-glass)                               */
+  /* ========================================================= */
+  .L2{ --bg:#0B1014; --surface:#141B21; --ink:#EAF2F5; --soft:#C9BFA8; --ro:#C9BFA8; --en:#5ED4E8; --onen:#08262B; }
+  .L2-nav{ display:flex; justify-content:space-between; align-items:center; padding: 1.4rem 1.75rem 0; font-family:"DM Sans",sans-serif; font-weight:700; }
+  .L2-nav a{ font-weight:500; font-size:0.8rem; color: var(--soft); text-decoration:none; margin-left:1.25rem; }
+  .L2-bento{ display:grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 90px; gap:0.85rem; padding: 1.75rem; }
+  .L2-tile{ background: var(--surface); border:1px solid rgba(94,212,232,0.14); border-radius:16px; padding:1.1rem 1.25rem; position:relative; overflow:hidden; transition: transform 220ms ease, border-color 220ms ease; }
+  .L2-tile:hover{ transform: translateY(-3px); border-color: rgba(94,212,232,0.5); }
+  .L2-tile::after{ content:""; position:absolute; top:0; left:-60%; width:40%; height:100%; background: linear-gradient(100deg, transparent, rgba(94,212,232,0.14), transparent); transform: skewX(-20deg); transition: left 550ms ease; }
+  .L2-tile:hover::after{ left: 130%; }
+  .L2-hero-tile{ grid-column: span 2; grid-row: span 2; display:flex; flex-direction:column; justify-content:center; }
+  .L2-hero-tile .L2-eyebrow{ font-family:"Manrope",sans-serif; color: var(--en); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; margin-bottom:0.7rem; }
+  .L2-hero-tile h3{ font-family:"DM Sans",sans-serif; font-weight:700; font-size:1.35rem; color: var(--ink); margin:0 0 0.6rem; line-height:1.2; }
+  .L2-hero-tile .L2-btn{ font-family:"Manrope",sans-serif; font-weight:700; font-size:0.78rem; border:none; border-radius:8px; padding:0.5rem 0.9rem; background: var(--en); color: var(--onen); width: fit-content; }
+  .L2-tile-title{ font-family:"Manrope",sans-serif; font-weight:700; color: var(--ink); font-size:0.86rem; margin-bottom:0.25rem; }
+  .L2-tile-desc{ font-family:"Manrope",sans-serif; color: var(--soft); font-size:0.76rem; }
+  .L2-tile-quote{ grid-column: span 2; display:flex; align-items:center; }
+  .L2-tile-quote p{ font-family:"Manrope",sans-serif; font-style:italic; color: var(--ink); font-size:0.82rem; margin:0; }
+  .L2-tile-img{ grid-row: span 2; background: linear-gradient(155deg, #1B3A42, #0B1014 75%); display:flex; align-items:flex-end; }
+  .L2-tile-img span{ font-family:"Manrope",sans-serif; font-size:0.66rem; color: rgba(234,242,245,0.4); background: rgba(0,0,0,0.25); padding:0.2rem 0.5rem; border-radius:6px; margin: 0.6rem; }
+
+  /* ========================================================= */
+  /* Layout 3 — Asymmetrisk/redaksjonell (Lyng)                 */
+  /* ========================================================= */
+  .L3{ --bg:#1A141A; --surface:#251C25; --ink:#F1E9EC; --soft:#B3A0AC; --ro:#8FA391; --en:#C77DA0; --onen:#1C0F17; }
+  .L3-nav{ padding: 1.4rem 2rem 0; font-family:"Karla",sans-serif; font-weight:700; font-size:0.85rem; }
+  .L3-hero{ position:relative; padding: 2.5rem 2rem 1.5rem; }
+  .L3-imgblock{ position:absolute; top: 2.5rem; right: 1.5rem; width: 42%; aspect-ratio: 3/4; border-radius: 4px; background: linear-gradient(150deg, #3E2A38, #1A141A 80%); }
+  .L3-imgblock span{ position:absolute; bottom:0.6rem; left:0.6rem; font-family:"Karla",sans-serif; font-size:0.64rem; color: rgba(241,233,236,0.4); }
+  .L3-eyebrow{ font-family:"Karla",sans-serif; color: var(--en); font-size:0.7rem; letter-spacing:0.13em; text-transform:uppercase; font-weight:700; margin-bottom:0.6rem; }
+  .L3-h{ font-family:"Newsreader",Georgia,serif; font-size:2.6rem; line-height:1.05; max-width: 9ch; margin: 0 0 1rem; position:relative; z-index:1; }
+  .L3-h .word{ display:inline-block; }
+  .L3-sub{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.9rem; max-width:24ch; position:relative; z-index:1; }
+  .L3-list{ padding: 1.5rem 2rem 2rem; display:grid; grid-template-columns: 1fr 1.4fr; gap: 1.5rem; }
+  .L3-list-num{ font-family:"Newsreader",Georgia,serif; font-style:italic; color: var(--en); font-size:2.2rem; }
+  .L3-list-item{ display:flex; gap:1rem; align-items:flex-start; margin-bottom:1.25rem; }
+  .L3-list-item b{ font-family:"Karla",sans-serif; color: var(--ink); font-size:0.92rem; display:block; }
+  .L3-list-item span{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.8rem; }
+  .L3-pull{ padding: 0 2rem 2.5rem; }
+  .L3-pull q{ font-family:"Newsreader",Georgia,serif; font-style:italic; font-size:1.6rem; color: var(--ink); line-height:1.3; display:block; }
+
+  /* ========================================================= */
+  /* Layout 4 — Full-bleed billeddrevet (Hav)                   */
+  /* ========================================================= */
+  .L4{ --bg:#0B1A22; --surface:#12262F; --ink:#E8F1F0; --soft:#CFE3E1; --ro:#4F8C8A; --en:#7FE0C8; --onen:#08211C; }
+  .L4-panel{ position:relative; min-height: 340px; display:flex; align-items:flex-end; overflow:hidden; }
+  .L4-panel .L4-photo{ position:absolute; inset:0; background: radial-gradient(120% 90% at 70% 20%, #1E4A52, #0B1A22 70%); animation: kenburns 12s ease-in-out infinite alternate; }
+  @keyframes kenburns{ from{ transform: scale(1); } to{ transform: scale(1.07); } }
+  .L4-panel .L4-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(11,26,34,0.92), transparent 55%); }
+  .L4-panel .L4-nav{ position:absolute; top:1.4rem; left:2rem; right:2rem; display:flex; justify-content:space-between; font-family:"Newsreader",Georgia,serif; font-style:italic; z-index:2; }
+  .L4-panel .L4-nav a{ font-family:"Karla",sans-serif; font-style:normal; font-size:0.8rem; color: var(--soft); text-decoration:none; margin-left:1.25rem; }
+  .L4-content{ position:relative; z-index:1; padding: 2.5rem; }
+  .L4-eyebrow{ font-family:"Karla",sans-serif; color: var(--en); font-size:0.7rem; letter-spacing:0.13em; text-transform:uppercase; font-weight:700; margin-bottom:0.7rem; }
+  .L4-h{ font-family:"Newsreader",Georgia,serif; font-size:1.9rem; max-width:16ch; margin: 0 0 0.75rem; color: var(--ink); }
+  .L4-sub{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.9rem; max-width:34ch; margin-bottom:1.25rem; }
+  .L4-btn{ font-family:"Karla",sans-serif; font-weight:700; font-size:0.84rem; border:none; border-radius:999px; padding:0.6rem 1.15rem; background: var(--en); color: var(--onen); }
+  .L4-panel2{ background: radial-gradient(110% 100% at 20% 80%, #234A3F, #0B1A22 70%); }
+  .L4-quote{ text-align:center; padding: 3rem 2.5rem; }
+  .L4-quote q{ font-family:"Newsreader",Georgia,serif; font-style:italic; font-size:1.35rem; color: var(--ink); display:block; max-width:28ch; margin: 0 auto; }
+  .L4-contact{ background: var(--surface); text-align:center; padding: 1.75rem; font-family:"Karla",sans-serif; color: var(--soft); font-size:0.88rem; }
+  .L4-contact b{ color: var(--ink); }
+
+  /* ========================================================= */
+  /* Layout 5 — Minimalistisk/zen (Digital detox)                */
+  /* ========================================================= */
+  .L5{ --bg:#15130F; --surface:#1E1B16; --ink:#F0EAE0; --soft:#A69C8D; --en:#B79AE8; --onen:#1D1330; }
+  .L5-nav{ padding: 1.5rem 2rem 0; font-family:"Karla",sans-serif; font-size:0.78rem; color: var(--soft); letter-spacing:0.05em; }
+  .L5-panel{ min-height: 340px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 2rem; }
+  .L5-dotrow{ display:flex; align-items:center; gap:0.6rem; margin-bottom:1.5rem; }
+  .L5-dot{ width:6px; height:6px; border-radius:50%; background: var(--en); animation: L5pulse 3.4s ease-in-out infinite; }
+  @keyframes L5pulse{ 0%,100%{ opacity:0.5; transform:scale(1);} 50%{ opacity:1; transform:scale(1.6);} }
+  .L5-eyebrow{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; }
+  .L5-h{ font-family:"Newsreader",Georgia,serif; font-style:italic; font-weight:400; font-size:2.3rem; max-width:16ch; line-height:1.25; margin: 0 0 1.75rem; color: var(--ink); }
+  .L5-btn{ font-family:"Karla",sans-serif; font-weight:700; font-size:0.82rem; border:1px solid rgba(240,234,224,0.2); border-radius:999px; padding:0.55rem 1.2rem; background:transparent; color: var(--ink); }
+  .L5-word{ font-family:"Newsreader",Georgia,serif; font-style:italic; font-size:1.8rem; color: var(--ink); }
+  .L5-words{ display:flex; gap:3.5rem; }
+  .L5-words span{ font-family:"Karla",sans-serif; color: var(--soft); font-size:0.78rem; display:block; margin-top:0.5rem; }
+  .L5-contact{ font-family:"Karla",sans-serif; letter-spacing:0.06em; color: var(--ink); font-size:1rem; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+
+<div class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Line Cooperation — layoutforslag</p>
+    <h1 class="page-title">Fem helt ulike måter å bygge siden på</h1>
+    <p class="sub">
+      Samme tekst og budskap i alle fem, men strukturert helt forskjellig, fra en klassisk,
+      rolig oppbygning til en minimalistisk, nesten tom side. Alt er levende, scroll i hver
+      boks for å se innholdet komme til syne. Fargene varierer også her, som en ekstra smakebit,
+      men det er strukturen som er poenget i dette dokumentet.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <div class="concept-head"><span class="concept-num">01</span><h2>Klassisk enkelside</h2></div>
+    <p class="section-lead">Én smal kolonne, sentrert, rolig lesetakt. Det trygge, tidløse valget.</p>
+    <div class="frame">
+      <div class="chrome"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-url">linecooperation.no</span><span class="chrome-hint">scroll i boksen for mer ↓</span></div>
+      <div class="scrollbox L1" id="box1" style="background: var(--bg); color: var(--ink);">
+        <div class="L1-nav"><span>Line Cooperation</span><span><a href="#">Om</a><a href="#">Tjenester</a><a href="#">Kontakt</a></span></div>
+        <div class="L1-hero reveal">
+          <div class="L1-glow"></div>
+          <p class="L1-eyebrow">Bedriftsrådgivning · HR · Kultur</p>
+          <h3 class="L1-h">Sparring som gjør bedriften bedre å jobbe i</h3>
+          <p class="L1-sub">Kurs tilpasset din bedrift, og en sparringspartner på HR, utvikling og kultur.</p>
+          <button class="L1-btn">Ta kontakt</button><button class="L1-btn-ghost">Se tjenester</button>
+        </div>
+        <div class="L1-hr"></div>
+        <div class="L1-about reveal"><p>Line Cooperation er sparringspartneren som gjør vanskelige samtaler litt lettere, og gode kulturer litt sterkere.</p></div>
+        <div class="L1-services">
+          <div class="L1-card reveal"><b>Kurs</b><span>Tilpasset den enkelte bedrift.</span></div>
+          <div class="L1-card reveal"><b>Sparring</b><span>Rådgivning på HR, utvikling og kultur.</span></div>
+        </div>
+        <div class="L1-quote reveal"><q>Sparring skal gjøre bedriften trygg nok til å ta de vanskelige samtalene selv.</q><cite>— Line Sivertsen</cite></div>
+        <div class="L1-contact reveal"><b>98 47 19 74</b> · kontakt@linecooperation.no</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="concept-head"><span class="concept-num">02</span><h2>Bento-grid</h2></div>
+    <p class="section-lead">Moderne, modulær, som et digitalt verktøy. Alt på én skjerm, ingen scrolling for å se helheten.</p>
+    <div class="frame">
+      <div class="chrome"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-url">linecooperation.no</span><span class="chrome-hint">scroll i boksen for mer ↓</span></div>
+      <div class="scrollbox L2" id="box2" style="background: var(--bg); color: var(--ink);">
+        <div class="L2-nav"><span>Line Cooperation</span><span><a href="#">Om</a><a href="#">Tjenester</a><a href="#">Kontakt</a></span></div>
+        <div class="L2-bento">
+          <div class="L2-tile L2-hero-tile reveal">
+            <p class="L2-eyebrow">Bedriftsrådgivning</p>
+            <h3>Sparring som gjør bedriften bedre å jobbe i</h3>
+            <button class="L2-btn">Ta kontakt</button>
+          </div>
+          <div class="L2-tile reveal"><div class="L2-tile-title">Kurs</div><div class="L2-tile-desc">Tilpasset den enkelte bedrift.</div></div>
+          <div class="L2-tile reveal"><div class="L2-tile-title">Sparring</div><div class="L2-tile-desc">HR, utvikling og kultur.</div></div>
+          <div class="L2-tile L2-tile-img reveal"><span>Bilde</span></div>
+          <div class="L2-tile L2-tile-quote reveal"><p>«Trygg nok til å ta de vanskelige samtalene selv.»</p></div>
+          <div class="L2-tile reveal"><div class="L2-tile-title">Kontakt</div><div class="L2-tile-desc">98 47 19 74</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="concept-head"><span class="concept-num">03</span><h2>Asymmetrisk / redaksjonell</h2></div>
+    <p class="section-lead">Stor typografi, skjevt plasserte elementer. Bladaktig, mer et statement enn en brosjyre.</p>
+    <div class="frame">
+      <div class="chrome"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-url">linecooperation.no</span><span class="chrome-hint">scroll i boksen for mer ↓</span></div>
+      <div class="scrollbox L3" id="box3" style="background: var(--bg); color: var(--ink);">
+        <div class="L3-nav">Line Cooperation</div>
+        <div class="L3-hero">
+          <div class="L3-imgblock reveal"><span>Bilde</span></div>
+          <p class="L3-eyebrow reveal">Bedriftsrådgivning</p>
+          <h3 class="L3-h reveal">Bedre å jobbe i.</h3>
+          <p class="L3-sub reveal">Kurs og sparring på HR, utvikling og kultur.</p>
+        </div>
+        <div class="L3-list">
+          <div>
+            <div class="L3-list-item reveal"><span class="L3-list-num">01</span><div><b>Kurs</b><span>Tilpasset den enkelte bedrift.</span></div></div>
+            <div class="L3-list-item reveal"><span class="L3-list-num">02</span><div><b>Sparring</b><span>HR, utvikling og kultur.</span></div></div>
+          </div>
+          <div class="L3-pull reveal"><q>Sparring skal gjøre bedriften trygg nok til å ta de vanskelige samtalene selv.</q></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="concept-head"><span class="concept-num">04</span><h2>Full-bleed, billeddrevet</h2></div>
+    <p class="section-lead">Bilder bærer siden, teksten legger seg over. Mest visuell, minst tekst synlig av gangen.</p>
+    <div class="frame">
+      <div class="chrome"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-url">linecooperation.no</span><span class="chrome-hint">scroll i boksen for mer ↓</span></div>
+      <div class="scrollbox L4" id="box4" style="background: var(--bg); color: var(--ink);">
+        <div class="L4-panel">
+          <div class="L4-photo"></div><div class="L4-scrim"></div>
+          <div class="L4-nav"><span>Line Cooperation</span><span><a href="#">Om</a><a href="#">Kontakt</a></span></div>
+          <div class="L4-content reveal">
+            <p class="L4-eyebrow">Bedriftsrådgivning</p>
+            <h3 class="L4-h">Sparring som gjør bedriften bedre å jobbe i</h3>
+            <p class="L4-sub">Kurs tilpasset din bedrift, og en sparringspartner på HR, utvikling og kultur.</p>
+            <button class="L4-btn">Ta kontakt</button>
+          </div>
+        </div>
+        <div class="L4-panel L4-panel2">
+          <div class="L4-content reveal" style="padding-bottom: 2.5rem;">
+            <p class="L4-eyebrow">Tjenester</p>
+            <h3 class="L4-h">Kurs og sparring, tilpasset dere</h3>
+          </div>
+        </div>
+        <div class="L4-quote reveal"><q>Sparring skal gjøre bedriften trygg nok til å ta de vanskelige samtalene selv.</q></div>
+        <div class="L4-contact reveal"><b>98 47 19 74</b> · kontakt@linecooperation.no</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:none;">
+    <div class="concept-head"><span class="concept-num">05</span><h2>Minimalistisk / rolig</h2></div>
+    <p class="section-lead">Nesten tomt. Ett budskap av gangen, mye pusterom, sakte bevegelse. Ro tatt til sin ytterste konsekvens.</p>
+    <div class="frame">
+      <div class="chrome"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-url">linecooperation.no</span><span class="chrome-hint">scroll i boksen for mer ↓</span></div>
+      <div class="scrollbox L5" id="box5" style="background: var(--bg); color: var(--ink);">
+        <div class="L5-nav">Line Cooperation</div>
+        <div class="L5-panel">
+          <div class="L5-dotrow reveal"><span class="L5-dot"></span><span class="L5-eyebrow">Bedriftsrådgivning</span></div>
+          <h3 class="L5-h reveal">Sparring, rådgivning, ett menneske av gangen.</h3>
+          <button class="L5-btn reveal">Ta kontakt</button>
+        </div>
+        <div class="L5-panel">
+          <div class="L5-words">
+            <div class="reveal"><span class="L5-word">Kurs</span><span>tilpasset bedriften</span></div>
+            <div class="reveal"><span class="L5-word">Sparring</span><span>HR, utvikling, kultur</span></div>
+          </div>
+        </div>
+        <div class="L5-panel">
+          <div class="reveal L5-contact">98 47 19 74 · kontakt@linecooperation.no</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="wrap closing">
+  <p class="fine">
+    Alle fem bruker samme tjenester, samme kontaktinfo og samme sitat, kun oppbygningen er
+    forskjellig. Fargene her er bare eksempler, ikke bundet til strukturen, en hvilken som
+    helst av palettene fra fargedokumentet kan brukes med hvilken som helst av disse fem.
+  </p>
+</div>
+
+<script>
+  function wire(boxId){
+    var box = document.getElementById(boxId);
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.target.classList.toggle('is-visible', e.isIntersecting); });
+    }, { root: box, threshold: 0.15 });
+    box.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+  }
+  ['box1','box2','box3','box4','box5'].forEach(wire);
+</script>
