@@ -1,0 +1,131 @@
+<title>Fargevalg: Line Cooperation</title>
+<style>
+  :root{
+    --shell-bg:#15171B;
+    --shell-surface:#1C1F24;
+    --shell-ink:#EDEEF0;
+    --shell-soft:#9498A2;
+    --shell-faint:#5E626C;
+    --shell-line:rgba(237,238,240,0.10);
+  }
+  *{ box-sizing: border-box; }
+  body{
+    background: var(--shell-bg); color: var(--shell-ink);
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px; line-height: 1.6; margin: 0; padding: 0 0 6rem;
+  }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 1.75rem; }
+  p{ margin: 0 0 1rem; max-width: 68ch; }
+  p:last-child{ margin-bottom: 0; }
+
+  .cover{ padding: 4.5rem 0 3.25rem; border-bottom: 1px solid var(--shell-line); }
+  .eyebrow{ font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--shell-soft); margin: 0 0 1rem; }
+  h1{ font-weight: 700; font-size: clamp(1.8rem, 4.2vw, 2.4rem); line-height: 1.16; letter-spacing: -0.01em; margin: 0 0 1rem; text-wrap: balance; }
+  .cover .sub{ color: var(--shell-soft); max-width: 62ch; font-size: 1.02rem; }
+
+  .grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 3.5rem 0; }
+
+  .card{ border: 1px solid var(--shell-line); border-radius: 20px; overflow: hidden; }
+  .card-head{ padding: 1.1rem 1.4rem; background: var(--shell-surface); }
+  .card-name{ font-weight: 700; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .card-desc{ color: var(--shell-soft); font-size: 0.85rem; }
+
+  .mock{ padding: 2.5rem 1.6rem; min-height: 180px; display: flex; flex-direction: column; justify-content: center; }
+  .mock-eyebrow{ font-family:"Karla",sans-serif; font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.7rem; }
+  .mock-h{ font-family:"Newsreader", Georgia, serif; font-size: 1.5rem; line-height: 1.2; max-width: 17ch; margin-bottom: 0.75rem; }
+  .mock-h em{ font-style: italic; }
+  .mock-btn{ display: inline-flex; font-family:"Karla",sans-serif; font-weight: 700; font-size: 0.8rem; padding: 0.5rem 1rem; border-radius: 999px; width: fit-content; }
+
+  .swatches{ display: grid; grid-template-columns: repeat(5, 1fr); }
+  .sw{ height: 46px; }
+  .sw-labels{ display: grid; grid-template-columns: repeat(5, 1fr); font-family: ui-monospace, monospace; font-size: 0.62rem; text-align: center; padding: 0.5rem 0.25rem; background: var(--shell-surface); color: var(--shell-faint); }
+
+  .fine{ color: var(--shell-faint); font-size: 0.85rem; }
+  .closing{ padding: 0 0 1rem; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<div class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Line Cooperation — fargevalg</p>
+    <h1>Fem paletter, samme mørke, ulik sjel</h1>
+    <p class="sub">
+      Alle holder seg til det du var tydelig på, mørk bunn, ikke det sterile hvite kontoret.
+      Typografi og oppsett er identisk på tvers, kun fargene endres, så det er enkelt å
+      sammenligne temperatur og karakter uten at noe annet forstyrrer.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Espresso</div><div class="card-desc">Varm, organisk. Kaffekoppen fra referansebildet.</div></div>
+      <div class="mock" style="background:#171310;">
+        <p class="mock-eyebrow" style="color:#F0A868;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F3EDE6;">Sparring som gjør bedriften <em style="color:#F0A868;">bedre</em></p>
+        <span class="mock-btn" style="background:#DE8A46; color:#1A1109;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#171310;"></div><div class="sw" style="background:#221B16;"></div><div class="sw" style="background:#F3EDE6;"></div><div class="sw" style="background:#87A69B;"></div><div class="sw" style="background:#DE8A46;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-name" style="display:none;"></div>
+      <div class="card-head"><div class="card-name">Fjord</div><div class="card-desc">Kjølig, presis. Ink-slate og korall.</div></div>
+      <div class="mock" style="background:#12151C;">
+        <p class="mock-eyebrow" style="color:#F0806F;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#EDEFF3;">Sparring som gjør bedriften <em style="color:#F0806F;">bedre</em></p>
+        <span class="mock-btn" style="background:#E15B4F; color:#17090A;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#12151C;"></div><div class="sw" style="background:#1B2029;"></div><div class="sw" style="background:#EDEFF3;"></div><div class="sw" style="background:#5B8AA6;"></div><div class="sw" style="background:#E15B4F;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Bergrøyk</div><div class="card-desc">Grafitt og messing. Dempet, nesten diskré, «advokatkontor»-tillit.</div></div>
+      <div class="mock" style="background:#17181A;">
+        <p class="mock-eyebrow" style="color:#D9B876;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#ECEBE7;">Sparring som gjør bedriften <em style="color:#D9B876;">bedre</em></p>
+        <span class="mock-btn" style="background:#C9A24A; color:#1C1607;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#17181A;"></div><div class="sw" style="background:#202224;"></div><div class="sw" style="background:#ECEBE7;"></div><div class="sw" style="background:#7C8B7E;"></div><div class="sw" style="background:#C9A24A;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Lyng</div><div class="card-desc">Dyp lyngrøde-plomme og mose. Nordnorsk fjellheim, ikke generisk mørk.</div></div>
+      <div class="mock" style="background:#1A141A;">
+        <p class="mock-eyebrow" style="color:#D492B8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#F1E9EC;">Sparring som gjør bedriften <em style="color:#D492B8;">bedre</em></p>
+        <span class="mock-btn" style="background:#C77DA0; color:#1C0F17;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#1A141A;"></div><div class="sw" style="background:#251C25;"></div><div class="sw" style="background:#F1E9EC;"></div><div class="sw" style="background:#8FA391;"></div><div class="sw" style="background:#C77DA0;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-name">Nordlys</div><div class="card-desc">Dyp indigo og et aurora-grønt lysglimt. Den mest distinkte, mest energiske.</div></div>
+      <div class="mock" style="background:#0E1420;">
+        <p class="mock-eyebrow" style="color:#6ED9A8;">Bedriftsrådgivning</p>
+        <p class="mock-h" style="color:#E7EEF5;">Sparring som gjør bedriften <em style="color:#6ED9A8;">bedre</em></p>
+        <span class="mock-btn" style="background:#4FCB9A; color:#08150F;">Ta kontakt</span>
+      </div>
+      <div class="swatches"><div class="sw" style="background:#0E1420;"></div><div class="sw" style="background:#172033;"></div><div class="sw" style="background:#E7EEF5;"></div><div class="sw" style="background:#6E86A8;"></div><div class="sw" style="background:#4FCB9A;"></div></div>
+      <div class="sw-labels"><span>Bunn</span><span>Flate</span><span>Tekst</span><span>Ro</span><span>Energi</span></div>
+    </div>
+
+  </div>
+
+  <div class="closing">
+    <p class="fine">
+      Espresso og Fjord er fra de to tidligere moodboardene. Bergrøyk, Lyng og Nordlys er
+      nye retninger, tatt med for å se om noe annet treffer bedre enn de to første. Alle fem
+      fungerer med samme sidestruktur, kort- og linjedesign som allerede er vist, det er kun
+      fargene som byttes ut.
+    </p>
+  </div>
+</div>
