@@ -1,0 +1,219 @@
+<title>Innholdsforslag: Line Cooperation</title>
+<style>
+  :root{
+    --bg:#171310; --surface:#221B16; --raised:#2B2219;
+    --ink:#F3EDE6; --soft:#B4A69A; --faint:#8A7C70;
+    --calm:#87A69B; --calm-strong:#A9C4BA;
+    --en:#DE8A46; --en-strong:#F0A868;
+    --line:rgba(243,237,230,0.12);
+    --fill:#4A3A2A; --fill-soft:rgba(222,138,70,0.14);
+  }
+  *{ box-sizing: border-box; }
+  body{
+    background: var(--bg); color: var(--ink);
+    font-family: "Karla", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px; line-height: 1.65; margin: 0; padding: 0 0 6rem;
+  }
+  .wrap{ max-width: 780px; margin: 0 auto; padding: 0 1.75rem; }
+  p{ margin: 0 0 1rem; max-width: 66ch; }
+  p:last-child{ margin-bottom: 0; }
+
+  .cover{
+    position: relative; padding: 5rem 0 3.5rem; overflow: hidden;
+    background: radial-gradient(55% 55% at 80% 5%, rgba(222,138,70,0.20), transparent 60%), var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .cover .wrap{ position: relative; z-index: 1; }
+  .eyebrow{ font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--en-strong); margin: 0 0 1rem; }
+  h1{ font-family: "Newsreader", Georgia, serif; font-weight: 500; font-size: clamp(1.9rem, 4.5vw, 2.5rem); line-height: 1.15; margin: 0 0 1.1rem; text-wrap: balance; }
+  .cover .sub{ color: var(--soft); font-size: 1.02rem; max-width: 58ch; }
+
+  .page-section{ padding: 3.75rem 0; border-bottom: 1px solid var(--line); }
+  .page-section:last-of-type{ border-bottom: none; }
+  .page-head{ display: flex; align-items: baseline; gap: 0.9rem; margin-bottom: 0.4rem; }
+  .page-num{ font-family: "Newsreader", Georgia, serif; font-style: italic; color: var(--en-strong); font-size: 1.3rem; }
+  .page-title{ font-weight: 700; font-size: 1.15rem; letter-spacing: 0.01em; }
+  .page-note{ color: var(--faint); font-size: 0.88rem; margin: 0 0 2rem; max-width: 60ch; }
+
+  .content-card{ background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 2.25rem 2.25rem; }
+  .content-card + .content-card{ margin-top: 1.25rem; }
+  .content-label{ font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-weight: 700; margin: 0 0 0.9rem; }
+  .content-h{ font-family: "Newsreader", Georgia, serif; font-size: 1.7rem; line-height: 1.22; margin: 0 0 0.9rem; color: var(--ink); text-wrap: balance; }
+  .content-h.small{ font-size: 1.3rem; }
+  .content-body{ color: var(--soft); font-size: 0.98rem; }
+  .content-body strong{ color: var(--ink); }
+
+  .fill{ background: var(--fill-soft); color: var(--en-strong); padding: 0.05em 0.4em; border-radius: 5px; font-style: italic; }
+
+  .btn-row{ margin-top: 1.4rem; }
+  .btn{ display: inline-flex; font-family: "Karla", sans-serif; font-weight: 700; font-size: 0.88rem; padding: 0.65rem 1.3rem; border-radius: 999px; }
+  .btn-primary{ background: var(--en); color: #1A1109; }
+  .btn-ghost{ background: transparent; color: var(--ink); border: 1px solid var(--line); margin-left: 0.6rem; }
+
+  .two-col{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin-top: 1.25rem; }
+  @media (max-width: 620px){ .two-col{ grid-template-columns: 1fr; } }
+  .mini-card{ background: var(--raised); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.4rem; }
+  .mini-card b{ display: block; color: var(--ink); font-size: 1rem; margin-bottom: 0.4rem; }
+  .mini-card span{ color: var(--soft); font-size: 0.9rem; }
+
+  .quote-block{ text-align: center; padding: 1rem 0.5rem; }
+  .quote-block q{ font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 1.2rem; color: var(--ink); }
+
+  .contact-line{ display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 1.25rem; font-size: 1.05rem; }
+  .contact-line b{ color: var(--en-strong); }
+
+  .note-box{ background: var(--fill-soft); border-radius: 14px; padding: 1.1rem 1.4rem; margin-top: 1.25rem; font-size: 0.9rem; color: var(--ink); }
+  .note-box b{ color: var(--en-strong); }
+
+  .closing{ padding: 3.5rem 0 1rem; }
+  .fine{ color: var(--faint); font-size: 0.85rem; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+<div class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Line Cooperation — innholdsforslag</p>
+    <h1>Et utkast til alt teksten på siden, klart til å redigeres</h1>
+    <p class="sub">
+      Siden det er lett å gå tom for ord når man skal skrive om seg selv: her er et fullt
+      forslag til tekst for alle fire sidene. Bruk det som det står, endre det som ikke
+      høres ut som deg, eller stryk det helt, det viktigste er at du har noe å redigere
+      i stedet for et blankt ark. De <span class="fill">utheva</span> feltene er steder
+      der bare du har svaret.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="page-section">
+    <div class="page-head"><span class="page-num">01</span><span class="page-title">Forside</span></div>
+    <p class="page-note">Det første besøkende ser. Kort, tydelig, og en vei videre til tjenester eller kontakt.</p>
+
+    <div class="content-card">
+      <p class="content-label">Hero</p>
+      <p style="color:var(--en-strong); font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; margin-bottom:0.8rem;">Bedriftsrådgivning · HR · Kultur</p>
+      <h2 class="content-h">Sparring som gjør bedriften bedre å jobbe i</h2>
+      <p class="content-body">Kurs tilpasset din bedrift, og en sparringspartner på HR, utvikling og kultur, når du trenger det.</p>
+      <div class="btn-row"><span class="btn btn-primary">Ta kontakt</span><span class="btn btn-ghost">Se tjenester</span></div>
+    </div>
+
+    <div class="content-card">
+      <p class="content-label">Kort om, 2–3 setninger</p>
+      <p class="content-body">
+        Line Cooperation er sparringspartneren for deg som vil ta vare på menneskene i
+        bedriften, ikke bare resultatene på bunnlinjen. <span class="fill">[én setning om
+        din bakgrunn, f.eks: «Med bakgrunn fra HR og ledelse»]</span> hjelper jeg ledere og
+        team med å bygge en kultur som holder i lengden.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p class="content-label">Tjenester, kort</p>
+      <div class="two-col">
+        <div class="mini-card"><b>Kurs</b><span>Skreddersydd for den enkelte bedrift, ikke et ferdig opplegg fra hylla.</span></div>
+        <div class="mini-card"><b>Sparring</b><span>En å tenke høyt sammen med, løpende eller når det butter.</span></div>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <p class="content-label">Kontakt-stripe, bunn av siden</p>
+      <p class="content-body">Ta gjerne kontakt for en uforpliktende prat.</p>
+      <div class="contact-line"><b>98 47 19 74</b><span>kontakt@linecooperation.no</span></div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-head"><span class="page-num">02</span><span class="page-title">Om</span></div>
+    <p class="page-note">Her selger du deg selv, ikke bare tjenestene. Bakgrunn og hvordan du faktisk jobber.</p>
+
+    <div class="content-card">
+      <p class="content-label">Bakgrunn</p>
+      <p class="content-body">
+        <span class="fill">[Fyll inn din bakgrunn her, utdanning, tidligere roller, hvor
+        mange år du har jobbet med HR, ledelse eller organisasjon. Noen setninger holder,
+        det trenger ikke bli en CV. Eksempel på oppbygning: «Jeg har jobbet med X i Y år,
+        og har særlig erfaring med Z.»]</span>
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p class="content-label">Tilnærming</p>
+      <p class="content-body">
+        Jeg tror ikke på ferdige fasitsvar eller kurs rett fra hylla. Hver bedrift har sin
+        egen kultur, sine egne folk og sine egne utfordringer, og det er der jeg starter:
+        med å forstå hva som faktisk foregår, før jeg foreslår noe som helst. Målet er
+        ikke å komme med svarene selv, men å gjøre dere i stand til å finne dem, sammen.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p class="content-label">Bilde</p>
+      <p class="content-body">Portrett av deg, gjerne det samme som brukes på forsiden, for gjenkjennelse.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-head"><span class="page-num">03</span><span class="page-title">Tjenester</span></div>
+    <p class="page-note">De to sporene, med nok konkret innhold til at noen skjønner hva de faktisk får.</p>
+
+    <div class="content-card">
+      <p class="content-label">Kurs</p>
+      <h3 class="content-h small">Kurs tilpasset dere</h3>
+      <p class="content-body">
+        Ikke et ferdig opplegg fra hylla. <span class="fill">[fyll inn eksempler på tema
+        du tilbyr, f.eks: lederutvikling, feedbackkultur, konflikthåndtering, onboarding,
+        endringsledelse]</span>. Vi avtaler omfang og innhold sammen, fra en enkelt samling
+        til et lengre løp, tilpasset det teamet faktisk trenger.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p class="content-label">Sparring</p>
+      <h3 class="content-h small">Sparring når det butter</h3>
+      <p class="content-body">
+        En å tenke høyt sammen med når HR-spørsmål, personalsaker eller kulturutfordringer
+        dukker opp. Passer like godt løpende som ved enkelthendelser.
+        <span class="fill">[konkretiser gjerne hva slags saker du typisk bistår med]</span>
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p class="content-label">Vei videre</p>
+      <p class="content-body">Usikker på hva som passer? Ta kontakt, så finner vi det ut sammen.</p>
+      <div class="btn-row"><span class="btn btn-primary">Ta kontakt</span></div>
+    </div>
+  </section>
+
+  <section class="page-section" style="border-bottom:none;">
+    <div class="page-head"><span class="page-num">04</span><span class="page-title">Kontakt</span></div>
+    <p class="page-note">Kort og lavterskel. Ingen skjema, som avtalt.</p>
+
+    <div class="content-card">
+      <p class="content-label">Kontakt</p>
+      <h3 class="content-h small">Ta kontakt</h3>
+      <p class="content-body">
+        Ring eller send en e-post, så svarer jeg så raskt jeg kan.
+        <span class="fill">[vurder om du vil nevne noe om responstid, f.eks at du svarer
+        i løpet av 1–2 virkedager]</span>
+      </p>
+      <div class="contact-line"><b>98 47 19 74</b><span>kontakt@linecooperation.no</span></div>
+    </div>
+
+    <div class="content-card">
+      <p class="content-label">Sitat, valgfritt</p>
+      <div class="quote-block"><q>Sparring skal gjøre bedriften trygg nok til å ta de vanskelige samtalene selv.</q></div>
+    </div>
+  </section>
+
+</div>
+
+<div class="wrap closing">
+  <div class="note-box">
+    <b>Slik bruker du dette:</b> kopier inn i sidene etter hvert som de bygges, skriv over
+    alt du vil ha annerledes, og fyll inn de <span class="fill">utheva</span> feltene med
+    dine egne fakta. Alt annet er et ferdig utgangspunkt, ikke noe du må skrive fra bunnen av.
+  </div>
+</div>
