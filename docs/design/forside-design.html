@@ -1,0 +1,229 @@
+<title>Forside-design: Line Cooperation</title>
+<style>
+  :root{
+    --bg:#171310; --surface:#221B16; --raised:#2B2219;
+    --ink:#F3EDE6; --soft:#B4A69A; --faint:#8A7C70;
+    --calm:#87A69B; --calm-strong:#A9C4BA; --calm-soft:rgba(135,166,155,0.14);
+    --en:#DE8A46; --en-strong:#F0A868; --en-soft:rgba(222,138,70,0.14);
+    --line:rgba(243,237,230,0.11);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg); color: var(--ink);
+    font-family: "Karla", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px; line-height: 1.6; margin: 0;
+  }
+  .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  @media (max-width: 640px){ .wrap{ padding: 0 1.25rem; } }
+  p{ margin: 0 0 1rem; }
+  p:last-child{ margin-bottom: 0; }
+  a{ color: inherit; }
+
+  h1, h2, h3{ font-family: "Newsreader", Georgia, serif; font-weight: 500; color: var(--ink); text-wrap: balance; margin: 0; }
+
+  /* ---------- nav ---------- */
+  .nav{
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(23,19,16,0.85); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap{ display: flex; align-items: center; justify-content: space-between; padding: 1.15rem 2rem; }
+  .nav-logo{ font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 1.15rem; text-decoration: none; }
+  .nav-links{ display: flex; align-items: center; gap: 2rem; }
+  .nav-links a{ font-size: 0.9rem; text-decoration: none; color: var(--soft); transition: color 200ms; }
+  .nav-links a:hover{ color: var(--ink); }
+  .nav-phone{ font-weight: 700; color: var(--en-strong) !important; }
+  @media (max-width: 640px){ .nav-links a:not(.nav-phone){ display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero{ position: relative; overflow: hidden; padding: 5.5rem 0 6rem; }
+  .hero-glow{
+    position: absolute; inset: -15% -10%;
+    background: radial-gradient(38% 45% at 82% 20%, rgba(222,138,70,0.24), transparent 65%),
+                radial-gradient(30% 35% at 5% 90%, rgba(135,166,155,0.14), transparent 60%);
+    animation: glowPulse 9s ease-in-out infinite; pointer-events: none;
+  }
+  @keyframes glowPulse{ 0%,100%{ opacity: 0.7; } 50%{ opacity: 1; } }
+  .hero .wrap{ position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: center; }
+  @media (max-width: 800px){ .hero .wrap{ grid-template-columns: 1fr; } .hero-art{ order: -1; max-width: 220px; margin: 0 auto; } }
+
+  .eyebrow{ font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--en-strong); margin: 0 0 1.1rem; }
+  .hero h1{ font-size: clamp(2.1rem, 4.2vw, 3.1rem); line-height: 1.1; margin-bottom: 1.2rem; }
+  .hero .sub{ color: var(--soft); font-size: 1.1rem; max-width: 40ch; margin-bottom: 1.9rem; }
+
+  .btn{ display: inline-flex; align-items: center; font-family: "Karla", sans-serif; font-weight: 700; font-size: 0.94rem; padding: 0.75rem 1.5rem; border-radius: 999px; transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), background 200ms, border-color 200ms; cursor: pointer; text-decoration: none; }
+  .btn-primary{ background: var(--en); color: #1A1109; border: none; }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 14px 28px -10px rgba(222,138,70,0.5); }
+  .btn-ghost{ background: transparent; color: var(--ink); border: 1px solid var(--line); margin-left: 0.75rem; }
+  .btn-ghost:hover{ border-color: var(--en); background: var(--en-soft); }
+
+  .hero-art{ position: relative; }
+  .hero-art svg{ width: 100%; height: auto; display: block; }
+  .hero-art-caption{ text-align: center; font-size: 0.72rem; color: var(--faint); margin-top: 0.6rem; }
+
+  /* ---------- reveal ---------- */
+  .reveal{ opacity: 0; transform: translateY(22px); transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+  /* ---------- sections ---------- */
+  section{ padding: 5rem 0; }
+  .divider{ height: 1px; background: var(--line); max-width: 1100px; margin: 0 auto; position: relative; overflow: hidden; }
+  .divider::after{ content:""; position: absolute; inset: 0; width: 90px; background: var(--en); transform: scaleX(0); transform-origin: left; transition: transform 900ms var(--ease); }
+  .divider.is-visible::after{ transform: scaleX(1); }
+
+  .about{ display: grid; grid-template-columns: auto 1fr; gap: 1.75rem; align-items: flex-start; max-width: 62ch; margin: 0 auto; }
+  @media (max-width: 560px){ .about{ grid-template-columns: 1fr; text-align: center; } }
+  .avatar{ width: 68px; height: 68px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+  .about p{ color: var(--soft); font-size: 1.05rem; }
+  .fill{ color: var(--en-strong); font-style: italic; }
+
+  .section-head{ text-align: center; margin-bottom: 3rem; }
+  .section-eyebrow{ font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--calm-strong); margin: 0 0 0.7rem; }
+  .section-h{ font-size: clamp(1.6rem, 3vw, 2.1rem); }
+
+  .services{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 780px; margin: 0 auto; }
+  @media (max-width: 640px){ .services{ grid-template-columns: 1fr; } }
+  .service-card{ background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 2.25rem; transition: transform 250ms var(--ease), border-color 250ms var(--ease); }
+  .service-card:hover{ transform: translateY(-4px); border-color: rgba(222,138,70,0.35); }
+  .service-tag{ display: inline-block; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; padding: 0.28rem 0.7rem; border-radius: 999px; background: var(--en-soft); color: var(--en-strong); margin-bottom: 1.1rem; }
+  .service-card h3{ font-size: 1.35rem; margin-bottom: 0.6rem; }
+  .service-card p{ color: var(--soft); font-size: 0.96rem; }
+  .service-link{ display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.1rem; font-size: 0.88rem; font-weight: 700; color: var(--en-strong); text-decoration: none; }
+  .service-link .arrow{ transition: transform 200ms var(--ease); }
+  .service-card:hover .arrow{ transform: translateX(4px); }
+
+  .quote-section{ text-align: center; }
+  .quote-mark{ font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 3.5rem; color: var(--en); line-height: 1; margin-bottom: 0.5rem; }
+  .quote-text{ font-size: 1.5rem; max-width: 34ch; margin: 0 auto; line-height: 1.35; }
+
+  .contact-band{
+    background: linear-gradient(155deg, #241A11, #171310);
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .contact-band h2{ font-size: clamp(1.6rem, 3vw, 2.1rem); margin-bottom: 1rem; }
+  .contact-band .sub{ color: var(--soft); margin-bottom: 2rem; }
+  .contact-details{ display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem 2.5rem; font-size: 1.1rem; margin-top: 2rem; }
+  .contact-details a{ text-decoration: none; transition: color 200ms; }
+  .contact-details a:hover{ color: var(--en-strong); }
+  .contact-details b{ color: var(--en-strong); }
+
+  footer{ padding: 2.5rem 0; text-align: center; color: var(--faint); font-size: 0.85rem; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity: 1 !important; transform: none !important; transition: none !important; }
+    .hero-glow{ animation: none !important; }
+    .divider::after{ transition: none !important; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="#">Line Cooperation</a>
+    <div class="nav-links">
+      <a href="#om">Om</a>
+      <a href="#tjenester">Tjenester</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="nav-phone" href="tel:+4798471974">98 47 19 74</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Bedriftsrådgivning · HR · Kultur</p>
+      <h1>Sparring som gjør bedriften bedre å jobbe i</h1>
+      <p class="sub">Kurs tilpasset din bedrift, og en sparringspartner på HR, utvikling og kultur, når du trenger det.</p>
+      <a class="btn btn-primary" href="#kontakt">Ta kontakt</a>
+      <a class="btn btn-ghost" href="#tjenester">Se tjenester</a>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 240 280" role="img" aria-label="Illustrert portrett">
+        <rect width="240" height="280" rx="20" fill="#221B16"></rect>
+        <circle cx="120" cy="105" r="52" fill="#DE8A46" opacity="0.45"></circle>
+        <path d="M48,280 Q48,168 120,168 Q192,168 192,280 Z" fill="#DE8A46" opacity="0.3"></path>
+      </svg>
+      <p class="hero-art-caption">Bildeplass — portrett, ekte bilde legges inn senere</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section id="om">
+  <div class="wrap about reveal">
+    <svg class="avatar" viewBox="0 0 68 68">
+      <circle cx="34" cy="34" r="34" fill="#221B16"></circle>
+      <circle cx="34" cy="28" r="13" fill="#DE8A46" opacity="0.5"></circle>
+      <path d="M10,68 Q10,46 34,46 Q58,46 58,68 Z" fill="#DE8A46" opacity="0.35"></path>
+    </svg>
+    <p>
+      Line Cooperation er sparringspartneren for deg som vil ta vare på menneskene i
+      bedriften, ikke bare resultatene på bunnlinjen.
+      <span class="fill">[kort om din bakgrunn]</span>
+      hjelper jeg ledere og team med å bygge en kultur som holder i lengden.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="tjenester">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">Tjenester</p>
+      <h2 class="section-h">Kurs og sparring, tilpasset dere</h2>
+    </div>
+    <div class="services">
+      <div class="service-card reveal">
+        <span class="service-tag">Kurs</span>
+        <h3>Tilpasset dere</h3>
+        <p>Ikke et ferdig opplegg fra hylla. Vi avtaler omfang og innhold sammen, fra en enkelt samling til et lengre løp.</p>
+        <a class="service-link" href="#kontakt">Ta kontakt <span class="arrow">→</span></a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-tag">Sparring</span>
+        <h3>Når det butter</h3>
+        <p>En å tenke høyt sammen med når HR-spørsmål, personalsaker eller kulturutfordringer dukker opp.</p>
+        <a class="service-link" href="#kontakt">Ta kontakt <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="quote-section">
+  <div class="wrap reveal">
+    <p class="quote-mark">”</p>
+    <p class="quote-text">Sparring skal gjøre bedriften trygg nok til å ta de vanskelige samtalene selv.</p>
+  </div>
+</section>
+
+<section id="kontakt" class="contact-band">
+  <div class="wrap reveal">
+    <h2>Ta kontakt</h2>
+    <p class="sub">Ring eller send en e-post, så svarer jeg så raskt jeg kan.</p>
+    <div class="contact-details">
+      <a href="tel:+4798471974"><b>98 47 19 74</b></a>
+      <a href="mailto:kontakt@linecooperation.no">kontakt@linecooperation.no</a>
+      <span>Borkenes</span>
+    </div>
+  </div>
+</section>
+
+<footer>© Line Cooperation</footer>
+
+<script>
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('is-visible'); });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.reveal, .divider').forEach(function(el){ obs.observe(el); });
+</script>
