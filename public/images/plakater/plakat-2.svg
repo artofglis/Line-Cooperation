@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1400" viewBox="0 0 1000 1400">
+  <rect width="1000" height="1400" fill="#1c2a3a"/>
+  <rect x="16" y="16" width="968" height="1368" fill="none" stroke="#e8c76b" stroke-width="2" stroke-dasharray="10 8" opacity="0.6"/>
+  <text x="50%" y="48%" text-anchor="middle" font-family="sans-serif" font-size="45" fill="#e8c76b" font-weight="600">PLAKAT 2</text>
+  <text x="50%" y="56%" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#e8c76b" opacity="0.75">Sosiale medier / oppfølging</text>
+</svg>
