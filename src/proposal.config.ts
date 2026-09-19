@@ -48,15 +48,19 @@ export const proposal = {
   modules: {
     pages: {
       hjem: true,
-      om: true,
-      metoder: true,
-      time: true,
-      faq: true,
-      ro: true,
-      sovn: true,
-      signatur: true,
-      forsta: true,
-      tilbud: true,
+      // Resten er malens opprinnelige coaching-/veiledningssider (Metoder, En time,
+      // Ro, Søvn, Signatur, Forstå) og en kampanjelanding — ingen av dem hører til
+      // Line Cooperations tilbud. Skjult, ikke slettet: sett til true igjen om noen
+      // av dem faktisk skal bli en side her.
+      om: false,
+      metoder: false,
+      time: false,
+      faq: false,
+      ro: false,
+      sovn: false,
+      signatur: false,
+      forsta: false,
+      tilbud: false,
       holisti: true,
     },
   },
@@ -67,10 +71,12 @@ export const proposal = {
     firmName: 'Line Cooperation',
     // TODO: org.nr sto ikke i tilbudet TIL-2026-4 — fyll inn før lansering.
     orgNr: '000000000',
-    // TODO: telefon/e-post ikke bekreftet — fyll inn kundens kontaktinfo.
-    phoneDisplay: '+47 000 00 000',
-    phoneHref: 'tel:+4700000000',
-    email: 'post@example.no',
+    // TODO: telefon/e-post er de samme som ble brukt som eksempel i de tidligere
+    // design-dokumentene (docs/design/forside-design.html m.fl.) — ikke bekreftet
+    // av Line som hennes faktiske kontaktinfo. Dobbeltsjekk før lansering.
+    phoneDisplay: '98 47 19 74',
+    phoneHref: 'tel:+4798471974',
+    email: 'kontakt@linecooperation.no',
     address: 'Bergsveien 51, 9475 Borkenes',
     logo: {
       src: '/images/logo/client-wordmark.svg',
