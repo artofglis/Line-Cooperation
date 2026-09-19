@@ -125,19 +125,6 @@ export function Editor() {
       <section className="editor-panel">
         <h2>Innstillinger</h2>
         <div className="editor-form__row">
-          <label>
-            Fargestil
-            <select
-              value={settings.theme || '1'}
-              onChange={(e) => handleSettingChange('theme', e.target.value)}
-            >
-              <option value="1">01</option>
-              <option value="2">02</option>
-              <option value="3">03</option>
-              <option value="5">05</option>
-              <option value="6">06</option>
-            </select>
-          </label>
           <label className="editor-checkbox">
             <input
               type="checkbox"

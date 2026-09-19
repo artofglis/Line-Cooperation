@@ -13,11 +13,6 @@ import {
 import { useSections } from './lib/sections'
 import { HolistiTreeLogo } from './components/HolistiTreeLogo'
 import Design01 from './designs/Design01'
-import Design02 from './designs/Design02'
-import Design03 from './designs/Design03'
-import Design04 from './designs/Design04'
-import Design05 from './designs/Design05'
-import Design06 from './designs/Design06'
 import TilbudLanding from './pages/TilbudLanding'
 import SovnLanding from './pages/SovnLanding'
 import SignaturLanding from './pages/SignaturLanding'
@@ -31,9 +26,6 @@ import RoForesporsel from './pages/RoForesporsel'
 import './App.css'
 
 function readDesignFromUrl(): DesignId {
-  const params = new URLSearchParams(window.location.search)
-  const raw = Number(params.get('design') || '1')
-  if (raw >= 2 && raw <= 6) return raw as DesignId
   return 1
 }
 
@@ -330,34 +322,8 @@ export default function App() {
             ))}
           </div>
 
-          {page !== 'holisti' ? (
-            <>
-              <p className="hs-switcher__label hs-switcher__label--spaced">Stil</p>
-              <div className="hs-switcher__pills" role="group" aria-label="Velg designstil">
-                {designs.map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    className={`hs-pill hs-pill--style ${
-                      design === item.id ? 'is-active' : ''
-                    }`}
-                    aria-pressed={design === item.id}
-                    onClick={() => {
-                      setDesign(item.id)
-                      setMenuOpen(false)
-                    }}
-                  >
-                    <span className="hs-pill__num">{item.label}</span>
-                    <span className="hs-pill__name">{item.name}</span>
-                  </button>
-                ))}
-              </div>
-            </>
-          ) : null}
-
           <p className="hs-switcher__desc">
             {activePage.note}
-            {page === 'holisti' ? '' : ` ${activeDesign.note}`}
             {hostChoice === 'external'
               ? ' Egen side: raskest — siden er allerede klar; ekstra sider følger med.'
               : hostChoice === 'wix'
@@ -399,12 +365,7 @@ export default function App() {
         </div>
       </div>
 
-      {page === 'hjem' && design === 1 ? <Design01 /> : null}
-      {page === 'hjem' && design === 2 ? <Design02 /> : null}
-      {page === 'hjem' && design === 3 ? <Design03 /> : null}
-      {page === 'hjem' && design === 4 ? <Design04 /> : null}
-      {page === 'hjem' && design === 5 ? <Design05 /> : null}
-      {page === 'hjem' && design === 6 ? <Design06 /> : null}
+      {page === 'hjem' ? <Design01 /> : null}
       {page === 'om' ? <OmKunde design={design} /> : null}
       {page === 'metoder' ? <MetoderPage design={design} /> : null}
       {page === 'time' ? <SlikTime design={design} /> : null}

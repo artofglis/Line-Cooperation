@@ -66,7 +66,6 @@ export function ContentShell({ design, page, meta, children }: Props) {
 }
 
 export function ContentHero({
-  design,
   eyebrow,
   headline,
   lede,
@@ -77,6 +76,8 @@ export function ContentHero({
   imageWidth = 1600,
   imageHeight = 1200,
 }: {
+  // Beholdt i typen for bakoverkompatibilitet med kallere; ikke lenger brukt internt
+  // nå som det bare finnes én designvariant.
   design: DesignId
   eyebrow: string
   headline: string
@@ -103,9 +104,6 @@ export function ContentHero({
           </div>
         </div>
         <figure className="lp-figure">
-          {(design === 3 || design === 5) && (
-            <span className="lp-enso" aria-hidden="true" />
-          )}
           <img
             src={imageSrc}
             alt={imageAlt}

@@ -394,38 +394,8 @@ export const designs = [
   {
     id: 1,
     label: '01',
-    name: 'Ro & Tillit',
-    note: 'Veiviser-stemme: prosess, tre innganger, nøktern struktur.',
-  },
-  {
-    id: 2,
-    label: '02',
-    name: 'Portrett',
-    note: 'Menneske-til-menneske: Om før hjelp, [Kontaktperson] først.',
-  },
-  {
-    id: 3,
-    label: '03',
-    name: 'Zen jord',
-    note: 'Stillhet: minst produktspråk, «les i ro» først.',
-  },
-  {
-    id: 4,
-    label: '04',
-    name: 'Premium',
-    note: 'Kuratert: [Pakkenavn] i sentrum, begrenset kapasitet.',
-  },
-  {
-    id: 5,
-    label: '05',
-    name: 'Lys zen',
-    note: 'Myk start: kartlegging først, [Pakkenavn] som steg to.',
-  },
-  {
-    id: 6,
-    label: '06',
-    name: 'Marine',
-    note: 'Navy med lys glow — [Kontaktperson]s egen stemme: [Firmanavn], [Sted], forespørsel.',
+    name: 'Bergrøyk',
+    note: 'Grafitt og messing — nøktern struktur og ro.',
   },
 ] as const
 

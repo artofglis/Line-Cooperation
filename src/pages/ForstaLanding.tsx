@@ -59,9 +59,6 @@ export default function ForstaLanding({ design }: Props) {
               </div>
             </div>
             <figure className="lp-figure lp-figure--poster">
-              {(design === 3 || design === 5) && (
-                <span className="lp-enso" aria-hidden="true" />
-              )}
               <img
                 src={forstaDegSelvPage.heroImage}
                 alt={forstaDegSelvPage.heroImageAlt}

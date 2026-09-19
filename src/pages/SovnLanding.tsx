@@ -54,9 +54,6 @@ export default function SovnLanding({ design }: Props) {
               <p className="lp-meta">{sovnProgram.meta}</p>
             </div>
             <figure className="lp-figure">
-              {(design === 3 || design === 5) && (
-                <span className="lp-enso" aria-hidden="true" />
-              )}
               <img
                 src="/images/hero.svg"
                 alt="Rolig kveldsstemning — atmosfære for søvnprogrammet"

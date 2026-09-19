@@ -56,9 +56,6 @@ export default function SignaturLanding({ design }: Props) {
               </div>
             </div>
             <figure className="lp-figure lp-figure--poster">
-              {(design === 3 || design === 5) && (
-                <span className="lp-enso" aria-hidden="true" />
-              )}
               <img
                 src={signaturpakkenPage.heroImage}
                 alt={signaturpakkenPage.heroImageAlt}
