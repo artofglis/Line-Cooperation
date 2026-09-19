@@ -1,0 +1,18 @@
+# [Firmanavn]
+
+> [Kort beskrivelse av tjenesten og stedet]. [Kontaktperson].
+
+- Site: https://kunde-slug.holisti.no/
+- Contact: [post@example.no]
+- Phone: [+47 XXX XX XXX]
+- Address: [Gateadresse, postnr sted]
+- Org.nr: [000000000]
+
+## Pages
+
+- Hjem: https://kunde-slug.holisti.no/?page=hjem
+- Tilbud: https://kunde-slug.holisti.no/?page=holisti
+
+## Design styles
+
+Se `src/content.ts` → `designs` for gjeldende stilnavn og antall varianter.

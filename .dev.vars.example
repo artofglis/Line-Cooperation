@@ -1,0 +1,12 @@
+# Lokale hemmeligheter for `wrangler dev` (kopier til .dev.vars — som er gitignorert).
+# I produksjon settes de samme med `wrangler secret put <NAVN>`, IKKE i wrangler.jsonc.
+
+# --- Magic-link-innlogging på e-post (anbefalt — da slipper du passord) ---
+# Kundens e-post (PROPOSAL_EMAIL) settes i wrangler.jsonc → vars, ikke her.
+NUNTLY_API_KEY="nuntly_xxx"
+# Valgfritt — avsender må ligge på et Nuntly-verifisert domene (f.eks. holisti.no):
+NUNTLY_FROM_EMAIL="HoliSti <no-reply@holisti.no>"
+
+# --- Passord-innlogging (kun hvis du IKKE bruker magic-link) ---
+# PROPOSAL_USER="brukernavn"
+# PROPOSAL_PASS="ByttMegSterktPassord"

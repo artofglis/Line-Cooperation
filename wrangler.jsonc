@@ -1,0 +1,61 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Per-forslag: name + routes + vars. Skallet (worker/index.js) er gjenbrukbart.
+  "name": "line-forslag",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-08-11",
+  "workers_dev": true,
+  "preview_urls": true,
+  "vars": {
+    "PROPOSAL_SLUG": "line",
+    "PROPOSAL_HOST": "line.holisti.no",
+    // Kundens e-post — dit magic-link-innloggingen sendes. Sett per kunde.
+    // Tom = magic-link av; da faller den tilbake til passord (PROPOSAL_USER/PASS).
+    "PROPOSAL_EMAIL": ""
+    // HEMMELIGHETER settes med `wrangler secret put`, IKKE her (havner ellers i git):
+    //   NUNTLY_API_KEY                — for å sende innloggingslenke på e-post (Nuntly)
+    //   PROPOSAL_USER / PROPOSAL_PASS — kun hvis du bruker passord i stedet for magic-link
+    // Valgfritt: NUNTLY_FROM_EMAIL (default: "HoliSti <no-reply@holisti.no>").
+    // Lokalt (wrangler dev): legg dem i .dev.vars (gitignorert) — se .dev.vars.example.
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "single-page-application",
+    // Worker må kjøre først (passordbeskyttelse), ellers servers index.html direkte
+    "run_worker_first": true
+  },
+  "routes": [
+    {
+      "pattern": "line.holisti.no",
+      "custom_domain": true
+    }
+  ],
+  // Redigerbart innhold — én egen D1-database og R2-bucket per kunde (ikke delt).
+  // Oppsett for ny kunde:
+  //   1. wrangler d1 create line-innhold   → lim inn database_id under
+  //   2. wrangler r2 bucket create line-bilder
+  //   3. wrangler d1 migrations apply line-innhold --remote
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "line-innhold",
+      "database_id": "SETT-INN-DATABASE-ID-HER"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "line-bilder"
+    }
+  ],
+  // Engangs-tokens for magic-link-innlogging (kun nødvendig ved e-postinnlogging).
+  //   wrangler kv namespace create line-login-tokens   → lim inn id under
+  "kv_namespaces": [
+    {
+      "binding": "PROPOSAL_LOGIN_TOKENS",
+      "id": "SETT-INN-KV-ID-HER"
+    }
+  ]
+}

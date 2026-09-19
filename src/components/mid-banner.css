@@ -1,0 +1,155 @@
+.mid-banner {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(14rem, 32vw, 22rem);
+  display: grid;
+  place-items: end start;
+  overflow: hidden;
+  color: #fbfaf7;
+}
+
+.mid-banner__media,
+.mid-banner__veil {
+  position: absolute;
+  inset: 0;
+}
+
+.mid-banner__media {
+  z-index: -2;
+}
+
+.mid-banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mid-banner__veil {
+  z-index: -1;
+  pointer-events: none;
+}
+
+.mid-banner__caption {
+  margin: 0;
+  padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem) 1.75rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  max-width: 40rem;
+}
+
+/* 01 — Ro & Tillit: navy/gold atmosfære */
+.mid-banner--d1 .mid-banner__veil {
+  background:
+    linear-gradient(90deg, rgba(18, 28, 44, 0.55) 0%, transparent 55%),
+    linear-gradient(180deg, transparent 20%, rgba(18, 28, 44, 0.72) 100%);
+}
+
+.mid-banner--d1 .mid-banner__caption {
+  color: rgba(251, 250, 247, 0.9);
+}
+
+.mid-banner--d1 .mid-banner__media img {
+  filter: saturate(0.9) contrast(1.05);
+  transform: scale(1.03);
+}
+
+/* 02 — Portrett: editorial, høyere crop, skarpere */
+.mid-banner--d2 {
+  min-height: clamp(16rem, 36vw, 24rem);
+}
+
+.mid-banner--d2 .mid-banner__veil {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.mid-banner--d2 .mid-banner__caption {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.mid-banner--d2 .mid-banner__media img {
+  filter: grayscale(0.15) contrast(1.08);
+}
+
+/* 03 — Zen jord: dusty, myk sepia */
+.mid-banner--d3 .mid-banner__veil {
+  background:
+    linear-gradient(120deg, rgba(44, 40, 36, 0.45) 0%, transparent 50%),
+    linear-gradient(180deg, transparent 30%, rgba(44, 40, 36, 0.55) 100%);
+}
+
+.mid-banner--d3 .mid-banner__media img {
+  filter: saturate(0.72) contrast(1.02) sepia(0.18);
+}
+
+.mid-banner--d3 .mid-banner__caption {
+  letter-spacing: 0.22em;
+  color: rgba(244, 239, 230, 0.9);
+}
+
+/* 04 — Premium: mørk luksus + gullkant */
+.mid-banner--d4 {
+  min-height: clamp(15rem, 34vw, 23rem);
+  border-block: 1px solid rgba(216, 188, 130, 0.35);
+}
+
+.mid-banner--d4 .mid-banner__veil {
+  background:
+    radial-gradient(700px 320px at 80% 20%, rgba(216, 188, 130, 0.18), transparent 60%),
+    linear-gradient(180deg, rgba(10, 8, 7, 0.25) 0%, rgba(10, 8, 7, 0.78) 100%);
+}
+
+.mid-banner--d4 .mid-banner__caption {
+  font-family: "Playfair Display", Georgia, serif;
+  letter-spacing: 0.28em;
+  color: #d8bc82;
+}
+
+.mid-banner--d4 .mid-banner__media img {
+  filter: brightness(0.85) saturate(0.85) contrast(1.08);
+}
+
+/* 05 — Lys zen: myk, lysere veil */
+.mid-banner--d5 .mid-banner__veil {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 246, 0.15) 0%, rgba(42, 38, 32, 0.45) 100%);
+}
+
+.mid-banner--d5 .mid-banner__caption {
+  letter-spacing: 0.18em;
+  color: rgba(255, 252, 246, 0.92);
+}
+
+.mid-banner--d5 .mid-banner__media img {
+  filter: saturate(0.88) brightness(1.05);
+}
+
+/* 06 — Marine: navy veil + soft blue/gold glow */
+.mid-banner--d6 {
+  min-height: clamp(15rem, 34vw, 23rem);
+  border-block: 1px solid rgba(201, 169, 106, 0.28);
+}
+
+.mid-banner--d6 .mid-banner__veil {
+  background:
+    radial-gradient(700px 320px at 75% 15%, rgba(100, 150, 210, 0.28), transparent 60%),
+    linear-gradient(180deg, rgba(10, 22, 40, 0.35) 0%, rgba(7, 14, 24, 0.82) 100%);
+}
+
+.mid-banner--d6 .mid-banner__caption {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0.24em;
+  color: #e0c48a;
+}
+
+.mid-banner--d6 .mid-banner__media img {
+  filter: saturate(0.7) brightness(0.72) contrast(1.05);
+}

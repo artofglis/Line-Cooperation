@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Planlagt offentlig sidekart (forslagsrommet er robots Disallow inntil lansering). -->
+<!-- Oppdater URL-ene under til kundens sider (se `src/content.ts` -> `pages`). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://kunde-slug.holisti.no/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
