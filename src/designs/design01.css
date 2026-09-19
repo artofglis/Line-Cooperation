@@ -26,9 +26,9 @@ main {
 }
 
 .nav.is-solid {
-  background: linear-gradient(160deg, rgba(251, 250, 247, 0.94), rgba(239, 233, 223, 0.9));
+  background: linear-gradient(160deg, rgba(23, 24, 26, 0.94), rgba(16, 17, 18, 0.9));
   backdrop-filter: blur(14px);
-  box-shadow: 0 1px 0 rgba(18, 28, 44, 0.08);
+  box-shadow: 0 1px 0 rgba(20, 20, 20, 0.08);
 }
 
 .nav__inner {
@@ -80,7 +80,7 @@ main {
 }
 
 .nav.is-solid .nav__links a:hover {
-  color: var(--navy);
+  color: var(--gold);
 }
 
 a.nav__cta {
@@ -99,8 +99,8 @@ a.nav__cta {
 }
 
 .nav.is-solid a.nav__cta {
-  background: var(--navy);
-  color: var(--foam);
+  background: var(--gold);
+  color: var(--navy-deep);
 }
 
 a.nav__cta:hover {
@@ -113,7 +113,7 @@ a.nav__cta:hover {
   height: 2.5rem;
   border: 1px solid rgba(251, 250, 247, 0.35);
   border-radius: 999px;
-  background: rgba(18, 28, 44, 0.28);
+  background: rgba(20, 20, 20, 0.28);
   color: var(--foam);
   align-items: center;
   justify-content: center;
@@ -122,7 +122,7 @@ a.nav__cta:hover {
 }
 
 .nav.is-solid .nav__toggle {
-  border-color: rgba(18, 28, 44, 0.18);
+  border-color: rgba(236, 235, 231, 0.18);
   background: transparent;
   color: var(--ink);
 }
@@ -136,7 +136,7 @@ a.nav__cta:hover {
   z-index: 50;
   padding: 1rem 1.1rem;
   border-radius: 0.85rem;
-  background: rgba(251, 250, 247, 0.97);
+  background: rgba(23, 24, 26, 0.97);
   backdrop-filter: blur(12px);
   box-shadow: 0 18px 40px var(--shadow);
   list-style: none;
@@ -156,8 +156,8 @@ a.nav__cta:hover {
 }
 
 .nav__mobile a:hover {
-  background: rgba(27, 42, 65, 0.06);
-  color: var(--navy-deep);
+  background: rgba(236, 235, 231, 0.06);
+  color: var(--ink);
 }
 
 /* ——— Hero ——— */
@@ -194,8 +194,8 @@ a.nav__cta:hover {
   background:
     radial-gradient(900px 560px at 78% 8%, rgba(196, 163, 90, 0.18), transparent 62%),
     radial-gradient(700px 520px at 8% 30%, rgba(232, 223, 208, 0.18), transparent 60%),
-    radial-gradient(1000px 640px at 50% 100%, rgba(18, 28, 44, 0.72), transparent 70%),
-    linear-gradient(180deg, rgba(18, 28, 44, 0.45) 0%, rgba(18, 28, 44, 0.2) 38%, rgba(18, 28, 44, 0.82) 100%);
+    radial-gradient(1000px 640px at 50% 100%, rgba(20, 20, 20, 0.72), transparent 70%),
+    linear-gradient(180deg, rgba(20, 20, 20, 0.45) 0%, rgba(20, 20, 20, 0.2) 38%, rgba(20, 20, 20, 0.82) 100%);
 }
 
 .hero__veil::after {
@@ -387,7 +387,7 @@ button.btn:hover {
 
 a.btn--primary,
 button.btn--primary {
-  background: linear-gradient(155deg, #f4efe4 0%, var(--beige) 55%, var(--gold-soft) 150%);
+  background: linear-gradient(155deg, var(--gold-soft) 0%, var(--gold) 100%);
   color: var(--navy-deep);
 }
 
@@ -444,7 +444,7 @@ button.btn--navy {
   font-size: clamp(2rem, 4vw, 3rem);
   max-width: 16ch;
   margin-bottom: 1rem;
-  color: var(--navy-deep);
+  color: var(--ink);
 }
 
 .section__intro {
@@ -458,14 +458,14 @@ button.btn--navy {
 .help__grid {
   display: grid;
   gap: 1.5rem 2rem;
-  border-top: 1px solid rgba(27, 42, 65, 0.12);
+  border-top: 1px solid rgba(236, 235, 231, 0.12);
   padding-top: 1.75rem;
 }
 
 .help__item h3 {
   font-size: 1.35rem;
   margin-bottom: 0.45rem;
-  color: var(--navy-deep);
+  color: var(--ink);
 }
 
 .help__item p {
@@ -478,7 +478,7 @@ button.btn--navy {
 .signature {
   background:
     radial-gradient(900px 480px at 90% 0%, rgba(196, 163, 90, 0.12), transparent 60%),
-    linear-gradient(180deg, rgba(27, 42, 65, 0.03), transparent 40%);
+    linear-gradient(180deg, rgba(236, 235, 231, 0.03), transparent 40%);
 }
 
 .signature__inner {
@@ -541,7 +541,7 @@ button.btn--navy {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(18, 28, 44, 0.35));
+  background: linear-gradient(180deg, transparent 50%, rgba(20, 20, 20, 0.35));
   pointer-events: none;
 }
 
@@ -576,7 +576,7 @@ button.btn--navy {
   object-position: center 18%;
   filter: saturate(0.9) contrast(1.02);
   border-radius: 0.2rem;
-  box-shadow: 0 28px 60px rgba(18, 28, 44, 0.14);
+  box-shadow: 0 28px 60px rgba(20, 20, 20, 0.14);
 }
 
 .about__copy p + p {
@@ -592,10 +592,10 @@ button.btn--navy {
 .about__note {
   margin-top: 1.75rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(27, 42, 65, 0.14);
+  border-top: 1px solid rgba(236, 235, 231, 0.14);
   font-family: var(--font-display);
   font-size: 1.3rem;
-  color: var(--navy);
+  color: var(--ink);
   max-width: 28ch;
   font-style: italic;
 }
@@ -613,7 +613,7 @@ button.btn--navy {
   align-items: start;
   padding: 1.5rem 0 1.5rem 1.1rem;
   border-left: 2px solid rgba(196, 163, 90, 0.55);
-  border-bottom: 1px solid rgba(27, 42, 65, 0.1);
+  border-bottom: 1px solid rgba(236, 235, 231, 0.1);
   transition:
     border-color 0.35s var(--ease),
     padding 0.35s var(--ease),
@@ -655,7 +655,7 @@ button.btn--navy {
 
 .method h3 {
   font-size: 1.45rem;
-  color: var(--navy-deep);
+  color: var(--ink);
 }
 
 .method p {
@@ -680,7 +680,7 @@ button.btn--navy {
   }
 
   .method {
-    border-bottom: 1px solid rgba(27, 42, 65, 0.1);
+    border-bottom: 1px solid rgba(236, 235, 231, 0.1);
   }
 
   .method:nth-child(odd) {
@@ -699,7 +699,7 @@ button.btn--navy {
   padding: 0;
   display: grid;
   gap: 1.5rem;
-  border-top: 1px solid rgba(27, 42, 65, 0.12);
+  border-top: 1px solid rgba(236, 235, 231, 0.12);
   padding-top: 1.75rem;
 }
 
@@ -721,7 +721,7 @@ button.btn--navy {
 .process__steps h3 {
   font-size: 1.3rem;
   margin-bottom: 0.35rem;
-  color: var(--navy-deep);
+  color: var(--ink);
 }
 
 .process__steps p {
@@ -738,7 +738,7 @@ button.btn--navy {
   background:
     radial-gradient(900px 520px at 85% -10%, rgba(196, 163, 90, 0.28), transparent 55%),
     radial-gradient(700px 480px at 5% 110%, rgba(232, 223, 208, 0.18), transparent 55%),
-    linear-gradient(145deg, rgba(27, 42, 65, 0.96), rgba(18, 28, 44, 0.98));
+    linear-gradient(145deg, rgba(30, 30, 30, 0.96), rgba(20, 20, 20, 0.98));
   color: var(--foam);
   overflow: hidden;
 }
@@ -778,7 +778,7 @@ button.btn--navy {
   gap: 0.85rem;
   padding: 1.4rem 1.35rem;
   border-radius: 0.25rem;
-  background: linear-gradient(165deg, rgba(251, 250, 247, 0.12), rgba(18, 28, 44, 0.35));
+  background: linear-gradient(165deg, rgba(251, 250, 247, 0.12), rgba(20, 20, 20, 0.35));
   border: 1px solid rgba(251, 250, 247, 0.18);
   backdrop-filter: blur(10px);
   transition:
@@ -789,12 +789,12 @@ button.btn--navy {
 
 .price:hover {
   transform: translateY(-3px);
-  background: linear-gradient(165deg, rgba(251, 250, 247, 0.2), rgba(18, 28, 44, 0.5));
+  background: linear-gradient(165deg, rgba(251, 250, 247, 0.2), rgba(20, 20, 20, 0.5));
   border-color: rgba(251, 250, 247, 0.32);
 }
 
 .price--featured {
-  background: linear-gradient(165deg, rgba(196, 163, 90, 0.22), rgba(18, 28, 44, 0.55));
+  background: linear-gradient(165deg, rgba(196, 163, 90, 0.22), rgba(20, 20, 20, 0.55));
   border-color: rgba(217, 192, 138, 0.45);
 }
 
@@ -882,7 +882,7 @@ button.btn--navy {
   max-width: 22ch;
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 3.5vw, 2.5rem);
-  color: var(--navy-deep);
+  color: var(--ink);
   line-height: 1.25;
   font-style: italic;
 }
@@ -909,7 +909,7 @@ button.btn--navy {
   display: block;
   font-family: var(--font-display);
   font-weight: 500;
-  color: var(--navy-deep);
+  color: var(--ink);
   margin-bottom: 0.2rem;
 }
 
@@ -932,8 +932,8 @@ button.btn--navy {
 .field input,
 .field textarea {
   width: 100%;
-  border: 1px solid rgba(27, 42, 65, 0.18);
-  background: rgba(251, 250, 247, 0.78);
+  border: 1px solid rgba(236, 235, 231, 0.18);
+  background: rgba(38, 40, 41, 0.6);
   border-radius: 0.55rem;
   padding: 0.9rem 1rem;
   color: var(--ink);
@@ -945,8 +945,8 @@ button.btn--navy {
 
 .field input:focus,
 .field textarea:focus {
-  border-color: var(--navy);
-  box-shadow: 0 0 0 3px rgba(27, 42, 65, 0.12);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 162, 74, 0.35);
 }
 
 .field textarea {
@@ -960,15 +960,15 @@ button.btn--navy {
 }
 
 .form-note.is-success {
-  color: var(--navy);
+  color: var(--gold);
 }
 
 /* ——— Legal ——— */
 .legal {
   padding-top: var(--space-xl);
   padding-bottom: var(--space-2xl);
-  border-top: 1px solid rgba(27, 42, 65, 0.1);
-  background: linear-gradient(180deg, rgba(27, 42, 65, 0.03), transparent 70%);
+  border-top: 1px solid rgba(236, 235, 231, 0.1);
+  background: linear-gradient(180deg, rgba(236, 235, 231, 0.03), transparent 70%);
 }
 
 .legal__grid {
@@ -978,7 +978,7 @@ button.btn--navy {
 
 .legal__grid h2 {
   font-size: 1.25rem;
-  color: var(--navy-deep);
+  color: var(--ink);
   margin-bottom: 0.75rem;
 }
 
@@ -998,14 +998,14 @@ button.btn--navy {
 .legal a {
   text-decoration: underline;
   text-underline-offset: 0.18em;
-  color: var(--navy);
+  color: var(--gold);
 }
 
 /* ——— Footer ——— */
 .footer {
   padding: 2.5rem 0 2rem;
-  border-top: 1px solid rgba(27, 42, 65, 0.12);
-  background: linear-gradient(180deg, transparent, rgba(27, 42, 65, 0.04));
+  border-top: 1px solid rgba(236, 235, 231, 0.12);
+  background: linear-gradient(180deg, transparent, rgba(236, 235, 231, 0.04));
 }
 
 .footer__inner {
@@ -1035,7 +1035,7 @@ button.btn--navy {
   font-size: 1.2rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--navy-deep);
+  color: var(--ink);
   margin-bottom: 0.35rem;
 }
 

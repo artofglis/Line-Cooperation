@@ -2,19 +2,20 @@
   /* Floating control — designs should not reserve top space for the switcher */
   --design-switcher-h: 0px;
 
-  --hs-bg-deep: #07090d;
-  --hs-bg: #0c1016;
-  --hs-bg-raised: #111722;
-  --hs-bg-card: #131a28;
-  --hs-border: rgba(255, 255, 255, 0.07);
-  --hs-border-gold: rgba(214, 163, 82, 0.22);
-  --hs-text: #e8eaef;
-  --hs-muted: #8b93a7;
-  --hs-soft: #6b7289;
-  --hs-gold: #d6a352;
-  --hs-gold-soft: rgba(214, 163, 82, 0.12);
-  --hs-mint: #3db8ac;
-  --hs-mint-soft: rgba(61, 184, 172, 0.14);
+  /* Bergrøyk — grafitt og messing */
+  --hs-bg-deep: #0a0b0c;
+  --hs-bg: #17181a;
+  --hs-bg-raised: #202224;
+  --hs-bg-card: #262829;
+  --hs-border: rgba(236, 235, 231, 0.08);
+  --hs-border-gold: rgba(201, 162, 74, 0.22);
+  --hs-text: #ecebe7;
+  --hs-muted: #a9a499;
+  --hs-soft: #6e6b64;
+  --hs-gold: #c9a24a;
+  --hs-gold-soft: rgba(201, 162, 74, 0.12);
+  --hs-mint: #b9b6ae;
+  --hs-mint-soft: rgba(185, 182, 174, 0.14);
   --hs-font: "DM Sans", system-ui, sans-serif;
   --hs-display: "Cormorant Garamond", Georgia, serif;
   --hs-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -282,14 +283,14 @@
 
 .hs-host.is-active {
   border-color: transparent;
-  background: linear-gradient(155deg, #6fd4cb, #3db8ac);
-  color: #071210;
-  box-shadow: 0 0 18px rgba(61, 184, 172, 0.28);
+  background: linear-gradient(155deg, var(--hs-text), var(--hs-gold));
+  color: var(--hs-bg-deep);
+  box-shadow: 0 0 18px rgba(201, 162, 74, 0.28);
 }
 
 .hs-host:last-child.is-active {
-  background: linear-gradient(155deg, #f4efe4, #d6a352);
-  box-shadow: 0 0 18px rgba(214, 163, 82, 0.28);
+  background: linear-gradient(155deg, var(--hs-text), var(--hs-gold));
+  box-shadow: 0 0 18px rgba(201, 162, 74, 0.28);
 }
 
 .hs-host__title {
@@ -312,11 +313,11 @@
 }
 
 .hs-switcher__scope--wix {
-  color: #e8c48a;
+  color: #d9bd7e;
 }
 
 .hs-switcher__scope--external {
-  color: #7fd4cb;
+  color: var(--hs-gold);
 }
 
 .hs-pill {
@@ -346,17 +347,17 @@
 }
 
 .hs-pill.is-active {
-  background: linear-gradient(155deg, #f4efe4, #d6a352);
-  color: #0c1016;
+  background: linear-gradient(155deg, var(--hs-text), var(--hs-gold));
+  color: var(--hs-bg-deep);
   border-color: transparent;
   font-weight: 600;
   box-shadow: 0 0 18px rgba(214, 163, 82, 0.28);
 }
 
 .hs-pill--mint.is-active {
-  background: linear-gradient(155deg, #6fd4cb, #3db8ac);
-  color: #071210;
-  box-shadow: 0 0 18px rgba(61, 184, 172, 0.3);
+  background: linear-gradient(155deg, var(--hs-text), var(--hs-gold));
+  color: var(--hs-bg-deep);
+  box-shadow: 0 0 18px rgba(201, 162, 74, 0.3);
 }
 
 .hs-pill--style {
@@ -392,8 +393,8 @@
   padding: 0.7rem 0.9rem;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(155deg, #6fd4cb, #3db8ac);
-  color: #071210;
+  background: linear-gradient(155deg, var(--hs-text), var(--hs-gold));
+  color: var(--hs-bg-deep);
   font: inherit;
   font-size: 0.78rem;
   font-weight: 600;

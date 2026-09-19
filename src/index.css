@@ -1,21 +1,22 @@
 :root {
-  --ink: #1a2433;
-  --ink-soft: #3d4a5c;
-  --paper: #f7f3ec;
-  --foam: #fbfaf7;
-  --mist: #efe9df;
-  --navy: #1b2a41;
-  --navy-deep: #121c2c;
-  --navy-soft: #2a3d5a;
-  --beige: #e8dfd0;
-  --beige-deep: #d4c4ae;
-  --silver: #b8c0cc;
-  --silver-soft: #d7dde6;
-  --gold: #c4a35a;
-  --gold-soft: #d9c08a;
-  --stone: #8a8790;
-  --focus: #3a4f6e;
-  --shadow: rgba(18, 28, 44, 0.12);
+  /* Bergrøyk — grafitt og messing */
+  --ink: #ecebe7;
+  --ink-soft: #b9b6ae;
+  --paper: #17181a;
+  --foam: #202224;
+  --mist: #1c1e20;
+  --navy: #101112;
+  --navy-deep: #0a0b0c;
+  --navy-soft: #2b2e30;
+  --beige: #262829;
+  --beige-deep: #1e2021;
+  --silver: #8a8f91;
+  --silver-soft: #b7bbbc;
+  --gold: #c9a24a;
+  --gold-soft: #d9bd7e;
+  --stone: #8d8a82;
+  --focus: #c9a24a;
+  --shadow: rgba(0, 0, 0, 0.35);
 
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-body: "Manrope", system-ui, sans-serif;
@@ -108,9 +109,9 @@ body {
   font-weight: 400;
   line-height: 1.65;
   background:
-    radial-gradient(1100px 560px at 8% -8%, rgba(184, 192, 204, 0.35) 0%, transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, rgba(232, 223, 208, 0.55) 0%, transparent 50%),
-    radial-gradient(1000px 700px at 80% 70%, rgba(27, 42, 65, 0.05) 0%, transparent 55%),
+    radial-gradient(1100px 560px at 8% -8%, rgba(201, 162, 74, 0.08) 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(138, 143, 145, 0.1) 0%, transparent 50%),
+    radial-gradient(1000px 700px at 80% 70%, rgba(0, 0, 0, 0.2) 0%, transparent 55%),
     linear-gradient(180deg, var(--mist) 0%, var(--paper) 40%, var(--foam) 100%);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -149,7 +150,7 @@ p {
 }
 
 ::selection {
-  background: var(--beige);
+  background: var(--gold-soft);
   color: var(--navy-deep);
 }
 
